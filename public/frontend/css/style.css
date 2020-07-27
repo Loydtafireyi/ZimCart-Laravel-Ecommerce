@@ -507,7 +507,7 @@ ol {
 
 .hero-slider .hs-item {
 	position: relative;
-	height: 720px;
+	height: 420px;
 }
 
 .hero-slider .hs-item span {
@@ -518,7 +518,7 @@ ol {
 	margin-bottom: 5px;
 	display: block;
 	position: relative;
-	top: 50px;
+	top: 25px;
 	opacity: 0;
 }
 
@@ -528,7 +528,7 @@ ol {
 	font-weight: 700;
 	margin-bottom: 10px;
 	position: relative;
-	top: 50px;
+	top: 25px;
 	opacity: 0;
 }
 
@@ -537,7 +537,7 @@ ol {
 	font-weight: 300;
 	margin-bottom: 35px;
 	position: relative;
-	top: 100px;
+	top: 50px;
 	opacity: 0;
 }
 
@@ -553,13 +553,13 @@ ol {
 
 .hero-slider .hs-item .container {
 	position: relative;
-	padding-top: 170px;
+	padding-top: 70px;
 }
 
 .hero-slider .hs-item .offer-card {
 	position: absolute;
 	right: 0;
-	top: 226px;
+	top: 63px;
 	width: 162px;
 	height: 162px;
 	border-radius: 50%;
@@ -1203,7 +1203,7 @@ ol {
 
 .page-top-info {
 	background: #f8f7f7;
-	padding: 60px 0 70px;
+	padding: 60px 0 10px;
 }
 
 .page-top-info h4 {
@@ -1492,7 +1492,7 @@ ol {
 ------------------*/
 
 .product-section {
-	padding-top: 70px;
+	padding-top: 20px;
 	padding-bottom: 65px;
 }
 

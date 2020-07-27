@@ -10,7 +10,6 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 text-white">
                             <span>New Recipes</span>
-                            <h2>Vanessa Cakes</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                             <a href="#" class="site-btn sb-line">DISCOVER</a>
                             <a href="#" class="site-btn sb-white">ADD TO CART</a>
@@ -28,7 +27,6 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 text-white">
                             <span>New Recipes</span>
-                            <h2>Vanessa Cakes</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
                             <a href="#" class="site-btn sb-line">DISCOVER</a>
                             <a href="#" class="site-btn sb-white">ADD TO CART</a>

@@ -58,8 +58,8 @@
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
 								@auth
-									<a href="{{ route('register') }}">My Orders</a>
-									<a href="{{ route('register') }}">My Profile</a>
+									{{-- <a href="{{ route('register') }}">My Orders</a>
+									<a href="{{ route('register') }}">My Profile</a> --}}
 									<a href="{{ route('register') }}">Logout</a>
 								@else
 									<a href="{{ route('login') }}">Sign</a> In or <a href="{{ route('register') }}">Create Account</a>

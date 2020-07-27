@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\Product\CreateProductRequest;
 
 class ProductController extends Controller
@@ -48,12 +49,16 @@ class ProductController extends Controller
     public function store(CreateProductRequest $request)
     {
 
-        $image = $request->image->store('uploads/products', 'public');
+        $imagePath = $request->image->store('uploads/products', 'public');
+
+        // use intervention image to resize images
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         Product::create([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $image,
+            'image' => $imagePath,
             'price' => $request->price,
             'quantity' => $request->quantity,
             'category_id' => $request->category_id,
