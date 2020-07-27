@@ -15,7 +15,7 @@
 <!-- Upload multiple products -->
 <div class="card mb-3">
 	<div class="card-body">
-		<form action="{{ route('import-infections') }}" method="post"  enctype="multipart/form-data">
+		<form action="" method="post"  enctype="multipart/form-data">
 			@csrf
 			<div class="row">
 				<div class="form-group">

@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/', 'FrontendController@index')->name('welcome');
+Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');

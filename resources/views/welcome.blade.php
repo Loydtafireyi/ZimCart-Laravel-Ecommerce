@@ -94,14 +94,16 @@
                 @foreach($products as $p)
                 <div class="product-item">
                     <div class="pi-pic">
-                        <img src="{{ asset($p->image) }} " alt="">
+                        <a href="{{ route('single-product', $p->slug) }}">
+                            <img src="/storage/{{ $p->image }} " alt="">
+                        </a>
                         <div class="pi-links">
                             <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                         </div>
                     </div>
                     <div class="pi-text">
-                        <h6>$35,00</h6>
+                        <h6>${{ $p->price }}</h6>
                         <p> {{ $p->name }} </p>
                     </div>
                 </div>
