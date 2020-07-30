@@ -131,7 +131,7 @@
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
+						<h2>Useful Links</h2>
 						<ul>
 							<li><a href="">About Us</a></li>
 							<li><a href="">Track Orders</a></li>
@@ -151,7 +151,7 @@
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
+						<h2>Blog</h2>
 						<div class="fw-latest-post-widget">
 							<div class="lp-item">
 								<div class="lp-thumb set-bg" data-setbg="{{ asset('frontend/img/blog-thumbs/1.jpg') }}"></div>
@@ -174,7 +174,7 @@
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget contact-widget">
-						<h2>Questions</h2>
+						<h2>Contact</h2>
 						<div class="con-info">
 							<span>C.</span>
 							<p>Vanessa Cakes Ltd </p>
