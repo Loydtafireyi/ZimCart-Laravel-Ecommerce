@@ -7,7 +7,7 @@
 		<div class="container">
 			<h4>Contact</h4>
 			<div class="site-pagination">
-				<a href="">Home</a> /
+				<a href="/">Home</a> /
 				<a href="">Contact</a>
 			</div>
 		</div>

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'FrontendController@index')->name('welcome');
+Route::get('/categories', 'FrontendController@categories')->name('frontendCategories');
+Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
@@ -28,4 +30,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/categories', 'Admin\CategoryController');
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
+	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
 });

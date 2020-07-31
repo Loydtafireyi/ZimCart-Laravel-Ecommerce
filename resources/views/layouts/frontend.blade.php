@@ -81,8 +81,8 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="#">Cakes</a></li>
-					<li><a href="#">Cakes</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="{{ route('frontendCategories') }}">Our Menu</a></li>
 					<li><a href="#">Cakes</a></li>
 					<li><a href="#">Cakes
 						<span class="new">New</span>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Slide;
 use App\Contact;
 use App\Product;
+use App\Category;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 
@@ -49,5 +50,19 @@ class FrontendController extends Controller
         session()->flash('success', "Hey $request->name, thanks for reaching out we will get back to you withinn 24 hours");
 
         return redirect()->back();
+    }
+
+    public function categories()
+    {
+        $products = Product::all();
+
+        $category = Category::all();
+
+        return view('categories', compact('products', 'category'));
+    }
+
+    public function category()
+    {
+        return view('category');
     }
 }
