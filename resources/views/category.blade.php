@@ -5,9 +5,9 @@
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>CAtegory PAge</h4>
+			<h4>{{ $category->name }}</h4>
 			<div class="site-pagination">
-				<a href="/">Home</a> /
+				<a href="">Home</a> /
 				<a href="">Shop</a> /
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 					<div class="filter-widget">
 						<h2 class="fw-title">Categories</h2>
 						<ul class="category-menu">
-							@foreach($category as $cat)
+							@foreach($categories as $cat)
 								<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a></li>
 							@endforeach
 						</ul>

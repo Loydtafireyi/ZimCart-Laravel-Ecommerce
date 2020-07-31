@@ -5,7 +5,7 @@
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Category PAge</h4>
+			<h4>{{ $product->category->name }}</h4>
 			<div class="site-pagination">
 				<a href="{{ route('welcome') }}">Home</a> /
 				<a href="">Shop</a>
@@ -19,7 +19,7 @@
 	<section class="product-section">
 		<div class="container">
 			<div class="back-link">
-				<a href="./category.html"> &lt;&lt; Back to Category</a>
+				<a href="{{ route('frontendCategories') }}"> &lt;&lt; Back to Categories</a>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">

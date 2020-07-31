@@ -13,11 +13,13 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
+
     	$products = Product::all();
 
         $slides = Slide::all();
 
-    	return view('welcome', compact('products', 'slides'));
+    	return view('welcome', compact('products', 'slides', 'categories'));
     }
 
     public function show($slug)
@@ -61,8 +63,14 @@ class FrontendController extends Controller
         return view('categories', compact('products', 'category'));
     }
 
-    public function category()
+    public function category($slug)
     {
-        return view('category');
+        $category = Category::where('slug', $slug)->firstOrFail();
+
+        $products = $category->products->all();
+
+        $categories = Category::all();
+
+        return view('category', compact('category', 'categories', 'products'));
     }
 }
