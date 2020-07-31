@@ -106,6 +106,7 @@
 						</ul>
 					</li>
 					<li><a href="#">Blog</a></li>
+					<li><a href="{{ route('contact-us') }}">Contact</a></li>
 				</ul>
 			</div>
 		</nav>

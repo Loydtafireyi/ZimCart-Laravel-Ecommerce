@@ -90,8 +90,12 @@
                                 <a href="{{ route('categories.index') }}" class="text-decoration-none text-light">Category</a>
                             </li>
 
-                             <li class="list-group-item bg-primary border-white">
+                            <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('products.index') }}" class="text-decoration-none text-light">Products</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('slides.index') }}" class="text-decoration-none text-light">Slides</a>
                             </li>
 
                             <li class="list-group-item bg-primary border-white">

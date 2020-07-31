@@ -5,13 +5,14 @@
 <!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="{{ asset('frontend/img/bg.jpg') }}">
+            @foreach($slides as $slide)
+            <div class="hs-item set-bg" data-setbg="/storage/{{ $slide->image }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 text-white">
-                            <span>New Recipes</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                            <a href="#" class="site-btn sb-line">DISCOVER</a>
+                            <span>{{ $slide->heading }}</span>
+                            <p>{{ $slide->description }}</p>
+                            <a href="/{{ $slide->link }}" class="site-btn sb-line">DISCOVER</a>
                             <a href="#" class="site-btn sb-white">ADD TO CART</a>
                         </div>
                     </div>
@@ -22,23 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hs-item set-bg" data-setbg="{{ asset('frontend/img/bg-2.jpg') }}">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-7 text-white">
-                            <span>New Recipes</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-                            <a href="#" class="site-btn sb-line">DISCOVER</a>
-                            <a href="#" class="site-btn sb-white">ADD TO CART</a>
-                        </div>
-                    </div>
-                    <div class="offer-card text-white">
-                        <span>from</span>
-                        <h2>$29</h2>
-                        <p>SHOP NOW</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="container">
             <div class="slide-num-holder" id="snh-1"></div>
@@ -130,127 +115,25 @@
                 <li><a href="#">CAKES</a></li>
             </ul>
             <div class="row">
+                @foreach($products as $p)
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
+                            <a href="{{ route('single-product', $p->slug) }}">
+                                <img src="/storage/{{ $p->image }}" alt="">
+                            </a>
                             <div class="pi-links">
                                 <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
+                            <h6>{{ $p->price }}</h6>
+                            <p> {{ $p->name }} </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <div class="tag-sale">ON SALE</div>
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('frontend/img/product/cake.jpg') }}" alt="">
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                            </div>
-                        </div>
-                        <div class="pi-text">
-                            <h6>$35,00</h6>
-                            <p>Red Velvet Cakes </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="text-center pt-5">
                 <button class="site-btn sb-line sb-dark">LOAD MORE</button>

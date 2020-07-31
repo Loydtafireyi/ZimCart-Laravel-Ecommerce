@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->decimal('price');
             $table->decimal('quantity');
             $table->string('slug')->unique();
-            $table->string('status')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
 

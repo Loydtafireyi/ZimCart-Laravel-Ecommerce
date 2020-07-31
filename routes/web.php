@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@index')->name('welcome');
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
+Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
+Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
@@ -22,6 +24,7 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::resource('admin/slides', 'Admin\SlideController');
 	Route::resource('admin/categories', 'Admin\CategoryController');
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');

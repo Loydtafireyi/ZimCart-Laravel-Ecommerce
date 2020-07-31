@@ -93,17 +93,6 @@
 					@enderror
 				</div>
 			</div>
-			<!-- product status -->
-			<div class="form-group">
-				<label for="status">Product Status</label>
-				<input type="text" name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-
-				@error('status')
-					<span class="invalid-feedback" role="alert">
-						<strong>{{$message}}</strong>
-					</span>
-				@enderror
-			</div>
 			<!-- product add btn -->
 			<div class="form-group">
 				<button class="btn btn-primary">Add Product</button>
