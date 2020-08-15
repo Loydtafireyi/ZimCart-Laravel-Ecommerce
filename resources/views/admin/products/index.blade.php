@@ -57,7 +57,7 @@
 					<td>{{ $p->name }}</td>
 					<td>{{ $p->category->name }}</td>
 					<td>
-						<img src="/storage/{{ $p->image }}" style="border-radius: 100%; width: 25px; height: 25px;">
+						<img src="/storage/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
 					</td>
 					<td>{{ $p->price }}</td>
 					<td>{{ $p->quantity }}</td>

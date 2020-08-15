@@ -26,9 +26,11 @@ class FrontendController extends Controller
     {
     	$product = Product::where('slug', $slug)->firstOrFail();
 
+        $singleImage = $product->photos()->get()->first();
+
     	$relatedProducts = $product->category->products->all();
 
-    	return view('product.show', compact('product', 'relatedProducts'));
+    	return view('product.show', compact('product', 'relatedProducts', 'singleImage'));
     }
 
     public function contact()

@@ -24,11 +24,13 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						<img class="product-big-img" src="/storage/{{ $product->image }}" alt="">
+						<img class="product-big-img" src="/storage/{{ $singleImage->images }}" alt="">
 					</div>
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
-							<div class="pt active" data-imgbigurl="/storage/{{ $product->image }}"><img src="/storage/{{ $product->image }}" alt=""></div>
+							@foreach($product->photos as $image)
+								<div class="pt active" data-imgbigurl="/storage/{{ $image->images }}"><img src="/storage/{{ $image->images }}" alt=""></div>
+							@endforeach
 						</div>
 					</div>
 				</div>
@@ -133,7 +135,7 @@
 				@foreach($relatedProducts as $related)
 				<div class="product-item">
 					<div class="pi-pic">
-						<img src="/storage/{{ $related->image }}" alt="">
+						<img src="/storage/{{ $related->photos->first()->images }}" alt="">
 						<div class="pi-links">
 							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>

@@ -58,15 +58,17 @@
 					<div class="product-item">
 						<div class="pi-pic">
 							<div class="tag-new">New</div>
-							<img src="/storage/{{ $p->image }}" alt="">
+							<a href="{{ route('single-product', $p->slug) }}">
+								<img src="/storage/{{ $p->image }}" alt="">
+							</a>
 							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+								<a href="{{ route('single-product', $p->slug) }}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Black and White Stripes Dress</p>
+							<h6>${{ $p->price }}</h6>
+							<p>{{ $p->name }}</p>
 						</div>
 					</div>
 				</div>

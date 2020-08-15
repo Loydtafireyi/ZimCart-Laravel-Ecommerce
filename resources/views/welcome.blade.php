@@ -78,7 +78,7 @@
                 <div class="product-item">
                     <div class="pi-pic">
                         <a href="{{ route('single-product', $p->slug) }}">
-                            <img src="/storage/{{ $p->image }} " alt="">
+                            <img src="/storage/{{ $p->photos->first()->images }} " alt="">
                         </a>
                         <div class="pi-links">
                             <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="pi-text">
                         <h6>${{ $p->price }}</h6>
-                        <p> {{ $p->name }} </p>
+                        <a href="{{ route('single-product', $p->slug) }}"><p>{{ $p->name }}</p></a> 
                     </div>
                 </div>
                 @endforeach
@@ -115,7 +115,7 @@
                     <div class="product-item">
                         <div class="pi-pic">
                             <a href="{{ route('single-product', $p->slug) }}">
-                                <img src="/storage/{{ $p->image }}" alt="">
+                                <img src="/storage/{{ $p->photos->first()->images }}" alt="">
                             </a>
                             <div class="pi-links">
                                 <a href="{{ route('single-product', $p->slug) }}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>

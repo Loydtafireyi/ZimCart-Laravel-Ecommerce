@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'category_id', 'description', 'image', 'slug', 'quantity', 'price'];
+    protected $fillable = ['name', 'category_id', 'description', 'code', 'image', 'slug', 'quantity', 'price'];
 
     /**
     * change key from id to slug
@@ -31,5 +31,10 @@ class Product extends Model
     public function inStock()
     {
         return $this->quantity > 0;
+    }
+
+     public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 }
