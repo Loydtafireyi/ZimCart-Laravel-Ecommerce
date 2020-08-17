@@ -15,7 +15,7 @@ class FrontendController extends Controller
     {
         $categories = Category::all();
 
-    	$products = Product::all();
+    	$products = Product::paginate(8);
 
         $slides = Slide::all();
 

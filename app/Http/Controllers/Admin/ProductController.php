@@ -124,6 +124,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $request->validate([
+            'category_id' => 'required',
+        ]);
+
         $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'quantity']);
 
         $product->update($data);
