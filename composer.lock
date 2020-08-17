@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b27f8dc0ca5c08a40811e727b5724e4c",
+    "content-hash": "fbe4d98aaae1545957e265355aabfb6c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -687,6 +687,66 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "hardevine/shoppingcart",
+            "version": "2.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hardevine/LaravelShoppingcart.git",
+                "reference": "00e180b6cb968d6453426fdc7bd6475fcea2335c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hardevine/LaravelShoppingcart/zipball/00e180b6cb968d6453426fdc7bd6475fcea2335c",
+                "reference": "00e180b6cb968d6453426fdc7bd6475fcea2335c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7",
+                "illuminate/session": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*|5.7.*|5.8.*|^6|^7"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.0"
+            },
+            "suggest": {
+                "gloudemans/notify": "Simple flash notifications for Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2020-04-15T07:11:21+00:00"
         },
         {
             "name": "intervention/image",
@@ -4860,6 +4920,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

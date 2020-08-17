@@ -145,7 +145,9 @@
 				@foreach($relatedProducts as $related)
 				<div class="product-item">
 					<div class="pi-pic">
-						<img src="/storage/{{ $related->photos->first()->images }}" alt="">
+						<a href="{{ route('single-product', $related->slug) }}">
+							<img src="/storage/{{ $related->photos->first()->images }}" alt="">
+						</a>
 						<div class="pi-links">
 							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
 							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
