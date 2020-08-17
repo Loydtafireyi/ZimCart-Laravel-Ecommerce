@@ -30,7 +30,9 @@ class FrontendController extends Controller
 
     	$relatedProducts = $product->category->products->all();
 
-    	return view('product.show', compact('product', 'relatedProducts', 'singleImage'));
+        $systemName = SystemSetting::first();
+
+    	return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName'));
     }
 
     public function contact()
@@ -62,7 +64,9 @@ class FrontendController extends Controller
 
         $category = Category::all();
 
-        return view('categories', compact('products', 'category'));
+        $systemInfo = SystemSetting::first();
+
+        return view('categories', compact('products', 'category', 'systemInfo'));
     }
 
     public function category($slug)

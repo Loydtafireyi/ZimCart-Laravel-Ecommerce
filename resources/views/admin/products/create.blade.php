@@ -71,9 +71,9 @@
 			@endif
 			<div class="form-group">
 				<label for="images">Product Image</label>
-				<input type="file" name="images[]" id="images" class="form-control @error('image') is-invalid @enderror" multiple>
+				<input type="file" name="images[]" id="images" class="form-control @error('images') is-invalid @enderror" multiple>
 
-				@error('image')
+				@error('images')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{$message}}</strong>
 					</span>

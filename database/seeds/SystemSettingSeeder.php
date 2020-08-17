@@ -12,10 +12,6 @@ class SystemSettingSeeder extends Seeder
      */
     public function run()
     {
-        $logo = asset('frontend/img/logo.png');
-
-        $logo = store('uploads/logo', 'public');
-
         SystemSetting::create([
         	'name' => 'Vannesa Cakes',
         	'description' => 'This is the best baking online shop in Zimbabwe',
@@ -23,7 +19,7 @@ class SystemSettingSeeder extends Seeder
         	'tel' => '+263783044087',
         	'email' => 'loydtafireyi@gmail.com',
         	'slug' => 'company-info',
-            'logo' => $logo,
+            'logo' => asset('frontend/img/logo.png'),
         ]);
     }
 }

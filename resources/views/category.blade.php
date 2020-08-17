@@ -1,5 +1,15 @@
 @extends('layouts.frontend')
 
+@section('seo')
+
+<title>{{ $category->name }} | Product Category</title>
+<meta charset="UTF-8">
+<meta name="description" content="{{ $category->name }}">
+<meta name="keywords" content="{{ $category->name }}, {{ $category->name }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@endsection
+
 @section('content')
 
 	<!-- Page info -->
@@ -57,7 +67,7 @@
 								<div class="pi-pic">
 									<div class="tag-sale">ON SALE</div>
 									<a href="{{ route('single-product', $p->slug) }}">
-										<img src="/storage/{{$p->image}}" alt="">
+										<img src="/storage/{{$p->photos->first()->images}}" alt="">
 									</a>
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>

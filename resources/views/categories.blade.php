@@ -1,11 +1,21 @@
 @extends('layouts.frontend')
 
+@section('seo')
+
+<title>{{ $systemInfo->name }} | Product Categories</title>
+<meta charset="UTF-8">
+<meta name="description" content="{{ $systemInfo->description }}">
+<meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@endsection
+
 @section('content')
 
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>CAtegory PAge</h4>
+			<h4>Category Page</h4>
 			<div class="site-pagination">
 				<a href="/">Home</a> /
 				<a href="">Shop</a> /
@@ -57,7 +67,7 @@
 								<div class="pi-pic">
 									<div class="tag-sale">ON SALE</div>
 									<a href="{{ route('single-product', $p->slug) }}">
-										<img src="/storage/{{$p->image}}" alt="">
+										<img src="/storage/{{$p->photos->first()->images}}" alt="">
 									</a>
 									<div class="pi-links">
 										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>

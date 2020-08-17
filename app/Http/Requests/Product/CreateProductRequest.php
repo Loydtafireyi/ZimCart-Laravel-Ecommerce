@@ -28,11 +28,10 @@ class CreateProductRequest extends FormRequest
             'code' => 'required|unique:products',
             'slug' => 'unique:products',
             'description' => 'required',
-            // 'image' => 'required',
+            'images' => 'required',
             'price' => 'required',
             'quantity' => 'required',
             'category_id' => 'required',
-            // 'status' => '',
         ];
     }
 }
