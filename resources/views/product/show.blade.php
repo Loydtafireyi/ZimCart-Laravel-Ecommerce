@@ -1,4 +1,4 @@
-@extends('layouts.frontend');
+@extends('layouts.frontend')
 
 @section('seo')
 
@@ -96,7 +96,16 @@
 						<p>Quantity</p>
                         <div class="pro-qty"><input type="text" value="1"></div>
                     </div>
-					<a href="#" class="site-btn">SHOP NOW</a>
+                    <!-- Add to cart logic -->
+					<form action="{{ route('cart.store') }}" method="post">
+						@csrf
+						<input type="hidden" name="id" value="{{ $product->id }}">
+						<input type="hidden" name="name" value="{{ $product->name }}">
+						<input type="hidden" name="price" value="{{ $product->price }}">
+						<input type="hidden" name="quantity" value="1">
+						<button type="submit" class="site-btn">Add To Cart</button>
+					</form>
+
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">

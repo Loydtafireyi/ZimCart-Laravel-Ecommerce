@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ Route::get('/categories', 'FrontendController@categories')->name('frontendCatego
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
+
+Route::resource('cart', 'CartController');
+Route::get('empty', function () {
+	Cart::destroy();
+});
 
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');

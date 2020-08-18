@@ -19,6 +19,10 @@
 	<link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}"/>
 	<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}"/>
 
+	<link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"/>
+	<!-- font-owesome icons link -->
+    <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
+
 	<livewire:styles />
 
 
@@ -42,7 +46,7 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="/" class="site-logo">
-							<img src="" alt="">
+							<img src="{{ asset('frontend/img/logoo.png') }}" alt="">
 						</a>
 					</div>
 					<!-- search area -->
@@ -64,7 +68,7 @@
 									<i class="flaticon-bag"></i>
 									<span>0</span>
 								</div>
-								<a href="#">Shopping Cart</a>
+								<a href="{{ route('cart.index') }}">Shopping Cart</a>
 							</div>
 						</div>
 					</div>
@@ -94,6 +98,13 @@
 	<script src="{{ asset('frontend/js/jquery.zoom.min.js') }}"></script>
 	<script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
 	<script src="{{ asset('frontend/js/main.js') }}"></script>
+
+	<script src="{{ asset('js/toastr.js') }}"></script>
+	<script>
+	    @if(Session::has('success'))
+	    toastr.success("{{ Session::get('success')}}")
+	    @endif
+	</script>
 
 	</body>
 </html>
