@@ -92,17 +92,16 @@
 							<label for="xxl-size">42</label>
 						</div>
 					</div>
-					<div class="quantity">
-						<p>Quantity</p>
-                        <div class="pro-qty"><input type="text" value="1"></div>
-                    </div>
                     <!-- Add to cart logic -->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf
+						<div class="quantity">
+							<p>Quantity</p>
+	                        <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
+	                    </div>
 						<input type="hidden" name="id" value="{{ $product->id }}">
 						<input type="hidden" name="name" value="{{ $product->name }}">
 						<input type="hidden" name="price" value="{{ $product->price }}">
-						<input type="hidden" name="quantity" value="1">
 						<button type="submit" class="site-btn">Add To Cart</button>
 					</form>
 

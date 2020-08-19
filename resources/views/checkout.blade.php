@@ -77,21 +77,18 @@
 				<div class="checkout-cart">
 					<h3>Your Cart</h3>
 					<ul class="product-list">
+						@foreach(Cart::content() as $item)
 						<li>
-							<div class="pl-thumb"><img src="{{ asset('frontend/img/cart/1.jpg') }}" alt=""></div>
-							<h6>Animal Print Dress</h6>
-							<p>$45.90</p>
+							<div class="pl-thumb"><img src="/storage/{{ $item->model->photos->first()->images }}" alt=""></div>
+							<h6>{{ $item->model->name }}</h6>
+							<p>${{ $item->model->price }}.00</p>
 						</li>
-						<li>
-							<div class="pl-thumb"><img src="{{ asset('frontend/img/cart/2.jpg') }}" alt=""></div>
-							<h6>Animal Print Dress</h6>
-							<p>$45.90</p>
-						</li>
+						@endforeach
 					</ul>
 					<ul class="price-list">
-						<li>Total<span>$99.90</span></li>
+						<li>Total<span>${{ Cart::total() }}</span></li>
 						<li>Shipping<span>free</span></li>
-						<li class="total">Total<span>$99.90</span></li>
+						<li class="total">Total<span>${{ Cart::total() }}</span></li>
 					</ul>
 				</div>
 			</div>
