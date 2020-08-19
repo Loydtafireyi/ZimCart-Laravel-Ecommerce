@@ -66,7 +66,7 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
-									<span>0</span>
+									<span>{{ Cart::instance('default')->count() }}</span>
 								</div>
 								<a href="{{ route('cart.index') }}">Shopping Cart</a>
 							</div>

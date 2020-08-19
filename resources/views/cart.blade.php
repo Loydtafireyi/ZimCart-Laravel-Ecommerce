@@ -29,7 +29,7 @@
 									</a>
 									<div class="pc-title">
 										<h4>{{ $item->model->name }}</h4>
-										<p>${{ $item->model->price }}</p>
+										<p>${{ $item->model->price }}.00</p>
 									</div>
 								</td>
 								<td class="quy-col">
@@ -40,15 +40,23 @@
                 					</div>
 								</td>
 								<td class="size-col"><h4>Size M</h4></td>
-								<td class="total-col"><h4>$45.90</h4></td>
-								<td class="total-col"><i class="cancel fas fa-times"></i></td>
+								<td class="total-col"><h4>${{ $item->model->price }}.00</h4></td>
+								<td class="total-col">
+									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
+										@csrf
+										@method('DELETE')
+										<button style="border: none;">
+											<i class="cancel fas fa-times" title="remove" style="cursor: pointer;"></i>
+										</button>
+									</form>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>Total <span>$99.90</span></h6>
+						<h6>Total <span>{{ Cart::total() }}</span></h6>
 					</div>
 				</div>
 			</div>
@@ -57,8 +65,8 @@
 					<input type="text" placeholder="Enter promo code">
 					<button>Submit</button>
 				</form>
-				<a href="" class="site-btn">Proceed to checkout</a>
-				<a href="" class="site-btn sb-dark">Continue shopping</a>
+				<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
+				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
 			</div>
 		</div>
 	</div>

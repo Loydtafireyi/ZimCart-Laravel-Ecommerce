@@ -8,7 +8,7 @@
 		<a href="{{ route('home') }}" class="text-decoration-none mr-3">
 			<li class="breadcrumb-item">Home</li>
 		</a>
-		<li class="breadcrumb-item active">Products</li>
+		<li class="breadcrumb-item active">{{ $products->count() }} Products</li>
 	</ol>
 	
 </nav>
@@ -37,12 +37,13 @@
 <!-- Dispaly all products from DB -->
 <div class="card">
 	<div class="card-header d-flex justify-content-between">
-		<span>Products</span>
+		<span>{{ $products->count() }} Products</span>
 		<a href="{{ route('products.create') }}" class="btn btn-dark">Add Product</a>
 	</div>
 	<div class="card-body">
 		<table class="table table-dark table-bordered">
 			<thead>
+				<th>#</th>
 				<th>Name</th>
 				<th>Category</th>
 				<th>Image</th>
@@ -54,6 +55,7 @@
 			<tbody>
 				@foreach($products as $index => $p)
 				<tr>
+					<td>{{ $index + 1 }}</td>
 					<td>{{ $p->name }}</td>
 					<td>{{ $p->category->name }}</td>
 					<td>
@@ -75,6 +77,10 @@
 				@endforeach
 			</tbody>
 		</table>
+
+		<div class="pagination">
+			{{ $products->links() }}
+		</div>
 	</div>
 </div>
 

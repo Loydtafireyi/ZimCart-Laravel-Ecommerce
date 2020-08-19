@@ -22,6 +22,7 @@ Route::post('/contact', 'FrontendController@contactStore')->name('store-contact'
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 
 Route::resource('cart', 'CartController');
+Route::resource('checkout', 'CheckoutController');
 Route::get('empty', function () {
 	Cart::destroy();
 });

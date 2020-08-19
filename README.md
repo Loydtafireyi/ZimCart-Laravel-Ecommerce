@@ -46,10 +46,16 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Social Login]**
 - **[Google Recaptcha]**
 - **[Data Visualisation]**
-- **[Funds Tracker]**
-- **[Cases Tracker]**
-- **[Admin dashboard]**
-- **[And Many More]**
+- **[Real-time Search]**
+- **[Shopping cart]**
+- **[Product attributes]**
+- **[Product categories]**
+- **[Product Multiple images]**
+- **[Multiple product uploads]**
+- **[System Settings]**
+- **[Image Sliders]**
+- **[Contact messaging]**
+- **[Tax options]**
 
 ## Businesses using our solution
 
