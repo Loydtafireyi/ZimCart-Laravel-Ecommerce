@@ -34,7 +34,15 @@
 						<h2 class="fw-title">Categories</h2>
 						<ul class="category-menu">
 							@foreach($categories as $cat)
-								<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a></li>
+								<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a>
+									@if($cat->subcategories->count() > 0)
+									<ul class="sub-menu">
+										@foreach($cat->subcategories as $sub)
+											<li><a href="{{ route('subcategory', $sub->slug) }}">{{ $sub->name }}<span>({{ $sub->products->count() }})</span></a></li>
+										@endforeach
+									</ul>
+									@endif
+								</li>
 							@endforeach
 						</ul>
 					</div>

@@ -48,6 +48,22 @@
 						</span>
 					@enderror
 				</div>
+				<!-- product sub-category -->
+				<div class="form-group">
+					<label for="sub_category_id">Sub-Category (Optional)</label>
+					<select name="sub_category_id" id="sub_category_id" class="form-control @error('category') is-invalid @enderror">
+						<option>Select Sub Category</option>
+						@foreach($subCategories as $cat)
+							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
+						@endforeach
+					</select>
+
+					@error('subcategory')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
 			</div>
 			<!-- product description -->
 			<div class="form-group">
@@ -104,7 +120,7 @@
 			</div>
 			<!-- product add btn -->
 			<div class="form-group">
-				<button class="btn btn-primary">Add Product</button>
+				<button class="btn btn-primary">{{ isset($product) ? 'Update Product Details': 'Add Product' }}</button>
 			</div>
 		</form>
 	</div>

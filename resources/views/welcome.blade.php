@@ -1,5 +1,15 @@
 @extends('layouts.frontend')
 
+@section('seo')
+
+<title>Welcome To | {{ $systemName->name }}</title>
+<meta charset="UTF-8">
+<meta name="description" content="{{ $systemName->description }}">
+<meta name="keywords" content="{{ $systemName->name }}, {{ $systemName->name }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@endsection
+
 @section('content')
 
 <!-- Hero section -->
@@ -131,7 +141,7 @@
                 @endforeach
             </div>
             <div class="text-center pt-5">
-                <button class="site-btn sb-line sb-dark">LOAD MORE</button>
+                <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">VIEW MORE</a>
             </div>
         </div>
     </section>

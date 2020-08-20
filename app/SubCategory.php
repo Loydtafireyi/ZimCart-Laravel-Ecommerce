@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class SubCategory extends Model
 {
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'category_id', 'slug'];
 
     public function getRouteKeyName()
     {
     	return 'slug';
     }
 
-    public function subcategories()
+    public function category()
     {
-    	return $this->hasMany(SubCategory::class);
+    	return $this->belongsTo(Category::class);
     }
 
     public function products()

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Photo;
 use App\Product;
 use App\Category;
+use App\SubCategory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -39,7 +40,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.products.create', compact('categories'));
+        $subCategories = SubCategory::all();
+
+        return view('admin.products.create', compact('categories', 'subCategories'));
     }
 
     /**
@@ -64,6 +67,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'quantity' => $request->quantity,
             'category_id' => $request->category_id,
+            'sub_category_id' => $request->subcategory_id,
             'slug' => Str::slug($request->name),
         ]);
 
@@ -112,7 +116,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('admin.products.create', compact('product', 'categories'));
+        $subCategories = SubCategory::all();
+
+        return view('admin.products.create', compact('product', 'categories', 'subCategories'));
     }
 
     /**
@@ -128,7 +134,7 @@ class ProductController extends Controller
             'category_id' => 'required',
         ]);
 
-        $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'quantity']);
+        $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity']);
 
         $product->update($data);
 

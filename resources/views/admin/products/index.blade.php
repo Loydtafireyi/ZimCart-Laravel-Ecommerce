@@ -46,6 +46,7 @@
 				<th>#</th>
 				<th>Name</th>
 				<th>Category</th>
+				<th>Sub-Category</th>
 				<th>Image</th>
 				<th>Price</th>
 				<th>Quantity</th>
@@ -58,6 +59,13 @@
 					<td>{{ $index + 1 }}</td>
 					<td>{{ $p->name }}</td>
 					<td>{{ $p->category->name }}</td>
+					<td>
+						@if(isset($p->subcategory->name))
+							{{ $p->subcategory->name }}
+						@else
+						<p>N/A</p>
+						@endif
+					</td>
 					<td>
 						<img src="/storage/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
 					</td>

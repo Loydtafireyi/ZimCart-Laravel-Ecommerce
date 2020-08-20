@@ -2,10 +2,10 @@
 
 @section('seo')
 
-<title>{{ $systemInfo->name }} | Product Categories</title>
+<title>{{ $subCategory->name }} | Product Category</title>
 <meta charset="UTF-8">
-<meta name="description" content="{{ $systemInfo->description }}">
-<meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
+<meta name="description" content="{{ $subCategory->name }}">
+<meta name="keywords" content="{{ $subCategory->name }}, {{ $subCategory->name }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @endsection
@@ -15,9 +15,9 @@
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>Category Page</h4>
+			<h4>{{ $subCategory->name }}</h4>
 			<div class="site-pagination">
-				<a href="/">Home</a> /
+				<a href="">Home</a> /
 				<a href="">Shop</a> /
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 					<div class="filter-widget">
 						<h2 class="fw-title">Categories</h2>
 						<ul class="category-menu">
-							@foreach($category as $cat)
+							@foreach($categories as $cat)
 								<li><a href="{{ route('frontendCategory', $cat->slug) }}">{{ $cat->name }}</a>
 									@if($cat->subcategories->count() > 0)
 									<ul class="sub-menu">

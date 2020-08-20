@@ -17,6 +17,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 Route::get('/', 'FrontendController@index')->name('welcome');
 Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
 Route::get('/categories', 'FrontendController@categories')->name('frontendCategories');
+Route::get('/sub-category/{slug}', 'FrontendController@subcategory')->name('subcategory');
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
@@ -35,6 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('admin/slides', 'Admin\SlideController');
 	Route::resource('admin/categories', 'Admin\CategoryController');
+	Route::resource('admin/subcategories', 'Admin\SubCategoryController');
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');

@@ -91,6 +91,10 @@
                             </li>
 
                             <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('subcategories.index') }}" class="text-decoration-none text-light">Sub Category</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('products.index') }}" class="text-decoration-none text-light">Products</a>
                             </li>
 

@@ -6,6 +6,7 @@ use App\Slide;
 use App\Contact;
 use App\Product;
 use App\Category;
+use App\SubCategory;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,9 @@ class FrontendController extends Controller
 
         $slides = Slide::all();
 
-    	return view('welcome', compact('products', 'slides', 'categories'));
+         $systemName = SystemSetting::first();
+
+    	return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
     }
 
     public function show($slug)
@@ -78,5 +81,16 @@ class FrontendController extends Controller
         $categories = Category::all();
 
         return view('category', compact('category', 'categories', 'products'));
+    }
+
+    public function subcategory($slug)
+    {
+        $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
+
+        $products = $subCategory->products->all();
+
+        $categories = Category::all();
+
+        return view('sub-category', compact('products', 'categories', 'subCategory'));
     }
 }
