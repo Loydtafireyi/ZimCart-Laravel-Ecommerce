@@ -7,6 +7,7 @@ use App\SubCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Http\Requests\SubCategory\CreateSubCategoryRequest;
 
 class SubCategoryController extends Controller
 {
@@ -40,7 +41,7 @@ class SubCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateSubCategoryRequest $request)
     {
         SubCategory::create([
             'category_id' => $request->category_id,
@@ -86,7 +87,7 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $slug)
+    public function update(CreateSubCategoryRequest $request, $slug)
     {
         $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
 

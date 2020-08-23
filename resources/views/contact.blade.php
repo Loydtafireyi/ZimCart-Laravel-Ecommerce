@@ -59,7 +59,7 @@
 						<div class="pi-pic">
 							<div class="tag-new">New</div>
 							<a href="{{ route('single-product', $p->slug) }}">
-								<img src="/storage/{{ $p->image }}" alt="">
+								<img src="/storage/{{ $p->photos->first()->images }}" alt="">
 							</a>
 							<div class="pi-links">
 								<a href="{{ route('single-product', $p->slug) }}" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>

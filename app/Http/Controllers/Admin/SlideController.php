@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Slide;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -71,7 +72,9 @@ class SlideController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+
+        return view('admin.slides.create', compact('slide'));
     }
 
     /**
@@ -83,7 +86,24 @@ class SlideController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+           Storage::disk('public')->delete($slide->image);
+
+           $image = $request->image->store('uploads/slides', 'public');
+
+        }
+
+        $slide->update([
+            'image' => $image,
+            'description' => $request->description,
+            'link' => $request->link,
+        ]);
+
+        session()->flash('success', 'Slider updated successfully');
+
+        return redirect(route('slides.index'));
     }
 
     /**
@@ -94,6 +114,14 @@ class SlideController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slide = Slide::findOrFail($id);
+
+        Storage::disk('public')->delete($slide->image);
+
+        $slide->delete();
+
+        session()->flash('success', 'Slider deleted successfully');
+
+        return redirect(route('slides.index'));
     }
 }

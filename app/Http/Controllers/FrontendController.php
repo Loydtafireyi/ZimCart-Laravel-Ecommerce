@@ -63,7 +63,7 @@ class FrontendController extends Controller
 
     public function categories()
     {
-        $products = Product::all();
+        $products = Product::paginate(3);
 
         $category = Category::all();
 

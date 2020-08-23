@@ -37,6 +37,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/slides', 'Admin\SlideController');
 	Route::resource('admin/categories', 'Admin\CategoryController');
 	Route::resource('admin/subcategories', 'Admin\SubCategoryController');
+	Route::delete('admin/products/photo{id}', 'Admin\ProductController@destroyImage')->name('destroyImage');
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');

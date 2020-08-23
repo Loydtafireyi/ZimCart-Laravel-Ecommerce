@@ -3,8 +3,23 @@
 @section('content')
 
 <div class="card">
-	<div class="card-header">Add Product</div>
+	<div class="card-header">{{ isset($product) ? 'Update Product' : 'Add Product' }}</div>
 	<div class="card-body">
+		<!-- product images -->
+		<div class="row justify-content-around">
+			@if(isset($product))
+					@foreach($product->photos as $image)
+						<div class="form-group">
+							<img src="/storage/{{ $image->images }}" style="width: 200px;">
+							<form action="{{ route('destroyImage', $image->id) }}" method="post">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-danger mt-3">Delete Image</button>
+							</form>
+						</div>
+					@endforeach
+			@endif
+		</div>
 		<form action="{{ isset($product) ? route('products.update', $product->slug) : route('products.store')}}" method="post" enctype="multipart/form-data">
 			@csrf
 			@if(isset($product))
@@ -76,14 +91,6 @@
 					</span>
 				@enderror
 			</div>
-			<!-- product images -->
-			@if(isset($product))
-				<div class="form-group">
-					@foreach($product->photos as $image)
-						<img src="/storage/{{ $image->images }}" style="width: 200px;">
-					@endforeach
-				</div>
-			@endif
 			<div class="form-group">
 				<label for="images">Product Image</label>
 				<input type="file" name="images[]" id="images" class="form-control @error('images') is-invalid @enderror" multiple>

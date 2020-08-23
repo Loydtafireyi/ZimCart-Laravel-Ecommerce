@@ -140,8 +140,6 @@ class ProductController extends Controller
 
         if($request->hasFile('images')) {
 
-            $product->photos()->delete();
-
             foreach ($request->images as $photo) {
                 $name = Str::random(14);
 
@@ -171,12 +169,39 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->photos()->delete();
+        // delete all product images
+        $allImages = $product->photos;
 
+        foreach ($allImages as $key => $img) {
+            Storage::disk('public')->delete($img->images);
+        }
+
+        $product->photos()->delete();
+        //delete product
         $product->delete();
 
         session()->flash('success', "$product->name deleted successfully.");
 
         return redirect(route('products.index'));
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImage($id)
+    {
+        $image = Photo::find($id);
+
+        Storage::disk('public')->delete($image->images);
+
+        $image->delete();
+
+        session()->flash('success', "Image deleted successfully.");
+
+        return redirect()->back();
     }
 }

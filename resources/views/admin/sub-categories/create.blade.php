@@ -16,14 +16,13 @@
 
 				<!-- product category -->
 				<div class="form-group">
-					<select name="category_id" id="category_id" class="form-control @error('category') is-invalid @enderror">
-						<option>Choose A Category...</option>
+					<select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
 						@foreach($categories as $cat)
 							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 						@endforeach
 					</select>
 
-					@error('category')
+					@error('category_id')
 						<span class="invalid-feedback" role="alert">
 							<strong>{{$message}}</strong>
 						</span>

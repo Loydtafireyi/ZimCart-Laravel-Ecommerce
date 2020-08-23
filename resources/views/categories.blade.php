@@ -68,7 +68,7 @@
 				</div>
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-					<div class="row">
+						<div class=" infinite-scroll">
 						@foreach($products as $p)
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
@@ -87,16 +87,35 @@
 									<p>{{$p->name}}</p>
 								</div>
 							</div>
-						</div>
 						@endforeach
-						<div class="text-center w-100 pt-3">
-							<button class="site-btn sb-line sb-dark">LOAD MORE</button>
 						</div>
+						{{ $products->links() }}
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- Category section end -->
+
+@endsection
+
+@section('scripts')
+
+	<script src="/js/jquery.jscroll.min.js"></script>
+	<script type="text/javascript">
+	    $('ul.pagination').hide();
+	    $(function() {
+	        $('.infinite-scroll').jscroll({
+	            autoTrigger: true,
+	            loadingHtml: '<img class="center-block" src="/images/loading.gif" alt="Loading..." />',
+	            padding: 0,
+	            nextSelector: '.pagination li.active + li a',
+	            contentSelector: 'div.infinite-scroll',
+	            callback: function() {
+	                $('ul.pagination').remove();
+	            }
+	        });
+	    });
+	</script>
 
 @endsection
