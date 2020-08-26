@@ -12,12 +12,17 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- font-owesome icons link -->
+    <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <livewire:styles />
 </head>
 <body class="bg-dark">
     <div id="app">
@@ -144,4 +149,8 @@
         </main>
     </div>
 </body>
+
+<livewire:scripts />
+<script></script>
+
 </html>

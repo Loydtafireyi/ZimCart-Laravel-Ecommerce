@@ -53,13 +53,6 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-
-        // $imagePath = $request->image->store('uploads/products', 'public');
-
-        // use intervention image to resize images
-        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        // $image->save();
-
         $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -85,7 +78,6 @@ class ProductController extends Controller
                 'product_id' => $product->id,
             ]);
 
-            // $product->images()->save($photo);
         }
 
         session()->flash('success', "$request->name added successfully.");

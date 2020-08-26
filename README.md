@@ -40,7 +40,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
  [Working Demo](https://seamaf.com)
 
 
-## Covi19 Tracker Features
+## ZimCart Tracker Features
 
 
 - **[Social Login]**
@@ -57,6 +57,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Image Sliders]**
 - **[Contact messaging]**
 - **[Tax options]**
+- **[Admin Area]**
 
 ## Businesses using our solution
 

@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="card">
-	<div class="card-header">{{ isset($product) ? 'Update Product' : 'Add Product' }}</div>
+	<div class="card-header">
+		<h3>{{ isset($product) ? 'Update Product' : 'Add Product' }}</h3>
+	</div>
 	<div class="card-body">
 		<!-- product images -->
 		<div class="row justify-content-around">
@@ -29,7 +31,7 @@
 				<!-- product name -->
 				<div class="form-group">
 					<label for="name">Product Name</label>
-					<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ isset($product) ? $product->name : '' }}">
+					<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ isset($product) ? $product->name :  old('name') }}">
 
 					@error('name')
 						<span class="invalid-feedback" role="alert">
@@ -40,7 +42,7 @@
 				<!-- product code -->
 				<div class="form-group">
 					<label for="code">Product Code</label>
-					<input type="text" name="code" id="code" class="form-control @error('code') is-invalid @enderror" value="{{ isset($product) ? $product->code : '' }}">
+					<input type="text" name="code" id="code" class="form-control @error('code') is-invalid @enderror" value="{{ isset($product) ? $product->code : old('code') }}">
 
 					@error('code')
 						<span class="invalid-feedback" role="alert">
@@ -82,7 +84,7 @@
 			<!-- product description -->
 			<div class="form-group">
 				<label for="description">Product Description</label>
-				<textarea type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">{{ isset($product) ? $product->description : '' }}</textarea>
+				<textarea type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">{{ isset($product) ? $product->description : old('description') }}</textarea>
 
 				@error('description')
 					<span class="invalid-feedback" role="alert">
@@ -90,21 +92,22 @@
 					</span>
 				@enderror
 			</div>
-			<div class="form-group">
-				<label for="images">Product Image</label>
-				<input type="file" name="images[]" id="images" class="form-control @error('images') is-invalid @enderror" multiple>
-
-				@error('images')
-					<span class="invalid-feedback" role="alert">
-						<strong>{{$message}}</strong>
-					</span>
-				@enderror
-			</div>
-			<!-- product price -->
 			<div class="row justify-content-between m-auto">
+				<!-- product images -->
+				<div class="form-group">
+					<label for="images">Product Image</label>
+					<input type="file" name="images[]" id="images" class="form-control @error('images') is-invalid @enderror" multiple>
+
+					@error('images')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product price -->
 				<div class="form-group">
 					<label for="price">Product Price</label>
-					<input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ isset($product) ? $product->price : '' }}">
+					<input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ isset($product) ? $product->price : old('price') }}">
 
 					@error('price')
 						<span class="invalid-feedback" role="alert">
@@ -115,7 +118,7 @@
 				<!-- product qty -->
 				<div class="form-group">
 					<label for="quantity">Product Quantity</label>
-					<input type="number" name="quantity" id="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ isset($product) ? $product->quantity : '' }}">
+					<input type="number" name="quantity" id="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ isset($product) ? $product->quantity : old('quantity') }}">
 
 					@error('quantity')
 						<span class="invalid-feedback" role="alert">
@@ -124,6 +127,12 @@
 					@enderror
 				</div>
 			</div>
+
+			<!-- products attributes start -->
+			@livewire('attribute')
+			
+			<!-- products attributes end -->
+
 			<!-- product add btn -->
 			<div class="form-group">
 				<button class="btn btn-primary">{{ isset($product) ? 'Update Product Details': 'Add Product' }}</button>
