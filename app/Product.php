@@ -38,8 +38,13 @@ class Product extends Model
         return $this->quantity > 0;
     }
 
-     public function photos()
+    public function photos()
     {
         return $this->hasMany(Photo::class);
+    }
+
+    public function attributes()
+    {
+        return $this->hasMany(ProductAttribute::class);
     }
 }

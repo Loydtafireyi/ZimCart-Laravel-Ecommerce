@@ -28,7 +28,7 @@
                     </div>
                     <div class="offer-card text-white">
                         <span>from</span>
-                        <h2>$29</h2>
+                        <h2>$1</h2>
                         <p>SHOP NOW</p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div class="pi-text">
-                        <h6>${{ $p->price }}</h6>
+                        <h6>${{ $p->price }}.00</h6>
                         <a href="{{ route('single-product', $p->slug) }}"><p>{{ $p->name }}</p></a> 
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>{{ $p->price }}</h6>
+                            <h6>${{ $p->price }}.00</h6>
                             <p> {{ $p->name }} </p>
                         </div>
                     </div>

@@ -47,6 +47,11 @@
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title">{{ $product->name }}</h2>
 					<h3 class="p-price">${{ $product->price }}</h3>
+					<h4 class="p-stock">Pieces: 
+						<span>
+							20 Pcs
+						</span>
+					</h4>
 					<h4 class="p-stock">Availability: 
 						<span>
 							@if($product->inStock())
@@ -54,22 +59,43 @@
 							@else
 								Out Of Stock
 							@endif
-						</span></h4>
-					<div class="p-rating">
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o fa-fade"></i>
-					</div>
-					<div class="p-review">
-						<a href="">3 reviews</a>|<a href="">Add your review</a>
-					</div>
+						</span>
+					</h4>
+
+					
 					<div class="fw-size-choose">
-						<p>Size</p>
+						<p>Color</p>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="xs-size">
-							<label for="xs-size">32</label>
+							<label for="xs-size">323</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="color">
+							<label for="s-size">34</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="m-size" checked="">
+							<label for="m-size">36</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="l-size">
+							<label for="l-size">38</label>
+						</div>
+						<div class="sc-item disable">
+							<input type="radio" name="sc" id="xl-size" disabled>
+							<label for="xl-size">40</label>
+						</div>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="xxl-size">
+							<label for="xxl-size">42</label>
+						</div>
+					</div>
+
+					<div class="fw-size-choose">
+						<p>Sizes</p>
+						<div class="sc-item">
+							<input type="radio" name="sc" id="xs-size">
+							<label for="xs-size">323</label>
 						</div>
 						<div class="sc-item">
 							<input type="radio" name="sc" id="s-size">
@@ -92,6 +118,7 @@
 							<label for="xxl-size">42</label>
 						</div>
 					</div>
+
                     <!-- Add to cart logic -->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf

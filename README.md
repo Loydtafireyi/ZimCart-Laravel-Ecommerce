@@ -50,6 +50,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Shopping cart]**
 - **[Product attributes]**
 - **[Product categories]**
+- **[Product sub categories]**
 - **[Product Multiple images]**
 - **[Multiple product uploads]**
 - **[System Settings]**
@@ -61,4 +62,4 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 
 - **[https://seamaf.com]**
 - **[https://vanessascakes.online]**
-- **[https://juice.com]**
+- **[https://ayolabrands.com]**

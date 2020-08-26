@@ -68,26 +68,27 @@
 				</div>
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-						<div class=" infinite-scroll">
-						@foreach($products as $p)
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<div class="tag-sale">ON SALE</div>
-									<a href="{{ route('single-product', $p->slug) }}">
-										<img src="/storage/{{$p->photos->first()->images}}" alt="">
-									</a>
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-										<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+						<div class="row">
+							@foreach($products as $p)
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic">
+										<div class="tag-sale">ON SALE</div>
+										<a href="{{ route('single-product', $p->slug) }}">
+											<img src="/storage/{{$p->photos->first()->images}}" alt="">
+										</a>
+										<div class="pi-links">
+											<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+											<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+										</div>
+									</div>
+									<div class="pi-text">
+										<h6>${{$p->price}}</h6>
+										<p>{{$p->name}}</p>
 									</div>
 								</div>
-								<div class="pi-text">
-									<h6>${{$p->price}}</h6>
-									<p>{{$p->name}}</p>
-								</div>
 							</div>
-						@endforeach
+							@endforeach
 						</div>
 						{{ $products->links() }}
 					</div>
@@ -96,26 +97,5 @@
 		</div>
 	</section>
 	<!-- Category section end -->
-
-@endsection
-
-@section('scripts')
-
-	<script src="/js/jquery.jscroll.min.js"></script>
-	<script type="text/javascript">
-	    $('ul.pagination').hide();
-	    $(function() {
-	        $('.infinite-scroll').jscroll({
-	            autoTrigger: true,
-	            loadingHtml: '<img class="center-block" src="/images/loading.gif" alt="Loading..." />',
-	            padding: 0,
-	            nextSelector: '.pagination li.active + li a',
-	            contentSelector: 'div.infinite-scroll',
-	            callback: function() {
-	                $('ul.pagination').remove();
-	            }
-	        });
-	    });
-	</script>
 
 @endsection

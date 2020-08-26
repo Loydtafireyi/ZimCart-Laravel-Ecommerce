@@ -67,7 +67,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'quantity' => $request->quantity,
             'category_id' => $request->category_id,
-            'sub_category_id' => $request->subcategory_id,
+            'sub_category_id' => $request->sub_category_id,
             'slug' => Str::slug($request->name),
         ]);
 

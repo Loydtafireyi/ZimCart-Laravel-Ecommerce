@@ -34,6 +34,7 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::resource('admin/users', 'Admin\UserController');
 	Route::resource('admin/slides', 'Admin\SlideController');
 	Route::resource('admin/categories', 'Admin\CategoryController');
 	Route::resource('admin/subcategories', 'Admin\SubCategoryController');

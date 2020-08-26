@@ -66,14 +66,13 @@
 				<!-- product sub-category -->
 				<div class="form-group">
 					<label for="sub_category_id">Sub-Category (Optional)</label>
-					<select name="sub_category_id" id="sub_category_id" class="form-control @error('category') is-invalid @enderror">
-						<option>Select Sub Category</option>
+					<select name="sub_category_id" id="sub_category_id" class="form-control @error('sub_category_id') is-invalid @enderror">
 						@foreach($subCategories as $cat)
 							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 						@endforeach
 					</select>
 
-					@error('subcategory')
+					@error('sub_category_id')
 						<span class="invalid-feedback" role="alert">
 							<strong>{{$message}}</strong>
 						</span>

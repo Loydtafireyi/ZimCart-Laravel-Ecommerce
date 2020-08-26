@@ -111,6 +111,10 @@
                             </li>
 
                             <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('users.index') }}" class="text-decoration-none text-light">Platform Users</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('system-settings.index') }}" class="text-decoration-none text-light">System Settings</a>
                             </li>
                         </ul>

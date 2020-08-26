@@ -16,26 +16,26 @@ class FrontendController extends Controller
     {
         $categories = Category::all();
 
-    	$products = Product::paginate(8);
+        $products = Product::orderBy('created_at', 'DESC')->paginate(8);
 
         $slides = Slide::all();
 
          $systemName = SystemSetting::first();
 
-    	return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
+        return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
     }
 
     public function show($slug)
     {
-    	$product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::where('slug', $slug)->firstOrFail();
 
         $singleImage = $product->photos()->get()->first();
 
-    	$relatedProducts = $product->category->products->all();
+        $relatedProducts = $product->category->products->all();
 
         $systemName = SystemSetting::first();
 
-    	return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName'));
+        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName'));
     }
 
     public function contact()
@@ -63,7 +63,7 @@ class FrontendController extends Controller
 
     public function categories()
     {
-        $products = Product::paginate(3);
+        $products = Product::orderBy('created_at', 'DESC')->paginate(12);
 
         $category = Category::all();
 
