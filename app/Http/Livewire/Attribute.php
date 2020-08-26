@@ -6,11 +6,16 @@ use Livewire\Component;
 
 class Attribute extends Component
 {
-	public $attributes = 0;
+	public $attributes = [];
 
 	public function increment()
 	{
-		$this->attributes ++;
+		$this->attributes[] = count($this->attributes)+1;
+	}
+
+	public function decrement($index)
+	{
+		unset($this->attributes[$index]);
 	}
 
     public function render()
