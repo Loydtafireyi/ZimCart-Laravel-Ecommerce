@@ -38,7 +38,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id  === $request->id;
         });
@@ -49,7 +49,7 @@ class CartController extends Controller
             return redirect(route('cart.index'));
         }
 
-        Cart::add($request->id, $request->name, $request->quantity, $request->price)->associate('App\Product');
+        Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
 
         session()->flash('success', "$request->name added to your cart successfully!");
 

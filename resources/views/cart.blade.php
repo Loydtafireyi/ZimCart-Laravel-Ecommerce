@@ -16,7 +16,7 @@
 							<tr>
 								<th class="product-th">Product</th>
 								<th class="quy-th">Quantity</th>
-								<th class="size-th">SizeSize</th>
+								<th class="size-th">Size</th>
 								<th class="total-th">Price</th>
 							</tr>
 						</thead>
@@ -39,7 +39,7 @@
 										</div>
                 					</div>
 								</td>
-								<td class="size-col"><h4>Size M</h4></td>
+								<td class="size-col"><h4>{{ $item->size }}</h4></td>
 								<td class="total-col"><h4>${{ $item->model->price }}.00</h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
