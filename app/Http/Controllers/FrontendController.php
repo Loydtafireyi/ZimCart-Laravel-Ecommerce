@@ -35,7 +35,11 @@ class FrontendController extends Controller
 
         $systemName = SystemSetting::first();
 
-        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName'));
+        $color = $product->attributes()->where('attribute_name', 'Color')->get();
+        $sizes = $product->attributes()->where('attribute_name', 'Size')->get();
+        // dd($color);
+
+        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes'));
     }
 
     public function contact()

@@ -107,7 +107,7 @@
 				<!-- product price -->
 				<div class="form-group">
 					<label for="price">Product Price</label>
-					<input type="number" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ isset($product) ? $product->price : old('price') }}">
+					<input type="decimal" name="price" id="price" class="form-control @error('price') is-invalid @enderror" value="{{ isset($product) ? $product->price : old('price') }}">
 
 					@error('price')
 						<span class="invalid-feedback" role="alert">

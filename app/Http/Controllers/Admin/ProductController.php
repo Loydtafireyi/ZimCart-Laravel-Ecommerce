@@ -6,6 +6,7 @@ use App\Photo;
 use App\Product;
 use App\Category;
 use App\SubCategory;
+use App\ProductAttribute;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -53,7 +54,7 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        dd($request->all());
+        // dd($request->all());
         
         $product = Product::create([
             'name' => $request->name,
@@ -79,8 +80,19 @@ class ProductController extends Controller
                 'images' => $path,
                 'product_id' => $product->id,
             ]);
-
         }
+
+        $attributeValues = $request->attribute_value;
+
+        $product->attributes()->createMany(
+            collect($request->attribute_name)
+                ->map(function ($name, $index) use ($attributeValues) {
+                    return [
+                        'attribute_name' => $name,
+                        'attribute_value' => $attributeValues[$index],
+                    ];
+                })
+        );
 
         session()->flash('success', "$request->name added successfully.");
 

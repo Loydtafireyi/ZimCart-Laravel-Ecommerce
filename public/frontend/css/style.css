@@ -1491,6 +1491,19 @@ ol {
 	padding: 7px 6px 0;
 }
 
+.sc-item .choose-color{
+	display: inline-block;
+	height: 30px;
+	min-width: 50px;
+	text-align: center;
+	font-size: 14px;
+	color: #414141;
+	font-weight: 500;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 7px 6px 0;
+}
+
 .fw-size-choose input[type=radio] {
 	visibility: hidden;
 	position: absolute;

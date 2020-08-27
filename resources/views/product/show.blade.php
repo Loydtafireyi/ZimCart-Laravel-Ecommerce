@@ -61,67 +61,34 @@
 							@endif
 						</span>
 					</h4>
-
-					
-					<div class="fw-size-choose">
-						<p>Color</p>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xs-size">
-							<label for="xs-size">323</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="color">
-							<label for="s-size">34</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="m-size" checked="">
-							<label for="m-size">36</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="l-size">
-							<label for="l-size">38</label>
-						</div>
-						<div class="sc-item disable">
-							<input type="radio" name="sc" id="xl-size" disabled>
-							<label for="xl-size">40</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xxl-size">
-							<label for="xxl-size">42</label>
-						</div>
-					</div>
-
-					<div class="fw-size-choose">
-						<p>Sizes</p>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xs-size">
-							<label for="xs-size">323</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="s-size">
-							<label for="s-size">34</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="m-size" checked="">
-							<label for="m-size">36</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="l-size">
-							<label for="l-size">38</label>
-						</div>
-						<div class="sc-item disable">
-							<input type="radio" name="sc" id="xl-size" disabled>
-							<label for="xl-size">40</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xxl-size">
-							<label for="xxl-size">42</label>
-						</div>
-					</div>
-
-                    <!-- Add to cart logic -->
+					<!-- Add to cart logic -->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf
+					@if($color->count() > 0)
+						<div class="fw-size-choose">
+							<p>Color</p>
+							@foreach($color as $c)
+								<div class="sc-item">
+									<input type="radio" name="Color" id="{{ $c->attribute_value }}" value="{{ $c->attribute_value }}">
+									<label for="{{ $c->attribute_value }}" class="choose-color">{{ $c->attribute_value }}</label>
+								</div>
+							@endforeach
+						</div>
+					@endif
+
+					@if($sizes->count() > 0)
+						<div class="fw-size-choose">
+							<p>Sizes</p>
+							@foreach($sizes as $size)
+								<div class="sc-item">
+									<input type="radio" name="Size" id="{{ $size->attribute_value }}" value="{{ $size->attribute_value }}">
+									<label for="{{ $size->attribute_value }}">{{ $size->attribute_value }}</label>
+								</div>
+							@endforeach
+						</div>
+					@endif
+
+                    
 						<div class="quantity">
 							<p>Quantity</p>
 	                        <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
