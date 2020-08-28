@@ -15,7 +15,7 @@ class AddSeoToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->text('meta_keywords')->nullable()->after('category_id');
-            $table->text('meta_description')->nullable()->after('meta_description');
+            $table->text('meta_description')->nullable()->after('meta_keywords');
         });
     }
 
