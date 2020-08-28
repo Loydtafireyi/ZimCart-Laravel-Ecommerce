@@ -6,7 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## This Project can only be used for educational purposes and product test.
+## This Project can only be used for educational purposes and product test at this stage.
 
 ### NB: You can use this eeCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
 
@@ -21,7 +21,6 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 # Installation
 
 - [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``](https://seamaf.com).
-- [Then navigate to App\Providers\AppServiceProvder and comment out all the View::share in the boot method].
 - run ``composer update `` .
 - run `` npm install ``.
 - run ``npm run dev``.
