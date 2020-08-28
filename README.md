@@ -8,7 +8,7 @@
 
 ## This Project can only be used for educational purposes and product test at this stage.
 
-### NB: You can use this eeCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
+### NB: You can use this eCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
 
 ### For License & Commercial Purposes Contact me on:-
 - +263 783 044 087 (Calls Or Whatsapp)
