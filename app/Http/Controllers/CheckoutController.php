@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SystemSetting;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -13,7 +14,9 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('checkout');
+        $systemInfo = SystemSetting::first();
+
+        return view('checkout', compact('systemInfo'));
     }
 
     /**

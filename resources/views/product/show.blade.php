@@ -4,8 +4,8 @@
 
 <title>{{ $product->name }} | {{ $systemName->name }}</title>
 <meta charset="UTF-8">
-<meta name="description" content="{{ $product->description }}">
-<meta name="keywords" content="{{ $product->name }}, {{ $product->description }}">
+<meta name="description" content="{{ $product->meta_description }}">
+<meta name="keywords" content="{{ $product->meta_keywords }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @endsection
@@ -47,11 +47,13 @@
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title">{{ $product->name }}</h2>
 					<h3 class="p-price">${{ $product->price }}</h3>
-					<h4 class="p-stock">Pieces: 
-						<span>
-							20 Pcs
-						</span>
-					</h4>
+					@if($pieces->count() > 0)
+						<h4 class="p-stock">Pieces: 
+							<span>
+								{{ $pieces->attribute_value }}
+							</span>
+						</h4>
+					@endif
 					<h4 class="p-stock">Availability: 
 						<span>
 							@if($product->inStock())

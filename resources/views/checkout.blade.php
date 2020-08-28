@@ -1,5 +1,15 @@
 @extends('layouts.frontend')
 
+@section('seo')
+
+<title>{{ $systemInfo->name }} | Checkout</title>
+<meta charset="UTF-8">
+<meta name="description" content="{{ $systemInfo->description }}">
+<meta name="keywords" content="{{ $systemInfo->description }}, {{ $systemInfo->description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@endsection
+
 @section('content')
 
 <!-- checkout section  -->

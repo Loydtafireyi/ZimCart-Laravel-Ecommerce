@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\SystemSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SystemSettingsController extends Controller
 {
@@ -63,15 +64,35 @@ class SystemSettingsController extends Controller
         ]);
         // Find settings to update
         $setting = SystemSetting::where('slug', $slug)->firstOrFail();
+
         // Allowed params for update
         $data = $request->only([
             'name',
             'email',
             'tel',
             'logo',
+            'favicon',
             'address',
             'description',
+            'meta_keywords',
+            'meta_description',
         ]);
+
+        if($request->hasFile('logo')) {
+            Storage::disk('public')->delete($setting->logo);
+
+            $logo = $request->logo->store($logoPath = 'uploads/logos', 'public');
+
+            $setting->save(['logo' => $logoPath]);
+        }
+
+        if($request->hasFile('favion')) {
+            Storage::disk('public')->delete($setting->favicon);
+
+            $favicon = $request->favicon->store($favPath = 'uploads/logos', 'public');
+
+            $setting->save(['favicon' => $favPath]);
+        }
 
         $setting->update($data);
 

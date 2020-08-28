@@ -37,9 +37,10 @@ class FrontendController extends Controller
 
         $color = $product->attributes()->where('attribute_name', 'Color')->get();
         $sizes = $product->attributes()->where('attribute_name', 'Size')->get();
-        // dd($color);
+        $pieces = $product->attributes()->where('attribute_name', 'Pieces')->first();
+        // dd($pieces);
 
-        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes'));
+        return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes', 'pieces'));
     }
 
     public function contact()

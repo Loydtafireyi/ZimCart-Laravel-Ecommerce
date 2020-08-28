@@ -127,6 +127,16 @@
 					@enderror
 				</div>
 			</div>
+			<!-- product seo start -->
+			<div class="form-group">
+				<label for="meta_description">Product Meta Description</label>
+				<textarea name="meta_description" class="form-control" placeholder="Make your product visible on search engine by describing your product...">{{ isset($product) ?  $product->meta_description : '' }}</textarea>
+			</div>
+			<div class="form-group">
+				<label for="meta_keywords">Product Meta Keywords</label>
+				<textarea name="meta_keywords" class="form-control" placeholder="Seperate keywords using comma...">{{ isset($product) ? $product->meta_keywords : '' }}</textarea>
+			</div>
+			<!-- product seo start -->
 
 			<!-- products attributes start -->
 			@livewire('attribute')

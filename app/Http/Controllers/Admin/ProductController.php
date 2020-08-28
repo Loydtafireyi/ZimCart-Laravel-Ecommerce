@@ -64,6 +64,8 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'category_id' => $request->category_id,
             'sub_category_id' => $request->sub_category_id,
+            'meta_keywords' => $request->meta_keywords,
+            'meta_description' => $request->meta_description,
             'slug' => Str::slug($request->name),
         ]);
 
@@ -140,7 +142,7 @@ class ProductController extends Controller
             'category_id' => 'required',
         ]);
 
-        $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity']);
+        $data = $request->only(['name', 'code', 'description', 'price', 'category_id', 'sub_category_id', 'quantity', 'meta_description', 'meta_keywords']);
 
         $product->update($data);
 

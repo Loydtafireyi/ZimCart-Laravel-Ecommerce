@@ -25,7 +25,7 @@
 				<img src="/storage/{{$setting->logo}}" style="width: 50%">
 			@endif
 			<div class="form-group">
-				<label for="logo">Comapny Logo</label>
+				<label for="logo">Company Logo</label>
 				<input type="file" name="logo" id="logo" class="form-control @error('logo') is-invalid @enderror" value="{{ $setting->name }}">
 
 				@error('logo')
@@ -33,7 +33,21 @@
 						<strong> {{ $message }} </strong>
 					</span>
 				@enderror
-			</div>	
+			</div>
+			<!-- Company favicon -->
+			@if(isset($setting))
+				<img src="/storage/{{$setting->favicon}}" style="width: 50%">
+			@endif
+			<div class="form-group">
+				<label for="favicon">Company Favicon</label>
+				<input type="file" name="favicon" id="favicon" class="form-control @error('favicon') is-invalid @enderror" value="{{ $setting->name }}">
+
+				@error('favicon')
+					<span class="invalid-feedback" role="alert">
+						<strong> {{ $message }} </strong>
+					</span>
+				@enderror
+			</div>		
 			<!-- Company description -->
 			<div class="form-group">
 				<label for="description">Company Description</label>
@@ -54,6 +68,17 @@
 				<label for="email">Company Email</label>
 				<input type="email" name="email" id="email" class="form-control" value="{{ $setting->email }}">
 			</div>
+
+			<!-- system seo start -->
+			<div class="form-group">
+				<label for="meta_description">System Meta Description</label>
+				<textarea name="meta_description" class="form-control" placeholder="Make your web application visible on search engine by describing what you do...">{{ $setting->meta_description }}</textarea>
+			</div>
+			<div class="form-group">
+				<label for="meta_keywords">System Meta Keywords</label>
+				<textarea name="meta_keywords" class="form-control" placeholder="Seperate keywords using comma...">{{  $setting->meta_keywords }}</textarea>
+			</div>
+			<!-- system seo start -->
 
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Update Details</button>

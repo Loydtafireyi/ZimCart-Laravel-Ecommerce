@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -15,9 +16,11 @@ class CartController extends Controller
      */
     public function index()
     {
+        $systemInfo = SystemSetting::first(); 
+
         $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
 
-        return view('cart', compact('mightAlsoLike'));
+        return view('cart', compact('mightAlsoLike', 'systemInfo'));
     }
 
     /**
