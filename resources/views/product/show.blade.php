@@ -47,7 +47,7 @@
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title">{{ $product->name }}</h2>
 					<h3 class="p-price">${{ $product->price }}</h3>
-					@if($pieces->count() > 0)
+					@if($pieces)
 						<h4 class="p-stock">Pieces: 
 							<span>
 								{{ $pieces->attribute_value }}
@@ -66,7 +66,7 @@
 					<!-- Add to cart logic -->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf
-					@if($color->count() > 0)
+					@if($color)
 						<div class="fw-size-choose">
 							<p>Color</p>
 							@foreach($color as $c)
@@ -78,7 +78,7 @@
 						</div>
 					@endif
 
-					@if($sizes->count() > 0)
+					@if($sizes)
 						<div class="fw-size-choose">
 							<p>Sizes</p>
 							@foreach($sizes as $size)
