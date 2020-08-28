@@ -7,11 +7,12 @@
 </p>
 
 ## This Project can only be used for educational purposes and product test.
-## For Production & Commercial Purposes Contact me on:-
+
+### NB: You can use this eeCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
+
+### For License & Commercial Purposes Contact me on:-
 - +263 783 044 087 (Calls Or Whatsapp)
 - loydtafireyi@gmail.com
-
-## NB: Using this project for production and commercial use without a Commercial lisence will cost you $USD 50 000.00 as pernalty
 
 ## eCommerce Web Appliaction
 
