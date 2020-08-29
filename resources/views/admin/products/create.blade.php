@@ -10,18 +10,44 @@
 		<!-- product images -->
 		<div class="row justify-content-around">
 			@if(isset($product))
-					@foreach($product->photos as $image)
-						<div class="form-group">
-							<img src="/storage/{{ $image->images }}" style="width: 200px;">
-							<form action="{{ route('destroyImage', $image->id) }}" method="post">
-								@csrf
-								@method('DELETE')
-								<button type="submit" class="btn btn-danger mt-3">Delete Image</button>
-							</form>
-						</div>
-					@endforeach
+				@foreach($product->photos as $image)
+					<div class="form-group">
+						<img src="/storage/{{ $image->images }}" style="width: 200px;">
+						<form action="{{ route('destroyImage', $image->id) }}" method="post">
+							@csrf
+							@method('DELETE')
+							<button type="submit" class="btn btn-danger mt-3">Delete Image</button>
+						</form>
+					</div>
+				@endforeach
 			@endif
 		</div>
+		<!-- product attributes start-->
+		@if(isset($attributes))
+		    <table class="table table-dark table-bordered table-hover">
+    			<thead>
+    				<th>Attribute Name</th>
+    				<th>Attribute Value</th>
+    				<th>Delete</th>
+    			</thead>
+    			<tbody>
+    				@foreach($attributes as $at)
+    				<tr>
+    					<td>{{ $at->attribute_name }}</td>
+    					<td>{{ $at->attribute_value }}</td>
+    					<td>
+    						<form action="{{ route('destroyAttribute', $at->id) }}" method="post">
+    							@csrf
+    							@method('DELETE')
+    							<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+    						</form>
+    					</td>
+    				</tr>
+    				@endforeach
+    			</tbody>
+    		</table>
+		@endif
+		<!-- product attributes end-->
 		<form action="{{ isset($product) ? route('products.update', $product->slug) : route('products.store')}}" method="post" enctype="multipart/form-data">
 			@csrf
 			@if(isset($product))

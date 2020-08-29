@@ -126,7 +126,9 @@ class ProductController extends Controller
 
         $subCategories = SubCategory::all();
 
-        return view('admin.products.create', compact('product', 'categories', 'subCategories'));
+        $attributes = $product->attributes()->get();
+
+        return view('admin.products.create', compact('product', 'categories', 'subCategories', 'attributes'));
     }
 
     /**
@@ -198,6 +200,8 @@ class ProductController extends Controller
 
         $product->photos()->delete();
         //delete product
+        $product->attributes()->delete();
+
         $product->delete();
 
         session()->flash('success', "$product->name deleted successfully.");
@@ -221,6 +225,24 @@ class ProductController extends Controller
         $image->delete();
 
         session()->flash('success', "Image deleted successfully.");
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * Remove the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyAttribute($id)
+    {
+        $attribute = ProductAttribute::find($id);
+
+        $attribute->delete();
+
+        session()->flash('success', "Attribute deleted successfully.");
 
         return redirect()->back();
     }
