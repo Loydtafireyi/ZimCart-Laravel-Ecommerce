@@ -164,6 +164,18 @@ class ProductController extends Controller
             }
         }
 
+        $attributeValues = $request->attribute_value;
+
+        $product->attributes()->createMany(
+            collect($request->attribute_name)
+                ->map(function ($name, $index) use ($attributeValues) {
+                    return [
+                        'attribute_name' => $name,
+                        'attribute_value' => $attributeValues[$index],
+                    ];
+                })
+        );
+
         session()->flash('success', "$product->name updated successfully.");
 
         return redirect(route('products.index'));
