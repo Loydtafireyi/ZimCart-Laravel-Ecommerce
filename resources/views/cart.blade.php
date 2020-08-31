@@ -44,18 +44,18 @@
 									</a>
 									<div class="pc-title">
 										<h4>{{ $item->model->name }}</h4>
-										<p>${{ $item->model->price }}.00</p>
+										<p>${{ $item->model->price }}</p>
 									</div>
 								</td>
 								<td class="quy-col">
 									<div class="quantity">
 				                        <div class="pro-qty">
-											<input type="text" value="1">
+											<input type="text" value="{{$item->qty}}">
 										</div>
                 					</div>
 								</td>
 								<td class="size-col"><h4>{{ $item->size }}</h4></td>
-								<td class="total-col"><h4>${{ $item->model->price }}.00</h4></td>
+								<td class="total-col"><h4>${{ $item->subtotal }}</h4></td>
 								<td class="total-col">
 									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
 										@csrf

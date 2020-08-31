@@ -91,7 +91,8 @@
 						<li>
 							<div class="pl-thumb"><img src="/storage/{{ $item->model->photos->first()->images }}" alt=""></div>
 							<h6>{{ $item->model->name }}</h6>
-							<p>${{ $item->model->price }}.00</p>
+							<p>${{ $item->subtotal }}</p>
+							<p>Quantity {{ $item->qty }}</p>
 						</li>
 						@endforeach
 					</ul>
