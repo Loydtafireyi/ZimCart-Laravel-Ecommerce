@@ -23,6 +23,8 @@ Route::post('/contact', 'FrontendController@contactStore')->name('store-contact'
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 
 Route::resource('cart', 'CartController');
+Route::post('coupons', 'CouponsController@store')->name('coupons.store');
+Route::delete('coupons', 'CouponsController@destroy')->name('coupons.destroy');
 Route::resource('checkout', 'CheckoutController');
 Route::get('empty', function () {
 	Cart::destroy();
@@ -40,6 +42,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/subcategories', 'Admin\SubCategoryController');
 	Route::delete('admin/products/photo/{id}', 'Admin\ProductController@destroyImage')->name('destroyImage');
 	Route::delete('admin/products/attribute/{id}', 'Admin\ProductController@destroyAttribute')->name('destroyAttribute');
+	Route::resource('admin/coupon', 'Admin\CouponController');
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');

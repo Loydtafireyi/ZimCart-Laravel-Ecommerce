@@ -66,7 +66,7 @@
 					<!-- Add to cart logic -->
 					<form action="{{ route('cart.store') }}" method="post">
 						@csrf
-					@if($color)
+					@if($color->has('attribute_value'))
 						<div class="fw-size-choose">
 							<p>Color</p>
 							@foreach($color as $c)
@@ -78,7 +78,7 @@
 						</div>
 					@endif
 
-					@if($sizes)
+					@if($sizes->has('attribute_value'))
 						<div class="fw-size-choose">
 							<p>Sizes</p>
 							@foreach($sizes as $size)

@@ -76,7 +76,20 @@
 					</div>
 					<div class="cf-title">Payment</div>
 					<ul class="payment-list">
-						<li>Paypal<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a></li>
+						<li>Paypal
+							<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
+							<!-- Mount the instance within a <label> -->
+							<label>Card
+							  <div id="card-element"></div>
+							</label>
+
+							<!--
+							  Or create a <label> with a 'for' attribute,
+							  referencing the ID of your container.
+							-->
+							<label for="card-element">Card</label>
+							<div id="card-element"></div>
+						</li>
 						<li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a></li>
 						<li>Pay when you get the package</li>
 					</ul>
@@ -92,14 +105,14 @@
 							<div class="pl-thumb"><img src="/storage/{{ $item->model->photos->first()->images }}" alt=""></div>
 							<h6>{{ $item->model->name }}</h6>
 							<p>${{ $item->subtotal }}</p>
-							<p>Quantity {{ $item->qty }}</p>
+							<p>Qty {{ $item->qty }}</p>
 						</li>
 						@endforeach
 					</ul>
 					<ul class="price-list">
-						<li>Total<span>${{ Cart::total() }}</span></li>
+						<li>Total<span>${{ $newSubtotal }}.00</span></li>
 						<li>Shipping<span>free</span></li>
-						<li class="total">Total<span>${{ Cart::total() }}</span></li>
+						<li class="total">Total<span>${{ $newTotal }}.00</span></li>
 					</ul>
 				</div>
 			</div>
@@ -107,5 +120,9 @@
 	</div>
 </section>
 <!-- checkout section end -->
+
+@endsection
+
+@section('scripts')
 
 @endsection

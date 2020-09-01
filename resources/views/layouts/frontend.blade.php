@@ -60,7 +60,7 @@
 									<a href="{{ route('register') }}">My Profile</a> --}}
 									<a href="{{ route('register') }}">Logout</a>
 								@else
-									<a href="{{ route('login') }}">Sign</a> In or <a href="{{ route('register') }}">Create Account</a>
+									<a href="{{ route('login') }}">SignIn</a> or <a href="{{ route('register') }}">SignUp</a>
 								@endauth
 							</div>
 							<div class="up-item">
@@ -103,6 +103,12 @@
 	<script>
 	    @if(Session::has('success'))
 	    toastr.success("{{ Session::get('success')}}")
+	    @endif
+	</script>
+
+	<script>
+	    @if(Session::has('errors'))
+	    toastr.error("{{ Session::get('errors')}}")
 	    @endif
 	</script>
 

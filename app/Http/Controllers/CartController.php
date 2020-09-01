@@ -20,7 +20,15 @@ class CartController extends Controller
 
         $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
 
-        return view('cart', compact('mightAlsoLike', 'systemInfo'));
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $newSubtotal = (Cart::subtotal() - $discount);
+        $newTotal = $newSubtotal;
+
+        return view('cart', compact('mightAlsoLike', 'systemInfo'))->with([
+            'discount' => $discount,
+            'newSubtotal' => $newSubtotal,
+            'newTotal' => $newTotal,
+        ]);
     }
 
     /**

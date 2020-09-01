@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\SystemSetting;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CheckoutController extends Controller
+class CouponController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +14,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $systemInfo = SystemSetting::first();
-
-         $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTotal = $newSubtotal;
-
-        return view('checkout', compact('systemInfo'))->with([
-            'discount' => $discount,
-            'newSubtotal' => $newSubtotal,
-            'newTotal' => $newTotal,
-        ]);
+        //
     }
 
     /**

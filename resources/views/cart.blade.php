@@ -61,25 +61,50 @@
 										@csrf
 										@method('DELETE')
 										<button style="border: none;">
-											<i class="cancel fas fa-times" title="remove" style="cursor: pointer;"></i>
+											<i class="cancel fas fa-times" title="Remove Product" style="cursor: pointer; color: #f51167;"></i>
 										</button>
 									</form>
 								</td>
 							</tr>
 							@endforeach
+							@if(session()->get('coupon') != null)
+							<tr>
+								<td>Discount ({{session()->get('coupon')['name']}})</td>
+								<td>
+									<form action="{{ route('coupons.destroy') }}" method="post">
+										@csrf
+										@method('DELETE')
+										<button style="border: none;">
+											<i class="cancel fas fa-times" title="Remove coupon" style="cursor: pointer; color: #f51167;"></i>
+										</button>
+									</form>
+								</td>
+								<td></td>
+								<td>- ${{session()->get('coupon')['discount']}}</td>
+							</tr>
+							<tr>
+								<td><strong>New Subtotal</strong></td>
+								<td></td>
+								<td></td>
+								<td><strong>$ {{$newSubtotal}}</strong></td>
+							</tr>
+							@endif
 						</tbody>
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>Total <span>{{ Cart::total() }}</span></h6>
+						<h6>Total <span>{{ $newTotal }}</span></h6>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-4 card-right">
-				<form class="promo-code-form">
-					<input type="text" placeholder="Enter promo code">
-					<button>Submit</button>
+				@if(! session()->has('coupon'))
+				<form action="{{ route('coupons.store') }}" class="promo-code-form" method="post">
+					@csrf
+					<input type="text" name="coupon_code" id="coupon_code" placeholder="Enter promo code">
+					<button type="submit">Submit</button>
 				</form>
+				@endif
 				<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
 			</div>
