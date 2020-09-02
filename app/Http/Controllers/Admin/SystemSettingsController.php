@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\SystemSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class SystemSettingsController extends Controller
@@ -79,22 +80,38 @@ class SystemSettingsController extends Controller
         ]);
 
         if($request->hasFile('logo')) {
+
             Storage::disk('public')->delete($setting->logo);
 
-            $logo = $request->logo->store($logoPath = 'uploads/logos', 'public');
+            $logoPath = $request->logo->store('uploads/logos', 'public');
 
-            $setting->save(['logo' => $logoPath]);
+            $logo = Image::make(public_path("storage/{$logoPath}"))->fit(200, 200);
+
+            $logo->save();
         }
 
         if($request->hasFile('favion')) {
-            Storage::disk('public')->delete($setting->favicon);
+             Storage::disk('public')->delete($setting->favicon);
 
-            $favicon = $request->favicon->store($favPath = 'uploads/logos', 'public');
+            $faviconPath = $request->favicon->store('uploads/logos', 'public');
 
-            $setting->save(['favicon' => $favPath]);
+            $favicon = Image::make(public_path("storage/{$faviconPath}"))->fit(200, 200);
+
+            $favicon->save();
         }
 
-        $setting->update($data);
+        if(request('logo')) {
+            $setting->update(array_merge(
+                $data,
+                ['logo' => $logoPath],
+                ['favicon' => isset($faviconPath) ? $faviconPath : ''],
+            ));
+        } else {
+            $setting->update($data);
+        }
+        
+
+        // $setting->update($data);
 
         session()->flash('success', 'Company info updated successfully');
 

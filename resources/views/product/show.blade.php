@@ -155,9 +155,9 @@
 						<div class="pi-links">
 							<form action="{{ route('cart.store') }}" method="post">
                                 @csrf
-                                <input type="hidden" name="id" value="{{$p->id}}">
-                                <input type="hidden" name="name" value="{{$p->name}}">
-                                <input type="hidden" name="price" value="{{$p->price}}">
+                                <input type="hidden" name="id" value="{{$related->id}}">
+                                <input type="hidden" name="name" value="{{$related->name}}">
+                                <input type="hidden" name="price" value="{{$related->price}}">
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
                             </form>
