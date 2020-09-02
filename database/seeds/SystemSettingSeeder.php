@@ -13,8 +13,8 @@ class SystemSettingSeeder extends Seeder
     public function run()
     {
         SystemSetting::create([
-        	'name' => 'Vannesa Cakes',
-        	'description' => 'This is the best baking online shop in Zimbabwe',
+        	'name' => 'ZimCart',
+        	'description' => 'The best open source platform in Zimbabwe',
         	'address' => '50 Rossal Road, Greendale Harare',
         	'tel' => '+263783044087',
         	'email' => 'loydtafireyi@gmail.com',
