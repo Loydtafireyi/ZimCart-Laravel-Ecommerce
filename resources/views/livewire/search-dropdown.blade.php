@@ -1,8 +1,8 @@
 <div class="col-xl-6 col-lg-5">
-	<form class="header-search-form">
+	<div class="header-search-form">
 		<input wire:model.debounce.500ms="search" type="text" placeholder="Search on {{ $systemName->name }} ....">
-		<button><i class="flaticon-search"></i></button>
-	</form>
+		<span><i class="flaticon-search"></i></span>
+	</div>
 
 	@if(strlen($search) > 2)
 		<div class="position-absolute bg-light header-search-result"  style="z-index: 1000;">

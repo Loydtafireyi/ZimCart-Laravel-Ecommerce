@@ -22,7 +22,7 @@
 			</div>
 			<!-- Company logo -->
 			@if(isset($setting))
-				<img src="/storage/{{$setting->logo}}" style="width: 50%">
+				<img src="/storage/{{$setting->logo}}" style="width: 162px; height: 55px;">
 			@endif
 			<div class="form-group">
 				<label for="logo">Company Logo</label>

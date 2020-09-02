@@ -371,7 +371,7 @@ ol {
 	background: #ccc;
 }
 
-.header-search-form button {
+.header-search-form span {
 	position: absolute;
 	height: 100%;
 	right: 18px;

@@ -29,7 +29,7 @@
 				<tr>
 					<td> {{ $setting->name }} </td>
 					<td> 
-						<img src="/storage/{{ $setting->logo }}" style="width: 30px; border-radius: 100%;">
+						<img src="/storage/{{ $setting->logo }}" style="width: 81px; height: 22px;">
 					</td>
 					<td> 
 						<img src="/storage/{{ $setting->favicon }}" style="width: 30px; border-radius: 100%;">
