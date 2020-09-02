@@ -890,9 +890,15 @@ ol {
 	color: #000;
 }
 
+.product-item .pi-links form button i {
+	display: inline-block;
+	color: #000;
+}
+
 .product-item .pi-links a.add-card {
 	padding-top: 8px;
 }
+
 
 .product-item .pi-links a.add-card span {
 	font-size: 12px;
@@ -911,6 +917,45 @@ ol {
 }
 
 .product-item .pi-links a.add-card:hover span {
+	opacity: 1;
+	top: 10px;
+	-webkit-transition: all 0.4s ease 0.3s;
+	-o-transition: all 0.4s ease 0.3s;
+	transition: all 0.4s ease 0.3s;
+}
+
+.product-item .pi-links form button.add-card {
+	padding: 4px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.product-item .pi-links form button.wishlist-btn{
+	padding: 4px;
+	border: none;
+	outline: none;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.product-item .pi-links form button.add-card span {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	right: 19px;
+	top: 20px;
+	opacity: 0;
+}
+
+.product-item .pi-links form button.add-card:hover {
+	width: 148px;
+	padding: 8px 18px 0;
+	text-align: left;
+}
+
+.product-item .pi-links form button.add-card:hover span {
 	opacity: 1;
 	top: 10px;
 	-webkit-transition: all 0.4s ease 0.3s;
