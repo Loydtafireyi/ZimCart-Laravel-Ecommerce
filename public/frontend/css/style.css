@@ -2292,7 +2292,7 @@ ol {
   position: absolute;
   top: 10px;
   padding-left: 15px;
-  color: #007bff;
+  color: #f51167;
 }
 
 .form-input input::placeholder{
@@ -2309,8 +2309,9 @@ ol {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
-  background-color: #007bff !important;
+  background-color: #f51167 !important;
   border: 0px;
+  outline: none;
 }
 
 .form-box button[type="submit"]{
@@ -2318,7 +2319,7 @@ ol {
   border: none;
   cursor: pointer;
   border-radius: 50px;
-  background: #007bff;
+  background: #f51167;
   color: #fff;
   font-size: 90%;
   font-weight: bold;
@@ -2328,7 +2329,7 @@ ol {
 }
 
 .form-box button[type="submit"]:hover{
-  background: #0069d9;
+  background: #f51167;
 }
 
 .forget-link, .register-link{

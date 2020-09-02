@@ -56,9 +56,14 @@
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
 								@auth
-									{{-- <a href="{{ route('register') }}">My Orders</a>
-									<a href="{{ route('register') }}">My Profile</a> --}}
-									<a href="{{ route('register') }}">Logout</a>
+									<a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 								@else
 									<a href="{{ route('login') }}">SignIn</a> or <a href="{{ route('register') }}">SignUp</a>
 								@endauth

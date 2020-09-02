@@ -17,7 +17,7 @@
             @csrf
             <div class="form-input">
                 <span><i class="fa fa-envelope"></i></span>
-                <input type="email" name="email" placeholder="Email Address" tabindex="10" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input type="email" name="email" placeholder="Email Address" tabindex="10" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
 
                 @error('email')
                     <span class="invalid-feedback mt-3" role="alert">
