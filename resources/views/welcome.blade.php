@@ -22,8 +22,8 @@
                         <div class="col-xl-6 col-lg-7 text-white">
                             <span>{{ $slide->heading }}</span>
                             <p>{{ $slide->description }}</p>
-                            <a href="/{{ $slide->link }}" class="site-btn sb-line">DISCOVER</a>
-                            <a href="#" class="site-btn sb-white">ADD TO CART</a>
+                            <a href="/{{ $slide->link }}" class="site-btn sb-line">BUY NOW</a>
+                            <a href="{{ route('contact-us') }}" class="site-btn sb-white">INQUIRE NOW!</a>
                         </div>
                     </div>
                     <div class="offer-card text-white">
