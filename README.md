@@ -21,6 +21,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 # Installation
 
 - [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``](https://seamaf.com).
+- [Then navigate to App\Providers\AppServiceProvder and comment out all the View::share in the boot method].
 - run ``composer update `` .
 - run `` npm install ``.
 - run ``npm run dev``.
@@ -28,6 +29,8 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - set up your database in the .env
 - run `` php artisan migrate ``.
 - run `` php artisan db:seed ``.
+- run `` php artisan storage:link ``.
+- [Then navigate back App\Providers\AppServiceProvder and uncomment out all the View::share in the boot method].
 - run `` php artisan serve ``.
 
 #Admin Credentials
