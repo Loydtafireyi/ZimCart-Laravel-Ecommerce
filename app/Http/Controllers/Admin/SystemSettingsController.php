@@ -85,7 +85,7 @@ class SystemSettingsController extends Controller
 
             $logoPath = $request->logo->store('uploads/logos', 'public');
 
-            $logo = Image::make(public_path("storage/{$logoPath}"))->fit(200, 200);
+            $logo = Image::make(public_path("storage/{$logoPath}"))->fit(162, 55);
 
             $logo->save();
         }
@@ -95,7 +95,7 @@ class SystemSettingsController extends Controller
 
             $faviconPath = $request->favicon->store('uploads/logos', 'public');
 
-            $favicon = Image::make(public_path("storage/{$faviconPath}"))->fit(200, 200);
+            $favicon = Image::make(public_path("storage/{$faviconPath}"))->fit(162, 55);
 
             $favicon->save();
         }

@@ -38,7 +38,7 @@
 						<div class="lp-item">
 							<div class="lp-thumb set-bg" data-setbg="{{ asset('frontend/img/blog-thumbs/1.jpg') }}"></div>
 							<div class="lp-content">
-								<h6>Cakes Recipes</h6>
+								<h6>How to order?</h6>
 								<span>July 11, 2020</span>
 								<a href="#" class="readmore">Read More</a>
 							</div>
@@ -46,7 +46,7 @@
 						<div class="lp-item">
 							<div class="lp-thumb set-bg" data-setbg="{{ asset('frontend/img/blog-thumbs/2.jpg') }}"></div>
 							<div class="lp-content">
-								<h6>Baking a Black Forest Cake with Vanessa</h6>
+								<h6>Returns</h6>
 								<span>July 11, 2020</span>
 								<a href="#" class="readmore">Read More</a>
 							</div>

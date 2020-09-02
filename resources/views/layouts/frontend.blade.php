@@ -46,7 +46,7 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="/" class="site-logo">
-							<img src="{{ asset('frontend/img/logoo.png') }}" alt="">
+							<img src="/storage/{{ $shareSettings->logo }}" alt="">
 						</a>
 					</div>
 					<!-- search area -->
