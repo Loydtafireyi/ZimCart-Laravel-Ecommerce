@@ -20,6 +20,7 @@ class ProductController extends Controller
     {
         return $this->middleware('verifyCategoryCount')->only('create', 'update');
     }
+
     /**
      * Display a listing of the resource.
      *
