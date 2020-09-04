@@ -38,10 +38,10 @@
 						<a href="{{ route('coupon.edit', $coupon->id) }}" class="btn btn-sm btn-primary">Edit</a>
 					</td>
 					<td>
-						<form action="{{ route('coupon.destroy', $coupon->id) }}">
+						<form action="{{ route('coupon.destroy', $coupon->id) }}" method="post">
 							@csrf
 							@method('DELETE')
-							<a href="" class="btn btn-sm btn-danger">Delete</a>
+							<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 						</form>
 					</td>
 				</tr>

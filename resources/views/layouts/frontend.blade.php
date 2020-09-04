@@ -33,10 +33,10 @@
 
 </head>
 <body>
-	<!-- Page Preloder -->
+	{{-- <!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
-	</div>
+	</div> --}}
 
 	<!-- Header section -->
 	<header class="header-section">
@@ -54,18 +54,12 @@
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
 							<div class="up-item">
-								<i class="flaticon-profile"></i>
+								<i class="flaticon-heart"></i>
+								<a href="#">Wishlist</a>
 								@auth
-									<a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                    
 								@else
-									<a href="{{ route('login') }}">SignIn</a> or <a href="{{ route('register') }}">SignUp</a>
+									
 								@endauth
 							</div>
 							<div class="up-item">

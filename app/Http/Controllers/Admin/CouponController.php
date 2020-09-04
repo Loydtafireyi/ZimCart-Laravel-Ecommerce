@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('password.confirm');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +31,7 @@ class CouponController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.coupons.create');
     }
 
     /**
@@ -38,7 +42,16 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Coupon::create([
+            'code' => $request->code,
+            'type' => $request->type,
+            'value' => $request->value,
+            'percent_off' => $request->percent_off,
+        ]);
+
+        session()->flash('success', 'Coupon added succesfuly');
+
+        return redirect(route('coupon.index'));
     }
 
     /**
@@ -58,9 +71,9 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Coupon $coupon)
     {
-        //
+        return view('admin.coupons.create', compact('coupon'));
     }
 
     /**
@@ -70,9 +83,15 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Coupon $coupon)
     {
-        //
+        $data = $request->only(['code', 'value', 'percent_off', 'type']);
+
+        $coupon->update($data);
+
+        session()->flash('success', 'Coupon updated succesfuly');
+
+        return redirect(route('coupon.index'));
     }
 
     /**
@@ -81,8 +100,12 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Coupon $coupon)
     {
-        //
+        $coupon->delete();
+
+        session()->flash('success', 'Coupon deleted succesfuly');
+
+        return redirect(route('coupon.index'));
     }
 }

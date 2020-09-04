@@ -15,6 +15,27 @@
 			</a></li>
 			<li><a href="#">Blog</a></li>
 			<li><a href="{{ route('contact-us') }}">Contact</a></li>
+			@auth
+			<li><i class="flaticon-profile mr-2  text-light"></i><a href="#">{{ auth()->user()->name }}</a>
+				<ul class="sub-menu">
+					<li><a href="#">My Orders</a></li>
+					<li><a href="#">Settings</a></li>
+					<li>
+						<a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+					</li>
+				</ul>
+			</li>
+			@else
+			<li><a href="{{ route('login') }}">SignIn</a></li>
+			<li> <a href="{{ route('register') }}">SignUp</a></li>
+			@endauth
 		</ul>
 	</div>
 </nav>

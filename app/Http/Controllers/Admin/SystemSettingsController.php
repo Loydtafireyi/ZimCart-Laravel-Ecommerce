@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class SystemSettingsController extends Controller
 {
+     public function __construct()
+    {
+        return $this->middleware('password.confirm');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -104,7 +108,7 @@ class SystemSettingsController extends Controller
             $setting->update(array_merge(
                 $data,
                 ['logo' => $logoPath],
-                ['favicon' => isset($faviconPath) ? $faviconPath : ''],
+                ['favicon' => isset($faviconPath) ? $faviconPath : '']
             ));
         } else {
             $setting->update($data);
