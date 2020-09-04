@@ -30,6 +30,11 @@ Route::get('empty', function () {
 	Cart::destroy();
 });
 
+Route::middleware('auth')->group(function () {
+	Route::get('my-profile', 'ProfileController@edit')->name('my-profile.edit');
+	Route::post('my-profile', 'ProfileController@update')->name('my-profile.store');
+});
+
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
