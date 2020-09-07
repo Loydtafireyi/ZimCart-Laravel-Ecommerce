@@ -12,7 +12,25 @@
             </div>
         @endif
 
-        You are logged in!
+        <table class="table table-bordered table-hover table-dark table-responsive">
+        	<thead>
+        		<th>Users</th>
+        		<th>Order</th>
+        		<th>Products</th>
+        		<th>Messages</th>
+        		<th>Sales</th>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>{{ $users }}</td>
+        			<td></td>
+        			<td>{{ $products }}</td>
+        			<td>{{ $messages }}</td>
+        			<td></td>
+        		</tr>
+        	</tbody>
+        </table>
+
     </div>
 </div>
 
