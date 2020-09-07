@@ -32,7 +32,7 @@
 						<img src="/storage/{{ $setting->logo }}" style="width: 81px; height: 22px;">
 					</td>
 					<td> 
-						<img src="/storage/{{ $setting->favicon }}" style="width: 30px; border-radius: 100%;">
+						<img src="/storage/{{ $setting->favicon }}" style="width: 40px; height: 40px; border-radius: 100%;">
 					</td>
 					<td> {{ $setting->tel }} </td>
 					<td> {{ $setting->email }} </td>

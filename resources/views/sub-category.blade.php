@@ -98,10 +98,8 @@
 							</div>
 						</div>
 						@endforeach
-						<div class="text-center w-100 pt-3">
-							<button class="site-btn sb-line sb-dark">LOAD MORE</button>
-						</div>
 					</div>
+					{{ $products->links() }}
 				</div>
 			</div>
 		</div>

@@ -68,9 +68,26 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'.auth()->id(),
+            'password' => 'sometimes|nullable|string|min:8|confirmed',
+        ]);
+
+        $user = auth()->user();
+
+        $input = $request->except(['password', 'password_confirmation']);
+
+        if (! $request->filled('password')) {
+            $user->fill($input)->save();
+            return redirect()->back()->with('success', "Profile updated successfully.");
+        }
+
+        $user->password = bcrypt($request->password);
+        $user->fill($input)->save();
+        return redirect()->back()->with('success', "Profile updated successfully.");
     }
 
     /**

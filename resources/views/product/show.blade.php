@@ -120,7 +120,7 @@
 								<div class="panel-body">
 									<h4>7 Days Returns</h4>
 									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<p>{{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec. --}}</p>
 								</div>
 							</div>
 						</div>

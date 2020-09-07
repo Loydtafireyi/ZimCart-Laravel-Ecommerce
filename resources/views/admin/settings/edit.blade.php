@@ -36,7 +36,7 @@
 			</div>
 			<!-- Company favicon -->
 			@if(isset($setting))
-				<img src="/storage/{{$setting->favicon}}" style="width: 50%">
+				<img src="/storage/{{$setting->favicon}}" style="width: 128px; height: 128px;">
 			@endif
 			<div class="form-group">
 				<label for="favicon">Company Favicon</label>

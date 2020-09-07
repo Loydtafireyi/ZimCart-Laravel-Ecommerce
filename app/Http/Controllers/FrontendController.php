@@ -81,7 +81,7 @@ class FrontendController extends Controller
     {
         $category = Category::where('slug', $slug)->firstOrFail();
 
-        $products = $category->products->all();
+        $products = $category->products()->paginate(12);
 
         $categories = Category::all();
 
@@ -92,7 +92,7 @@ class FrontendController extends Controller
     {
         $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
 
-        $products = $subCategory->products->all();
+        $products = $subCategory->products()->paginate(12);
 
         $categories = Category::all();
 

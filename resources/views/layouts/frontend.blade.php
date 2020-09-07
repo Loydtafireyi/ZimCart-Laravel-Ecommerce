@@ -3,7 +3,7 @@
 <head>
 	@yield('seo')
 	<!-- Favicon -->
-	{{-- <link href="{{ asset('frontend/img/Favicon.png') }}" rel="shortcut icon"/> --}}
+	<link href="/storage/{{$shareSettings->favicon}}" rel="shortcut icon"/>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">

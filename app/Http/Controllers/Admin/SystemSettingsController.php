@@ -94,12 +94,12 @@ class SystemSettingsController extends Controller
             $logo->save();
         }
 
-        if($request->hasFile('favion')) {
+        if($request->hasFile('favicon')) {
              Storage::disk('public')->delete($setting->favicon);
 
             $faviconPath = $request->favicon->store('uploads/logos', 'public');
 
-            $favicon = Image::make(public_path("storage/{$faviconPath}"))->fit(162, 55);
+            $favicon = Image::make(public_path("storage/{$faviconPath}"))->fit(256, 256);
 
             $favicon->save();
         }
@@ -109,6 +109,11 @@ class SystemSettingsController extends Controller
                 $data,
                 ['logo' => $logoPath],
                 ['favicon' => isset($faviconPath) ? $faviconPath : '']
+            ));
+        } elseif (request('favicon')) {
+            $setting->update(array_merge(
+                $data,
+                ['favicon' => $faviconPath],
             ));
         } else {
             $setting->update($data);
