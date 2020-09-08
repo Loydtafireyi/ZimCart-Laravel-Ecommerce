@@ -17,7 +17,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 order-2 order-lg-1">
-				<form class="checkout-form">
+				<form class="checkout-form" action="{{ route('checkout.store') }}" method="post">
+					@csrf
 					<div class="cf-title">Billing Address</div>
 					<div class="row">
 						<div class="col-md-7">
@@ -38,18 +39,26 @@
 					</div>
 					<div class="row address-inputs">
 						<div class="col-md-12">
-							<input type="text" placeholder="Address">
-							<input type="text" placeholder="Address line 2">
-							<input type="text" placeholder="Country">
+							<input type="text" name="billing_fullname" placeholder="Full Name">
+							<input type="text" name="billing_address" placeholder="Address">
 						</div>
 						<div class="col-md-6">
-							<input type="text" placeholder="Zip code">
+							<input type="text" name="billing_city" placeholder="City">
 						</div>
 						<div class="col-md-6">
-							<input type="text" placeholder="Phone no.">
+							<input type="text" name="billing_province" placeholder="Province or State">
+						</div>
+						<div class="col-md-6">
+							<input type="text" name="billing_zipcode" placeholder="Zip code">
+						</div>
+						<div class="col-md-6">
+							<input type="text" name="billing_phone" placeholder="Phone no.">
+						</div>
+						<div class="col-md-12">
+							<input type="text" name="notes" placeholder="Notes. Eg on delivery hoot or beep, am available Monday to Frinday 7am to 7pm">
 						</div>
 					</div>
-					<div class="cf-title">Delievery Info</div>
+					{{-- <div class="cf-title">Delievery Info</div>
 					<div class="row shipping-btns">
 						<div class="col-6">
 							<h4>Standard</h4>
@@ -72,9 +81,9 @@
 									<label for="ship-2">$3.45</label>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="cf-title">Payment</div>
+						</div> --}}
+					{{-- </div> --}}
+					{{-- <div class="cf-title">Payment</div>
 					<ul class="payment-list">
 						<li>Paypal
 							<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
@@ -85,16 +94,16 @@
 							  <div id="card-element"></div>
 							</label>
 
-							<!--
+							
 							  Or create a <label> with a 'for' attribute,
 							  referencing the ID of your container.
-							-->
+							
 							<label for="card-element">Card</label>
 							<div id="card-element"></div>
 						</li>
 						<li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a></li>
 						<li>Pay when you get the package</li>
-					</ul>
+					</ul> --}}
 					<button class="site-btn submit-order-btn">Place Order</button>
 				</form>
 			</div>

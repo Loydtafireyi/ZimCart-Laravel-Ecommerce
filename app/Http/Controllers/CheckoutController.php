@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\OrderProduct;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -46,7 +48,41 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'billing_fullname' => 'required',
+            'billing_address' => 'required',
+            'billing_city' => 'required',
+            'billing_province' => 'required',
+            'billing_zipcode' => 'required',
+            'billing_phone' => 'required',
+            'notes' => 'max:255',
+        ]);
+
+        $order = Order::create([
+            'order_number' => uniqid('OrderNumber-'),
+            'user_id' => auth()->user()->id ?? null,
+            'billing_discount' => $this->getNumbers()->get('discount'),
+            'billing_discount_code' => $this->getNumbers()->get('code'),
+            'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
+            'billing_tax' => $this->getNumbers()->get('newTax'),
+            'billing_total' => $this->getNumbers()->get('newTotal'),
+            'billing_fullname' => $request->billing_fullname,
+            'billing_address' => $request->billing_address,
+            'billing_city' => $request->billing_city,
+            'billing_province' => $request->billing_province,
+            'billing_zipcode' => $request->billing_zipcode,
+            'billing_phone' => $request->billing_phone,
+            'notes' => $request->billing_notes,
+            'error' => null, 
+        ]);
+
+        foreach (Cart::content() as $item) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item->model->id,
+                'quantity' => $item->qty,
+            ]);        
+        }
     }
 
     /**
@@ -92,5 +128,24 @@ class CheckoutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getNumbers()
+    {
+        $tax = config('cart.tax') / 100;
+        $discount = session()->get('coupon')['discount'] ?? 0;
+        $code = session()->get('coupon')['name'] ?? null;
+        $newSubtotal = (Cart::subtotal() - $discount);
+        $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal;
+
+        return collect([
+            'tax' => $tax,
+            'code' => $code,
+            'discount' => $discount,
+            'newSubtotal' => $newSubtotal,
+            'newTax' => $newTax,
+            'newTotal' => $newTotal,
+        ]);
     }
 }

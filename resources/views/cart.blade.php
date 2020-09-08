@@ -129,8 +129,17 @@
 							<img src="/storage/{{ $like->photos->first()->images }}" alt="">
 						</a>
 						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							<form action="{{ route('cart.store') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$like->id}}">
+                                <input type="hidden" name="name" value="{{$like->name}}">
+                                <input type="hidden" name="price" value="{{$like->price}}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
+                            </form>
+                            <form>
+                                <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
+                            </form>
 						</div>
 					</div>
 					<div class="pi-text">

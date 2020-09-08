@@ -15,7 +15,7 @@
         <table class="table table-bordered table-hover table-dark table-responsive">
         	<thead>
         		<th>Users</th>
-        		<th>Order</th>
+        		<th>Orders</th>
         		<th>Products</th>
         		<th>Messages</th>
         		<th>Sales</th>
@@ -23,7 +23,7 @@
         	<tbody>
         		<tr>
         			<td>{{ $users }}</td>
-        			<td></td>
+        			<td>{{ $orders }}</td>
         			<td>{{ $products }}</td>
         			<td>{{ $messages }}</td>
         			<td></td>

@@ -25,7 +25,6 @@ Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::resource('cart', 'CartController');
 Route::post('coupons', 'CouponsController@store')->name('coupons.store');
 Route::delete('coupons', 'CouponsController@destroy')->name('coupons.destroy');
-Route::resource('checkout', 'CheckoutController');
 Route::get('empty', function () {
 	Cart::destroy();
 });
@@ -33,6 +32,8 @@ Route::get('empty', function () {
 Route::middleware('auth')->group(function () {
 	Route::get('my-profile', 'ProfileController@edit')->name('my-profile.edit');
 	Route::post('my-profile', 'ProfileController@update')->name('my-profile.store');
+	Route::resource('orders', 'OrderController');
+	Route::resource('checkout', 'CheckoutController');
 });
 
 Auth::routes();
@@ -51,4 +52,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
+	Route::get('/admin/orders', 'Admin\OrderController@index')->name('orders.index');
 });

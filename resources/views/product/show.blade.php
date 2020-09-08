@@ -167,8 +167,8 @@
 						</div>
 					</div>
 					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
+						<h6>${{ $related->price }}</h6>
+						<p>{{ $related->name }} </p>
 					</div>
 				</div>
 				@endforeach

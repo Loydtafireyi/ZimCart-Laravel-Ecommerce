@@ -1,5 +1,11 @@
 @extends('layouts.frontend')
 
+<title>Register</title>
+<meta charset="UTF-8">
+<meta name="description" content="Login">
+<meta name="keywords" content="login, sign">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 @section('content')
 
 <div class="card col-lg col-xl-9 flex-row mx-auto px-0">

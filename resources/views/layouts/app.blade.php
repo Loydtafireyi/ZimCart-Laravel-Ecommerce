@@ -92,6 +92,10 @@
                         <ul class="list-group">
 
                             <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('orders.index') }}" class="text-decoration-none text-light">Orders</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('categories.index') }}" class="text-decoration-none text-light">Category</a>
                             </li>
 
