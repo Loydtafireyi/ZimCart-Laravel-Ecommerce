@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -13,7 +14,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $orders = auth()->user()->orders;
+
+        $recentlyViewed = Product::inRandomOrder()->take(4)->get();
+
+        return view('profile.index', compact('orders', 'recentlyViewed'));
     }
 
     /**

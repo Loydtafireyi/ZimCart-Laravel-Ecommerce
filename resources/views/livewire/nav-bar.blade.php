@@ -19,7 +19,7 @@
 			<li><i class="flaticon-profile mr-2  text-light"></i><a href="#">{{ auth()->user()->name }}</a>
 				<ul class="sub-menu">
 					<li><a href="{{ route('my-profile.edit') }}">Settings</a></li>
-					<li><a href="#">My Orders</a></li>
+					<li><a href="{{ route('my-orders.index') }}">My Orders</a></li>
 					@if(auth()->user()->isAdmin())
 					<li><a href="{{ route('home') }}" target="_blank">Admin Dashboard</a></li>
 					@endif

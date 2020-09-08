@@ -86,6 +86,8 @@ class CheckoutController extends Controller
         }
 
         session()->flash('success', "Thank you $request->billing_fullname, your order has been placed successfully!");
+
+        return redirect(route('my-orders.index'));
     }
 
     /**

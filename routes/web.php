@@ -30,6 +30,7 @@ Route::get('empty', function () {
 });
 
 Route::middleware('auth')->group(function () {
+	Route::get('my-orders', 'ProfileController@index')->name('my-orders.index');
 	Route::get('my-profile', 'ProfileController@edit')->name('my-profile.edit');
 	Route::post('my-profile', 'ProfileController@update')->name('my-profile.store');
 	Route::resource('orders', 'OrderController');
