@@ -38,8 +38,13 @@
 						</div>
 					</div>
 					<div class="row address-inputs">
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<input type="text" name="billing_fullname" placeholder="Full Name">
+						</div>
+						<div class="col-md-6">
+							<input type="text" name="billing_email" placeholder="Email">
+						</div>
+						<div class="col-md-12">
 							<input type="text" name="billing_address" placeholder="Address">
 						</div>
 						<div class="col-md-6">

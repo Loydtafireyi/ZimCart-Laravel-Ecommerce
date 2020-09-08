@@ -49,7 +49,11 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::where('id', $id)->firstOrFail();
+
+        $products = $order->products()->get();
+
+        return view('admin.orders.show', compact('order', 'products'));
     }
 
     /**

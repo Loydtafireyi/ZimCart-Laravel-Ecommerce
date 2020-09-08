@@ -41,7 +41,7 @@
         			<td>{{ $order->payment_method }}</td>
         			<td>{{ $order->status }}</td>
         			<td>
-        				<a href="" class="btn btn-success btn-sm">View Order</a>
+        				<a href="{{ route('orders.show', $order->id) }}" class="btn btn-success btn-sm">View Order</a>
         			</td>
         		</tr>
         		@endforeach

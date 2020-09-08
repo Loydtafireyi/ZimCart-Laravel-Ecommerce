@@ -53,4 +53,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
 	Route::get('/admin/orders', 'Admin\OrderController@index')->name('orders.index');
+	Route::get('/admin/orders/{id}', 'Admin\OrderController@show')->name('orders.show');
 });

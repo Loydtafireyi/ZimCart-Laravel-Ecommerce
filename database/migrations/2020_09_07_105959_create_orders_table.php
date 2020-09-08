@@ -32,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->string('billing_province');
             $table->string('billing_zipcode');
             $table->string('billing_phone');
+            $table->string('billing_email');
             $table->text('notes')->nullable();
             $table->string('error')->nullable();
 

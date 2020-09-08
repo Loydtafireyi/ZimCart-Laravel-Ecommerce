@@ -72,6 +72,7 @@ class CheckoutController extends Controller
             'billing_province' => $request->billing_province,
             'billing_zipcode' => $request->billing_zipcode,
             'billing_phone' => $request->billing_phone,
+            'billing_email' => $request->billing_email,
             'notes' => $request->billing_notes,
             'error' => null, 
         ]);
@@ -83,6 +84,8 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty,
             ]);        
         }
+
+        session()->flash('success', "Thank you $request->billing_fullname, your order has been placed successfully!");
     }
 
     /**
