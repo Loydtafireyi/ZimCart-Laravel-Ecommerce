@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('my-orders', 'ProfileController@index')->name('my-orders.index');
 	Route::get('my-profile', 'ProfileController@edit')->name('my-profile.edit');
 	Route::post('my-profile', 'ProfileController@update')->name('my-profile.store');
+	Route::get('my-orders/{id}', 'ProfileController@show')->name('my-profile.show');
 	Route::resource('orders', 'OrderController');
 	Route::resource('checkout', 'CheckoutController');
 });

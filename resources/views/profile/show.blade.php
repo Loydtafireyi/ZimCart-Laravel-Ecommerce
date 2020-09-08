@@ -20,33 +20,39 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="cart-table">
-						<h3>My Orders</h3>
+						<h3>Order</h3>
 						<div class="cart-table-warp">
 							<table>
 								<thead>
 									<tr>
-										<th class="size-col">Order Number</th>
-										<th class="size-col">Price</th>
+										<th class="size-th">Order ID</th>
+										<th class="total-th">Price</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach($orders as $order)
 									<tr>
 										<td class="size-col"><h4>{{ $order->order_number }}</h4></td>
 										<td class="total-col"><h4>${{ $order->billing_total }}</h4></td>
-										<td>
-											<a href="{{ route('my-profile.show', $order->id) }}" class="btn btn-success btn-sm">View Order</a>
-										</td>
 									</tr>
-									@endforeach
+									<tr>
+										@foreach($order->products as $product)
+											<td class="product-col">
+												<img src="/storage/{{$product->photos->first()->images}}" alt="">
+												<div class="pc-title">
+													<h4>{{ $product->name }}</h4>
+													<p>${{ $product->price }}</p>
+												</div>
+											</td>
+										@endforeach
+									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 card-right">
-					<a href="{{ route('my-profile.edit') }}" class="site-btn">Profile Settings</a>
-					<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
+					<a href="" class="site-btn">Profile Settings</a>
+					<a href="" class="site-btn sb-dark">Continue shopping</a>
 				</div>
 			</div>
 		</div>

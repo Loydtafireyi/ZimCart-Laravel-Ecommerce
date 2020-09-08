@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,17 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+
+        if (auth()->id() != $order->user_id) {
+            return back()->withErrors('You do not have acces to this!');
+        }
+
+        $products = $order->products;
+
+        $recentlyViewed = Product::inRandomOrder()->take(4)->get();
+
+        return view('profile.show', compact('order', 'recentlyViewed', 'products'));
     }
 
     /**
