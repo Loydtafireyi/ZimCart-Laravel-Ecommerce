@@ -6,7 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## This Project can only be used for educational purposes and product test at this stage.
+## This Project is ready for production. Its just plug & play.
 
 ### NB: You can use this eCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
 
@@ -42,7 +42,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
  [Working Demo](https://seamaf.com)
 
 
-## ZimCart Tracker Features
+## ZimCart eCommerce Features
 
 
 - **[Social Login]**
@@ -60,6 +60,12 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Contact messaging]**
 - **[Tax options]**
 - **[Admin Area]**
+- **[Coupons & Discounts]**
+- **[SEO Settings]**
+- **[Facebook Pixel Integration]**
+- **[Paypal Checkout]**
+- **[Payment on delivery]**
+
 
 ## Businesses using our solution
 
