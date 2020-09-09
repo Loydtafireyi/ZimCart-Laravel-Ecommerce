@@ -25,6 +25,18 @@
 
 	<livewire:styles />
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	@if($shareSettings->google_analytics != null)
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ $shareSettings->google_analytics }}"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '{{ $shareSettings->google_analytics }}');
+	</script>
+	@endif
+
 
 	<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

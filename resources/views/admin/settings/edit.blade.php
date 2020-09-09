@@ -76,7 +76,15 @@
 			</div>
 			<div class="form-group">
 				<label for="meta_keywords">System Meta Keywords</label>
-				<textarea name="meta_keywords" class="form-control" placeholder="Seperate keywords using comma...">{{  $setting->meta_keywords }}</textarea>
+				<input name="meta_keywords" class="form-control" placeholder="Seperate keywords using comma..." value="{{  $setting->meta_keywords }}">
+			</div>
+			<div class="form-group">
+				<label for="facebook_pixel">Facebook Pixel</label>
+				<input name="facebook_pixel" class="form-control" placeholder="Your Facebook Pixel ID eg AC-162735780-5" value="{{  $setting->facebook_pixel }}">
+			</div>
+			<div class="form-group">
+				<label for="google_analytics">Google Analytics</label>
+				<input name="google_analytics" class="form-control" placeholder="Your Google Analytics ID eg AC-162735780-5" value="{{  $setting->google_analytics }}">
 			</div>
 			<!-- system seo start -->
 

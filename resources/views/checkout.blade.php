@@ -39,10 +39,10 @@
 					</div>
 					<div class="row address-inputs">
 						<div class="col-md-6">
-							<input type="text" name="billing_fullname" placeholder="Full Name">
+							<input type="text" name="billing_fullname" placeholder="Full Name" value="{{ auth()->user()->name }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_email" placeholder="Email">
+							<input type="text" name="billing_email" placeholder="Email" value="{{ auth()->user()->email }}">
 						</div>
 						<div class="col-md-12">
 							<input type="text" name="billing_address" placeholder="Address">

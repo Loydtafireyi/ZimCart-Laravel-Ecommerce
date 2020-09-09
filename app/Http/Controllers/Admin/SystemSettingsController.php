@@ -80,7 +80,10 @@ class SystemSettingsController extends Controller
             'address',
             'description',
             'meta_keywords',
+            'facebook_pixel',
             'meta_description',
+            'google_analytics',
+
         ]);
 
         if($request->hasFile('logo')) {
