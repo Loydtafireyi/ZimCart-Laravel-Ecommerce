@@ -59,7 +59,7 @@ class CheckoutController extends Controller
         ]);
 
         $order = Order::create([
-            'order_number' => uniqid('OrderNumber-'),
+            'order_number' => uniqid(),
             'user_id' => auth()->user()->id ?? null,
             'billing_discount' => $this->getNumbers()->get('discount'),
             'billing_discount_code' => $this->getNumbers()->get('code'),

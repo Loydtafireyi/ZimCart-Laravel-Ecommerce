@@ -98,7 +98,11 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id, $request->quantity);
+
+        session()->flash('success', "Item updated successfully!");
+
+        return redirect(route('cart.index'));
     }
 
     /**

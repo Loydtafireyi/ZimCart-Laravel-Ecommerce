@@ -113,7 +113,7 @@ class SystemSettingsController extends Controller
         } elseif (request('favicon')) {
             $setting->update(array_merge(
                 $data,
-                ['favicon' => $faviconPath],
+                ['favicon' => $faviconPath]
             ));
         } else {
             $setting->update($data);

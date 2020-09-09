@@ -49,9 +49,16 @@
 								</td>
 								<td class="quy-col">
 									<div class="quantity">
-				                        <div class="pro-qty">
-											<input type="text" value="{{$item->qty}}">
-										</div>
+										<form action="{{ route('cart.update', $item->rowId) }}" method="post">
+											@csrf
+											@method('PATCH')
+											<div class="pro-qty">
+												<input type="text" name="quantity" value="{{$item->qty}}">
+											</div>
+											<button style="border: none;">
+												<i class="cancel fas fa-check ml-2" title="Update Product Qty" style="cursor: pointer; color: #00FF00;"></i>
+											</button>
+										</form>
                 					</div>
 								</td>
 								<td class="size-col"><h4>{{ $item->size }}</h4></td>
