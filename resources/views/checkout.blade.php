@@ -88,28 +88,19 @@
 							</div>
 						</div> --}}
 					{{-- </div> --}}
-					{{-- <div class="cf-title">Payment</div>
-					<ul class="payment-list">
-						<li>Paypal
-							<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
-							<div id="paypal-button"></div>
-
-							<!-- Mount the instance within a <label> -->
-							<label>Card
-							  <div id="card-element"></div>
-							</label>
-
-							
-							  Or create a <label> with a 'for' attribute,
-							  referencing the ID of your container.
-							
-							<label for="card-element">Card</label>
-							<div id="card-element"></div>
-						</li>
-						<li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a></li>
-						<li>Pay when you get the package</li>
-					</ul> --}}
-					<button class="site-btn submit-order-btn">Place Order</button>
+					<div class="cf-title">Payment</div>
+						<ul class="payment-list">
+							<li>
+								<input type="radio" name="payment_method" value="paypal">
+								Paypal<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
+							</li>
+							{{-- <li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a></li>
+							<li> --}}
+								<input type="radio" name="payment_method" value="cash_on_delivery">
+								Pay when you get the package
+							</li>
+						</ul>
+					<button type="submit" class="site-btn submit-order-btn">Place Order</button>
 				</form>
 			</div>
 			<div class="col-lg-4 order-1 order-lg-2">
@@ -136,38 +127,5 @@
 	</div>
 </section>
 <!-- checkout section end -->
-
-@endsection
-
-@section('scripts')
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-  paypal.Button.render({
-    env: 'sandbox', // Or 'production'
-    // Set up the payment:
-    // 1. Add a payment callback
-    payment: function(data, actions) {
-      // 2. Make a request to your server
-      return actions.request.post('/api/create-payment/')
-        .then(function(res) {
-          // 3. Return res.id from the response
-          return res.id;
-        });
-    },
-    // Execute the payment:
-    // 1. Add an onAuthorize callback
-    onAuthorize: function(data, actions) {
-      // 2. Make a request to your server
-      return actions.request.post('/api/execute-payment/', {
-        paymentID: data.paymentID,
-        payerID:   data.payerID
-      })
-        .then(function(res) {
-          // 3. Show the buyer a confirmation message.
-        });
-    }
-  }, '#paypal-button');
-</script>
-</script>
 
 @endsection

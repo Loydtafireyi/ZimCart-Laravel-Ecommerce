@@ -87,6 +87,12 @@
                 @foreach($products as $p)
                 <div class="product-item">
                     <div class="pi-pic">
+                        @if($p->on_sale == 1)
+                        <div class="tag-sale">ON SALE</div>
+                        @endif
+                        @if($p->is_new == 1)
+                        <div class="tag-new">New</div>
+                        @endif
                         <a href="{{ route('single-product', $p->slug) }}">
                             <img src="/storage/{{ $p->photos->first()->images }} " alt="">
                         </a>
@@ -133,6 +139,12 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
+                            @if($p->on_sale == 1)
+                            <div class="tag-sale">ON SALE</div>
+                            @endif
+                            @if($p->is_new == 1)
+                            <div class="tag-new">New</div>
+                            @endif
                             <a href="{{ route('single-product', $p->slug) }}">
                                 <img src="/storage/{{ $p->photos->first()->images }}" alt="">
                             </a>

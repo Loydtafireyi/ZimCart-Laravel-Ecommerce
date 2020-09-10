@@ -131,7 +131,12 @@
 			<div class="col-lg-3 col-sm-6">
 				<div class="product-item">
 					<div class="pi-pic">
-						<div class="tag-new">New</div>
+						@if($like->on_sale == 1)
+                        <div class="tag-sale">ON SALE</div>
+                        @endif
+                        @if($like->is_new == 1)
+                        <div class="tag-new">New</div>
+                        @endif
 						<a href="{{ route('single-product', $like->slug) }}">
 							<img src="/storage/{{ $like->photos->first()->images }}" alt="">
 						</a>

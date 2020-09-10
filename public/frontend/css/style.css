@@ -832,7 +832,21 @@ ol {
 	display: block;
 }
 
-.product-item .tag-new,
+.product-item .tag-new {
+	position: absolute;
+	left: 16px;
+	top: 14px;
+	font-size: 10px;
+	font-weight: 700;
+	color: #fff;
+	background: #50e550;
+	line-height: 1;
+	text-transform: uppercase;
+	padding: 5px 9px 1px;
+	border-radius: 15px;
+	width: 42px;
+}
+
 .product-item .tag-sale {
 	position: absolute;
 	right: 16px;

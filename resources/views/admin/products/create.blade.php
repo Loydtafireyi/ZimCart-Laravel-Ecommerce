@@ -153,6 +153,37 @@
 					@enderror
 				</div>
 			</div>
+			<!-- product status -->
+			<div class="row ml-2">
+				<!-- product on sale -->
+				<div class="form-group">
+					<label for="on_sale">On Sale</label>
+					<select name="on_sale" id="on_sale" class="form-control @error('on_sale') is-invalid @enderror">
+						<option value="0">NO</option>
+						<option value="1">YES</option>
+					</select>
+
+					@error('on_sale')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+				<!-- product on sale -->
+				<div class="form-group ml-5">
+					<label for="is_new">New Product</label>
+					<select name="is_new" id="is_new" class="form-control @error('is_new') is-invalid @enderror">
+						<option value="0">NO</option>
+						<option value="1">YES</option>
+					</select>
+
+					@error('is_new')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{$message}}</strong>
+						</span>
+					@enderror
+				</div>
+			</div>
 			<!-- product seo start -->
 			<div class="form-group">
 				<label for="meta_description">Product Meta Description</label>

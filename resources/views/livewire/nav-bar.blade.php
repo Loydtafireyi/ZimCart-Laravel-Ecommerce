@@ -10,8 +10,8 @@
 					@endforeach	
 				</ul>
 			</li>
-			<li><a href="#">On Sale
-				<span class="new">New</span>
+			<li><a href="{{ route('on-sale') }}">On Sale
+				<span class="new">Sale</span>
 			</a></li>
 			<li><a href="#">Blog</a></li>
 			<li><a href="{{ route('contact-us') }}">Contact</a></li>

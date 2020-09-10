@@ -31,7 +31,7 @@ class FrontendController extends Controller
 
         $singleImage = $product->photos()->get()->first();
 
-        $relatedProducts = $product->category->products->all();
+        $relatedProducts = $product->category->products()->inRandomOrder()->take(5)->get();
 
         $systemName = SystemSetting::first();
 
@@ -97,5 +97,14 @@ class FrontendController extends Controller
         $categories = Category::all();
 
         return view('sub-category', compact('products', 'categories', 'subCategory'));
+    }
+
+    public function onSale()
+    {
+        $products = Product::where('on_sale', 1)->paginate(12);
+
+        $categories = Category::all();
+
+        return view('sale', compact('categories', 'products'));
     }
 }

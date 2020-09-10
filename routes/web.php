@@ -15,6 +15,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 */
 
 Route::get('/', 'FrontendController@index')->name('welcome');
+Route::get('on-sale', 'FrontendController@onSale')->name('on-sale');
 Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
 Route::get('/categories', 'FrontendController@categories')->name('frontendCategories');
 Route::get('/sub-category/{slug}', 'FrontendController@subcategory')->name('subcategory');

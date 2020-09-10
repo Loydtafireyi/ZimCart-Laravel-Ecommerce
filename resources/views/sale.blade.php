@@ -2,10 +2,10 @@
 
 @section('seo')
 
-<title>{{ $subCategory->name }} | Product Category</title>
+<title>{{ $shareSettings->name }} | Products On Sale</title>
 <meta charset="UTF-8">
-<meta name="description" content="{{ $subCategory->name }}">
-<meta name="keywords" content="{{ $subCategory->name }}, {{ $subCategory->name }}">
+<meta name="description" content="{{ $shareSettings->name }}, products on sale. {{ $shareSettings->description }}">
+<meta name="keywords" content="{{ $shareSettings->name }}, {{ $shareSettings->description }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @endsection
@@ -15,7 +15,7 @@
 	<!-- Page info -->
 	<div class="page-top-info">
 		<div class="container">
-			<h4>{{ $subCategory->name }}</h4>
+			<h4>Products On Sale</h4>
 			<div class="site-pagination">
 				<a href="">Home</a> /
 				<a href="">Shop</a> /
@@ -73,9 +73,7 @@
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item">
 								<div class="pi-pic">
-									@if($p->on_sale == 1)
-			                        	<div class="tag-sale">ON SALE</div>
-			                        @endif
+									<div class="tag-sale">ON SALE</div>
 			                        @if($p->is_new == 1)
 			                        	<div class="tag-new">New</div>
 			                        @endif
