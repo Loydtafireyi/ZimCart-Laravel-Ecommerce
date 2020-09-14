@@ -129,6 +129,9 @@ class ProductController extends Controller
 
         $subCategories = SubCategory::all();
 
+        // $productSubCategory = $product->subcategory()->get();
+
+        dd($productSubCategory);
         $attributes = $product->attributes()->get();
 
         return view('admin.products.create', compact('product', 'categories', 'subCategories', 'attributes'));

@@ -80,6 +80,9 @@
 				<div class="form-group">
 					<label for="category_id">Product Category</label>
 					<select name="category_id" id="category_id" class="form-control @error('category') is-invalid @enderror">
+						@if(isset($product))
+							<option selected value="{{$product->category->id}}">{{ $product->category->name }}</option>
+						@endif
 						@foreach($categories as $cat)
 							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 						@endforeach
@@ -95,6 +98,9 @@
 				<div class="form-group">
 					<label for="sub_category_id">Sub-Category (Optional)</label>
 					<select name="sub_category_id" id="sub_category_id" class="form-control @error('sub_category_id') is-invalid @enderror">
+						{{-- @if($productSubCategory)
+							<option selected value="{{$productSubCategory->id}}">{{ $productSubCategory-> }}</option>
+						@endif --}}
 						@foreach($subCategories as $cat)
 							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 						@endforeach
