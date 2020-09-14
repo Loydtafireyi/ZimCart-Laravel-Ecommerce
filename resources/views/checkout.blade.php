@@ -90,12 +90,15 @@
 					{{-- </div> --}}
 					<div class="cf-title">Payment</div>
 						<ul class="payment-list">
+							@if(env('PAYPAL_SANDBOX_API_SECRET') != null)
 							<li>
 								<input type="radio" name="payment_method" value="paypal">
 								Paypal<a href="#"><img src="{{ asset('frontend/img/paypal.png') }}" alt=""></a>
 							</li>
-							{{-- <li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a></li>
-							<li> --}}
+							@endif
+							{{-- <li>Credit / Debit card<a href="#"><img src="{{ asset('frontend/img/mastercart.png') }}" alt=""></a>
+							</li> --}}
+							<li>
 								<input type="radio" name="payment_method" value="cash_on_delivery">
 								Pay when you get the package
 							</li>

@@ -15,7 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $orders = auth()->user()->orders;
+        $orders = auth()->user()->orders()->orderBy('created_at', 'DESC')->get();
 
         $recentlyViewed = Product::inRandomOrder()->take(4)->get();
 

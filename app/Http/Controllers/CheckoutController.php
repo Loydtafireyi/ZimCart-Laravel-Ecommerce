@@ -19,7 +19,7 @@ class CheckoutController extends Controller
     {
         $systemInfo = SystemSetting::first();
 
-         $discount = session()->get('coupon')['discount'] ?? 0;
+        $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount);
         $newTotal = $newSubtotal;
 
@@ -84,6 +84,16 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty,
             ]);        
         }
+
+        //paypal payment
+        if ($request->payment_method == 'paypal') {
+            # redirect to paypal
+            return redirect(route('paypal.checkout', $order->id));
+
+        }
+
+        //clear cart contents
+        Cart::destroy();
 
         session()->flash('success', "Thank you $request->billing_fullname, your order has been placed successfully!");
 

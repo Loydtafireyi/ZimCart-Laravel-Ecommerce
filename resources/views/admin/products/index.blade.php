@@ -38,6 +38,7 @@
 <div class="card">
 	<div class="card-header d-flex justify-content-between">
 		<span>{{ $products->count() }} Products</span>
+		<livewire:admin.search-bar>
 		<a href="{{ route('products.create') }}" class="btn btn-dark">Add Product</a>
 	</div>
 	<div class="card-body">

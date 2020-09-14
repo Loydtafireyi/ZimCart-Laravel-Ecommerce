@@ -14,6 +14,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 |
 */
 
+// Open Routes
 Route::get('/', 'FrontendController@index')->name('welcome');
 Route::get('on-sale', 'FrontendController@onSale')->name('on-sale');
 Route::get('/category/{slug}', 'FrontendController@category')->name('frontendCategory');
@@ -26,10 +27,14 @@ Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::resource('cart', 'CartController');
 Route::post('coupons', 'CouponsController@store')->name('coupons.store');
 Route::delete('coupons', 'CouponsController@destroy')->name('coupons.destroy');
-Route::get('empty', function () {
-	Cart::destroy();
-});
 
+//Paypal Routes
+Route::get('paypal-checkout', 'PaypalController@paypalCheckout')->name('paypal.checkout');
+Route::get('paypal-success/{order}', 'PaypalController@paypalSuccess')->name('paypal.success');
+Route::get('paypal-cancel', 'PaypalController@paypalCancel')->name('paypal.cancel');
+
+
+// Authenticated users routes
 Route::middleware('auth')->group(function () {
 	Route::get('my-orders', 'ProfileController@index')->name('my-orders.index');
 	Route::get('my-profile', 'ProfileController@edit')->name('my-profile.edit');
@@ -39,10 +44,12 @@ Route::middleware('auth')->group(function () {
 	Route::resource('checkout', 'CheckoutController');
 });
 
+// Login & Register Routes
 Auth::routes();
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
+// Adminstrator Routes
 Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('admin/users', 'Admin\UserController');

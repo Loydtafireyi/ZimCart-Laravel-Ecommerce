@@ -26,7 +26,7 @@
 								<thead>
 									<tr>
 										<th class="size-col">Order Number</th>
-										<th class="size-col">Price</th>
+										<th class="size-col">Amount</th>
 									</tr>
 								</thead>
 								<tbody>
