@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "043714ef1c099ad2c49d54d8a53998f2",
+    "content-hash": "e837f43e842b55ccbe216a8482212dcf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2618,26 +2618,22 @@
         },
         {
             "name": "srmklive/paypal",
-            "version": "2.0.0-beta-3",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/srmklive/laravel-paypal.git",
-                "reference": "78c6104bc31f6a638f6e299f3c0a7ae7faf67dd3"
+                "reference": "0c2ae237577f62396d474674cb40f82825a41ffb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/78c6104bc31f6a638f6e299f3c0a7ae7faf67dd3",
-                "reference": "78c6104bc31f6a638f6e299f3c0a7ae7faf67dd3",
+                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/0c2ae237577f62396d474674cb40f82825a41ffb",
+                "reference": "0c2ae237577f62396d474674cb40f82825a41ffb",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0|~7.0",
-                "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5|~5.6|~5.7|~5.8|~6.0|~7.0",
+                "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5|~5.6|~5.7|~5.8|~6.0|~7.0|~8.0",
                 "nesbot/carbon": "~1.0|~2.0"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^5.7|^6.0|^7.0|^8.0|^9.0"
             },
             "type": "library",
             "extra": {
@@ -2673,7 +2669,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-09-01T15:26:53+00:00"
+            "time": "2020-09-03T07:50:08+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
