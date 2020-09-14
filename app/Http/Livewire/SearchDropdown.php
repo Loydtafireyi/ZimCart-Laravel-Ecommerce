@@ -19,6 +19,8 @@ class SearchDropdown extends Component
     		$searchResults = Product::with('category')->where('name', 'Like', '%'.$this->search.'%')->get();
     	}
 
+        $searchResults = collect($searchResults)->take(7);
+
     	$systemName = SystemSetting::first();
 
         return view('livewire.search-dropdown', compact('searchResults', 'systemName'));
