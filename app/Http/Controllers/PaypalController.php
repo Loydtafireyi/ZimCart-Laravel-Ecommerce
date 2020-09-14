@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class PaypalController extends Controller
 {
@@ -45,7 +45,7 @@ class PaypalController extends Controller
 
         $checkoutData = $this->checkoutData($orderId);
 
-        $provider = new ExpressCheckout();
+        $provider = new PayPalClient();
 
         $response = $provider->setExpressCheckout($checkoutData);
 
@@ -68,7 +68,7 @@ class PaypalController extends Controller
 
         $payerId = $request->get('PayerID');
 
-        $provider = new ExpressCheckout();
+        $provider = new PayPalClient();
 
         $response = $provider->getExpressCheckoutDetails($token);
 
@@ -82,8 +82,8 @@ class PaypalController extends Controller
 
         if (in_array($status, ['completed', 'Processed'])) {
             $order = Order::find($orderId);
-            $order->is_paid = 1,
-            $order->payment_method = 'paypal',
+            $order->is_paid = 1;
+            $order->payment_method = 'paypal';
             $order->save();
 
             //clear cart contents

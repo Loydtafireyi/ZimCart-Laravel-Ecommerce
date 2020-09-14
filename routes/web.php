@@ -29,8 +29,8 @@ Route::post('coupons', 'CouponsController@store')->name('coupons.store');
 Route::delete('coupons', 'CouponsController@destroy')->name('coupons.destroy');
 
 //Paypal Routes
-Route::get('paypal-checkout', 'PaypalController@paypalCheckout')->name('paypal.checkout');
-Route::get('paypal-success/{order}', 'PaypalController@paypalSuccess')->name('paypal.success');
+Route::get('paypal-checkout/{order}', 'PaypalController@paypalCheckout')->name('paypal.checkout');
+Route::get('paypal-success', 'PaypalController@paypalSuccess')->name('paypal.success');
 Route::get('paypal-cancel', 'PaypalController@paypalCancel')->name('paypal.cancel');
 
 
