@@ -66,7 +66,11 @@
 					<div class="pi-pic">
 						<div class="tag-new">New</div>
 						<a href="{{ route('single-product', $view->slug) }}">
-							<img src="/storage/{{ $view->photos->first()->images }}" alt="">
+							@if($view->photos->count() > 0)
+                                <img src="/storage/{{ $view->photos->first()->images }}" alt="">
+                            @else
+                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+                            @endif
 						</a>
 						<div class="pi-links">
 							<form action="{{ route('cart.store') }}" method="post">
