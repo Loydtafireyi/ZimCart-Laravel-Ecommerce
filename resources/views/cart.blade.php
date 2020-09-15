@@ -40,7 +40,11 @@
 							<tr>
 								<td class="product-col">
 									<a href="{{ route('single-product', $item->model->slug) }}">
-										<img src="/storage/{{ $item->model->photos->first()->images }}" alt="">
+										@if($item->model->photos->count() > 0)
+			                               <img src="/storage/{{ $item->model->photos->first()->images }}" alt="">
+			                            @else
+			                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+			                            @endif
 									</a>
 									<div class="pc-title">
 										<h4>{{ $item->model->name }}</h4>
@@ -138,7 +142,11 @@
                         <div class="tag-new">New</div>
                         @endif
 						<a href="{{ route('single-product', $like->slug) }}">
-							<img src="/storage/{{ $like->photos->first()->images }}" alt="">
+							@if($like->photos->count() > 0)
+                                <img src="/storage/{{ $like->photos->first()->images }}" alt="">
+                            @else
+                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+                            @endif
 						</a>
 						<div class="pi-links">
 							<form action="{{ route('cart.store') }}" method="post">

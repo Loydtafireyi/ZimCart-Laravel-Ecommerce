@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    // Returns the platform welcome or landing page
     public function index()
     {
         $categories = Category::all();
@@ -25,6 +26,7 @@ class FrontendController extends Controller
         return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
     }
 
+    // show single product details
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
@@ -43,6 +45,7 @@ class FrontendController extends Controller
         return view('product.show', compact('product', 'relatedProducts', 'singleImage', 'systemName', 'color', 'sizes', 'pieces'));
     }
 
+    // Get contact us page
     public function contact()
     {
         $info = SystemSetting::first();
@@ -51,7 +54,7 @@ class FrontendController extends Controller
 
         return view('contact', compact('info', 'products'));
     }
-
+    //send message from contact us
     public function contactStore(Request $request)
     {
         Contact::create([
@@ -66,6 +69,7 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+    // display all categories and products
     public function categories()
     {
         $products = Product::orderBy('created_at', 'DESC')->paginate(12);
@@ -77,6 +81,7 @@ class FrontendController extends Controller
         return view('categories', compact('products', 'category', 'systemInfo'));
     }
 
+    // diplay a single category and its products
     public function category($slug)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
@@ -88,6 +93,7 @@ class FrontendController extends Controller
         return view('category', compact('category', 'categories', 'products'));
     }
 
+    // diplay a single subcategory and its products
     public function subcategory($slug)
     {
         $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
@@ -99,6 +105,7 @@ class FrontendController extends Controller
         return view('sub-category', compact('products', 'categories', 'subCategory'));
     }
 
+    // return products on sale
     public function onSale()
     {
         $products = Product::where('on_sale', 1)->paginate(12);
@@ -106,5 +113,17 @@ class FrontendController extends Controller
         $categories = Category::all();
 
         return view('sale', compact('categories', 'products'));
+    }
+
+    // terms and contions
+    public function terms()
+    {
+        return view('terms');
+    }
+
+    // return privacy privacy
+    public function privacy()
+    {
+        return view('privacy');
     }
 }

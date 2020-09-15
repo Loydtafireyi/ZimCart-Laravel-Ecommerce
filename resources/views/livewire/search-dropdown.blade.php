@@ -11,7 +11,11 @@
 					@foreach($searchResults as $result)
 						<li class="border-bottom mt-1 pb-1">
 							<a href="{{ route('single-product', $result->slug) }}" class="d-flex align-items-center justify-content-between ml-3 mr-3">
-							<img src="/storage/{{ $result->photos->first()->images }}" width="50">
+							@if($result->photos->count() > 0)
+                               <img src="/storage/{{ $result->photos->first()->images }}" width="50">
+                            @else
+                                <img src="{{ asset('frontend/img/no-image.png') }}" width="50">
+                            @endif
 								<span class="ml-4 text-dark">{{ $result->name }}</span>
 							</a>
 						</li>

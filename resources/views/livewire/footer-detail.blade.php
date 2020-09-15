@@ -17,17 +17,14 @@
 					<ul>
 						<li><a href="">About Us</a></li>
 						<li><a href="">Track Orders</a></li>
-						<li><a href="">Returns</a></li>
-						<li><a href="">Jobs</a></li>
 						<li><a href="">Shipping</a></li>
-						<li><a href="">Blog</a></li>
+						<li><a href="{{ route('contact-us') }}">Contact</a></li>
 					</ul>
 					<ul>
-						<li><a href="">Partners</a></li>
-						<li><a href="">Bloggers</a></li>
-						<li><a href="">Support</a></li>
-						<li><a href="">Terms of Use</a></li>
-						<li><a href="">Press</a></li>
+						<li><a href="{{ route('contact-us') }}">Support</a></li>
+						<li><a href="{{ route('terms.conditions') }}">Terms of Use</a></li>
+						<li><a href="{{ route('privacy.policy') }}">Privacy Policy</a></li>
+						<li><a href="">Blog</a></li>
 					</ul>
 				</div>
 			</div>
@@ -87,7 +84,7 @@
 				<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
 			</div>
 
-			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Eloquent Geeks</a></p>
+			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://github.com/Loydtafireyi/ZimCart" target="_blank">Eloquent Geeks</a></p>
 
 		</div>
 	</div>

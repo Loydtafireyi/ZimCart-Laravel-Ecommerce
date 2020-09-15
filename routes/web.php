@@ -23,6 +23,8 @@ Route::get('/sub-category/{slug}', 'FrontendController@subcategory')->name('subc
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
+Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.conditions');
+Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
 
 Route::resource('cart', 'CartController');
 Route::post('coupons', 'CouponsController@store')->name('coupons.store');
@@ -64,4 +66,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
 	Route::get('/admin/orders', 'Admin\OrderController@index')->name('orders.index');
 	Route::get('/admin/orders/{id}', 'Admin\OrderController@show')->name('orders.show');
+	Route::resource('admin/terms', 'Admin\TermsController');
+	Route::resource('admin/privacy', 'Admin\PrivacyPolicyController');
 });

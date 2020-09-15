@@ -33,6 +33,10 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - [Then navigate back App\Providers\AppServiceProvder and uncomment out all the View::share in the boot method].
 - run `` php artisan serve ``.
 
+#### Paypal for production
+- To get live credentials Create a paypal merchant/business account
+- Then visit https://www.paypal.com/businessmanage/credentials/apiAccess
+
 #Admin Credentials
 - admin@admin.com p/s admin123
 
@@ -45,6 +49,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 ## ZimCart eCommerce Features
 
 
+- **[100% CMS]**
 - **[Social Login]**
 - **[Google Recaptcha]**
 - **[Data Visualisation]**
@@ -65,6 +70,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Facebook Pixel Integration]**
 - **[Paypal Checkout]**
 - **[Payment on delivery]**
+- **[Dynamic Terms & privacy policy]**
 
 
 ## Businesses using our solution
@@ -72,3 +78,4 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[https://seamaf.com]**
 - **[https://vanessascakes.online]**
 - **[https://ayolabrands.com]**
+- **[https://urbanlifebd.com]**

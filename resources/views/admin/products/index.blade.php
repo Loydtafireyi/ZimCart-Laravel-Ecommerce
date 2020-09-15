@@ -68,7 +68,11 @@
 						@endif
 					</td>
 					<td>
-						<img src="/storage/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
+						@if($p->photos->count() > 0)
+                            <img src="/storage/{{ $p->photos->first()->images }}" style="border-radius: 100%; width: 25px; height: 25px;">
+                        @else
+                            <img src="{{ asset('frontend/img/no-image.png') }}" style="border-radius: 100%; width: 25px; height: 25px;">
+                        @endif
 					</td>
 					<td>{{ $p->price }}</td>
 					<td>{{ $p->quantity }}</td>

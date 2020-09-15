@@ -9,7 +9,11 @@
 	    			<span class="text-light mt-4 text-capitalize">
 	    				<h6 class="font-weight-bold" style="letter-spacing: 2px">{{ $result->name }}</h6>
 	    			</span>
-	    			<img src="/storage/{{ $result->photos->first()->images }}" style="width: 50px; height: 50px; border-radius: 100%;">
+	    			@if($result->photos->count() > 0)
+                       <img src="/storage/{{ $result->photos->first()->images }}" style="width: 50px; height: 50px; border-radius: 100%;">
+                    @else
+                        <img src="{{ asset('frontend/img/no-image.png') }}" width="50">
+                    @endif
 	    		</a>
 	    	</li>
 	    	@endforeach

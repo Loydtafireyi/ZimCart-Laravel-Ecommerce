@@ -132,6 +132,14 @@
                             <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('system-settings.index') }}" class="text-decoration-none text-light">System Settings</a>
                             </li>
+
+                            <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('privacy.index') }}" class="text-decoration-none text-light">Privacy Policy</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('terms.index') }}" class="text-decoration-none text-light">Terms & Conditions</a>
+                            </li>
                         </ul>
 
                     </div>

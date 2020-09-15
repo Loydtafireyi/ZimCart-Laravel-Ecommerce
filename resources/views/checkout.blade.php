@@ -112,7 +112,13 @@
 					<ul class="product-list">
 						@foreach(Cart::content() as $item)
 						<li>
-							<div class="pl-thumb"><img src="/storage/{{ $item->model->photos->first()->images }}" alt=""></div>
+							<div class="pl-thumb">
+								@if($item->model->photos->count() > 0)
+	                                <img src="/storage/{{ $item->model->photos->first()->images }}" alt="">
+	                            @else
+	                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+	                            @endif
+							</div>
 							<h6>{{ $item->model->name }}</h6>
 							<p>${{ $item->subtotal }}</p>
 							<p>Qty {{ $item->qty }}</p>

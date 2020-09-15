@@ -98,9 +98,9 @@
 				<div class="form-group">
 					<label for="sub_category_id">Sub-Category (Optional)</label>
 					<select name="sub_category_id" id="sub_category_id" class="form-control @error('sub_category_id') is-invalid @enderror">
-						{{-- @if($productSubCategory)
-							<option selected value="{{$productSubCategory->id}}">{{ $productSubCategory-> }}</option>
-						@endif --}}
+						@if($productSubCategory)
+							<option selected value="{{$product->SubCategory->id}}">{{ $product->SubCategory->name }}</option>
+						@endif
 						@foreach($subCategories as $cat)
 							<option value="{{ $cat->id }}">{{ $cat->name }}</option>
 						@endforeach

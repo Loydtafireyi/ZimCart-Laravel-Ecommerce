@@ -34,12 +34,29 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						<img class="product-big-img" src="/storage/{{ $singleImage->images }}" alt="">
+						
+						@if($singleImage != null)
+                            <img class="product-big-img" src="/storage/{{ $singleImage->images }}" alt="">
+                        @else
+                            <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+                        @endif
 					</div>
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
 							@foreach($product->photos as $image)
-								<div class="pt active" data-imgbigurl="/storage/{{ $image->images }}"><img src="/storage/{{ $image->images }}" alt=""></div>
+								<div class="pt active" data-imgbigurl="
+								@if($image->count() > 0)
+		                                /storage/{{ $image->images }}
+		                            @else
+		                                {{ asset('frontend/img/no-image.png') }}
+		                            @endif
+								">	
+									@if($image->count() > 0)
+		                                <img src="/storage/{{ $image->images }}" alt="">
+		                            @else
+		                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+		                            @endif
+								</div>
 							@endforeach
 						</div>
 					</div>
@@ -150,7 +167,11 @@
 				<div class="product-item">
 					<div class="pi-pic">
 						<a href="{{ route('single-product', $related->slug) }}">
-							<img src="/storage/{{ $related->photos->first()->images }}" alt="">
+							@if($related->photos->count() > 0)
+                                <img src="/storage/{{ $related->photos->first()->images }}" alt="">
+                            @else
+                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+                            @endif
 						</a>
 						<div class="pi-links">
 							<form action="{{ route('cart.store') }}" method="post">
