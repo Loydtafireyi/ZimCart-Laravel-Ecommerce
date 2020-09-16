@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Slide;
+use App\Terms;
 use App\Contact;
 use App\Product;
 use App\Category;
@@ -118,12 +119,16 @@ class FrontendController extends Controller
     // terms and contions
     public function terms()
     {
-        return view('terms');
+        $terms = Terms::firstOrFail();
+
+        return view('terms', compact('terms'));
     }
 
     // return privacy privacy
     public function privacy()
     {
-        return view('privacy');
+        $terms = Terms::firstOrFail();
+
+        return view('privacy', compact('terms'));
     }
 }

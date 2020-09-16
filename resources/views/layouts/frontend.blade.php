@@ -24,6 +24,7 @@
     <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
 
 	<livewire:styles />
+	@yield('css')
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	@if($shareSettings->google_analytics != null)

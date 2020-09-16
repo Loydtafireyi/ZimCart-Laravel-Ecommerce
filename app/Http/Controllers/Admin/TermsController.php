@@ -15,7 +15,9 @@ class TermsController extends Controller
      */
     public function index()
     {
-        //
+        $term = Terms::first();
+
+        return view('admin.terms.show', compact('term'));
     }
 
     /**
@@ -25,6 +27,12 @@ class TermsController extends Controller
      */
     public function create()
     {
+        if(Terms::count() > 0) {
+            session()->flash('error', 'You have already added Terms & Conditions. You can only edit the existing terms');
+
+            return redirect(route('terms.index'));
+        }
+        
         return view('admin.terms.create');
     }
 
@@ -41,6 +49,12 @@ class TermsController extends Controller
             'terms' => 'required'
         ]);
 
+        if(Terms::count() > 0) {
+            session()->flash('error', 'You have already added Terms & Conditions. You can only edit the existing terms');
+
+            return redirect(route('terms.index'));
+        }
+
         Terms::create([
             'heading' => $request->heading,
             'terms' => $request->terms,
@@ -48,7 +62,7 @@ class TermsController extends Controller
 
         session()->flash('success', 'Terms and condions added successfully');
 
-        return redirect()->back();
+        return redirect(route('terms.index'));
     }
 
     /**
@@ -70,7 +84,7 @@ class TermsController extends Controller
      */
     public function edit(Terms $term)
     {
-        return view('terms.create' compact('term'));
+        return view('admin.terms.create', compact('term'));
     }
 
     /**
@@ -88,7 +102,7 @@ class TermsController extends Controller
 
         session()->flash('success', 'Terms and condions updated successfully');
 
-        return redirect()->back();
+        return redirect(route('terms.index'));
     }
 
     /**

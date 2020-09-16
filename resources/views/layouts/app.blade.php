@@ -11,9 +11,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- font-owesome icons link -->
     <link href="{{ asset('frontend/fontawesome/css/all.css') }}" rel="stylesheet">
 
@@ -25,6 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <livewire:styles />
+    @yield('css')
 </head>
 <body class="bg-dark">
     <div id="app">
@@ -168,7 +166,10 @@
     </div>
 </body>
 
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
 <livewire:scripts />
-<script></script>
+
+@yield('scripts')
 
 </html>
