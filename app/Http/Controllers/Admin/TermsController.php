@@ -32,7 +32,7 @@ class TermsController extends Controller
 
             return redirect(route('terms.index'));
         }
-        
+
         return view('admin.terms.create');
     }
 
@@ -60,7 +60,7 @@ class TermsController extends Controller
             'terms' => $request->terms,
         ]);
 
-        session()->flash('success', 'Terms and condions added successfully');
+        session()->flash('success', 'Terms and conditions added successfully');
 
         return redirect(route('terms.index'));
     }
@@ -100,7 +100,7 @@ class TermsController extends Controller
 
         $term->update($data);
 
-        session()->flash('success', 'Terms and condions updated successfully');
+        session()->flash('success', 'Terms and conditions updated successfully');
 
         return redirect(route('terms.index'));
     }

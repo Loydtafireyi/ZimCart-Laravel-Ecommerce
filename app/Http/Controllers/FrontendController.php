@@ -8,6 +8,7 @@ use App\Contact;
 use App\Product;
 use App\Category;
 use App\SubCategory;
+use App\PrivacyPolicy;
 use App\SystemSetting;
 use Illuminate\Http\Request;
 
@@ -127,8 +128,8 @@ class FrontendController extends Controller
     // return privacy privacy
     public function privacy()
     {
-        $terms = Terms::firstOrFail();
+        $policy = PrivacyPolicy::firstOrFail();
 
-        return view('privacy', compact('terms'));
+        return view('privacy', compact('policy'));
     }
 }
