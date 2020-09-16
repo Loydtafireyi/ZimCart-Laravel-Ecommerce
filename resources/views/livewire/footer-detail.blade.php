@@ -77,11 +77,27 @@
 	<div class="social-links-warp">
 		<div class="container">
 			<div class="social-links">
-				<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
-				<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
-				<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
-				<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
-				<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+				@if($socialLinks->instagram != null)
+					<a href="{{$socialLinks->instagram}}" target="_blank" class="instagram"><i class="fab fa-instagram"></i><span>instagram</span></a>
+				@endif
+				@if($socialLinks->pinterest != null)
+					<a href="{{$socialLinks->pinterest}}" target="_blank" class="pinterest"><i class="fab fa-pinterest"></i><span>pinterest</span></a>
+				@endif
+				@if($socialLinks->facebook != null)
+					<a href="{{$socialLinks->facebook}}" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i><span>facebook</span></a>
+				@endif
+				@if($socialLinks->twitter != null)
+					<a href="{{$socialLinks->twitter}}" target="_blank" class="twitter"><i class="fab fa-twitter"></i><span>twitter</span></a>
+				@endif
+				@if($socialLinks->youtube != null)
+					<a href="{{$socialLinks->youtube}}" target="_blank" class="youtube"><i class="fab fa-youtube"></i><span>youtube</span></a>
+				@endif
+				@if($socialLinks->linkedin != null)
+					<a href="{{$socialLinks->linkedin}}" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i><span>linkedin</span></a>
+				@endif
+				@if($socialLinks->tiktok != null)
+					<a href="{{$socialLinks->tiktok}}" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i><span>tiktok</span></a>
+				@endif
 			</div>
 
 			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://github.com/Loydtafireyi/ZimCart" target="_blank">Eloquent Geeks</a></p>

@@ -36,8 +36,8 @@
 				</ul>
 			</li>
 			@else
-			<li><a href="{{ route('login') }}">SignIn</a></li>
-			<li> <a href="{{ route('register') }}">SignUp</a></li>
+			<li><a href="{{ route('login') }}">Signin</a></li>
+			<li> <a href="{{ route('register') }}">Signup</a></li>
 			@endauth
 		</ul>
 	</div>

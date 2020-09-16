@@ -68,4 +68,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/admin/orders/{id}', 'Admin\OrderController@show')->name('orders.show');
 	Route::resource('admin/terms', 'Admin\TermsController');
 	Route::resource('admin/privacy', 'Admin\PrivacyPolicyController');
+	Route::resource('admin/social-links', 'Admin\SocialLinkController');
 });

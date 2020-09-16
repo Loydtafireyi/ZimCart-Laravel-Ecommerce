@@ -120,7 +120,7 @@
                             </li>
 
                             <li class="list-group-item bg-primary border-white">
-                                <a href="{{ route('system-settings.index') }}" class="text-decoration-none text-light">Social Links</a>
+                                <a href="{{ route('social-links.index') }}" class="text-decoration-none text-light">Social Links</a>
                             </li>
 
                             <li class="list-group-item bg-primary border-white">

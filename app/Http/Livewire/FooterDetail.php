@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\SocialLink;
 use App\SystemSetting;
 use Livewire\Component;
 
@@ -11,6 +12,8 @@ class FooterDetail extends Component
     {
     	$systemDetail = SystemSetting::first();
 
-        return view('livewire.footer-detail', compact('systemDetail'));
+    	$socialLinks = SocialLink::first();
+
+        return view('livewire.footer-detail', compact('systemDetail', 'socialLinks'));
     }
 }
