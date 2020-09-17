@@ -4,9 +4,9 @@
 
 <title>
 	@if(auth()->check()) 
-		{{ auth()->user()->name }} 's Cart
+		{{ auth()->user()->name }} 's Wishlist
 	@else
-		Cart
+		Wishlist
 	@endif
 </title>
 <meta charset="UTF-8">
@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="cart-table">
-					<h3>Your Cart</h3>
+					<h3>Your Wishlist</h3>
 					<div class="cart-table-warp">
 						<table>
 						<thead>
@@ -36,7 +36,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach(Cart::content() as $item)
+							@foreach(Cart::instance('wishlist')->content() as $item)
 							<tr>
 								<td class="product-col">
 									<a href="{{ route('single-product', $item->model->slug) }}">
@@ -104,18 +104,11 @@
 					</table>
 					</div>
 					<div class="total-cost">
-						<h6>Total <span>{{ $newTotal }}</span></h6>
+						<h6>Total <span>{{ Cart::instance('wishlist')->total() }}</span></h6>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-4 card-right">
-				@if(! session()->has('coupon'))
-				<form action="{{ route('coupons.store') }}" class="promo-code-form" method="post">
-					@csrf
-					<input type="text" name="coupon_code" id="coupon_code" placeholder="Enter promo code">
-					<button type="submit">Submit</button>
-				</form>
-				@endif
 				<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
 			</div>
@@ -157,12 +150,7 @@
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
                             </form>
-                            <form action="{{ route('wishlist') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$like->id}}">
-                                <input type="hidden" name="name" value="{{$like->name}}">
-                                <input type="hidden" name="price" value="{{$like->price}}">
-                                <input type="hidden" name="quantity" value="1">
+                            <form>
                                 <button type="submit" class="wishlist-btn"><i class="flaticon-heart"></i></button>
                             </form>
 						</div>

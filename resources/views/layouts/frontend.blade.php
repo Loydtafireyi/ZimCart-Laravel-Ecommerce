@@ -67,13 +67,11 @@
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
 							<div class="up-item">
-								<i class="flaticon-heart"></i>
-								<a href="#">Wishlist</a>
-								@auth
-                                    
-								@else
-									
-								@endauth
+								<div class="shopping-card">
+									<i class="flaticon-heart"></i>
+									<span>{{ Cart::instance('wishlist')->count() }}</span>
+								</div>
+								<a href="{{ route('myWishlist') }}">Wishlist</a>
 							</div>
 							<div class="up-item">
 								<div class="shopping-card">

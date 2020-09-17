@@ -117,6 +117,37 @@ class CartController extends Controller
 
         session()->flash('success', "Item removed successfully!");
 
-        return redirect(route('cart.index'));
+        return redirect()->back();
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function wishlist(Request $request)
+    {
+        Cart::instance('wishlist')->add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
+
+        session()->flash('success', "$request->name added to your wishlist successfully!");
+
+        return redirect()->back();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myWishlist()
+    {
+        $systemInfo = SystemSetting::first(); 
+
+        $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
+
+
+        return view('wishlist', compact('mightAlsoLike', 'systemInfo'));
+    }
+
 }

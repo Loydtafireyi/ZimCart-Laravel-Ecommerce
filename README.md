@@ -16,7 +16,7 @@
 
 ## eCommerce Web Appliaction
 
-A complete e-commerce solution for your business. Start selling today using ZimCart script.
+An complete e-commerce solution for your business. Start selling today using ZimCart script.
 
 # Installation
 
@@ -70,6 +70,7 @@ A complete e-commerce solution for your business. Start selling today using ZimC
 - **[Facebook Pixel Integration]**
 - **[Paypal Checkout]**
 - **[Payment on delivery]**
+- **[Social Links]**
 - **[Dynamic Terms & privacy policy]**
 
 
