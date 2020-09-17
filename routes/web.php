@@ -26,9 +26,8 @@ Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.conditions');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
 
-Route::get('my-wishlist', 'CartController@myWishlist')->name('myWishlist');
-Route::post('wishlist', 'CartController@wishlist')->name('wishlist');
 Route::resource('cart', 'CartController');
+Route::resource('wishlist', 'WishlistController');
 Route::post('coupons', 'CouponsController@store')->name('coupons.store');
 Route::delete('coupons', 'CouponsController@destroy')->name('coupons.destroy');
 

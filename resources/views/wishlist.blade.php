@@ -53,7 +53,7 @@
 								</td>
 								<td class="quy-col">
 									<div class="quantity">
-										<form action="{{ route('cart.update', $item->rowId) }}" method="post">
+										<form action="{{ route('wishlist.update', $item->rowId) }}" method="post">
 											@csrf
 											@method('PATCH')
 											<div class="pro-qty">
@@ -68,7 +68,7 @@
 								<td class="size-col"><h4>{{ $item->size }}</h4></td>
 								<td class="total-col"><h4>${{ $item->subtotal }}</h4></td>
 								<td class="total-col">
-									<form action="{{ route('cart.destroy', $item->rowId) }}" method="post">
+									<form action="{{ route('wishlist.destroy', $item->rowId) }}" method="post">
 										@csrf
 										@method('DELETE')
 										<button style="border: none;">
@@ -109,7 +109,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4 card-right">
-				<a href="{{ route('checkout.index') }}" class="site-btn">Proceed to checkout</a>
+				<a href="{{ route('on-sale') }}" class="site-btn">Check Discounts</a>
 				<a href="{{ route('frontendCategories') }}" class="site-btn sb-dark">Continue shopping</a>
 			</div>
 		</div>

@@ -109,7 +109,7 @@
                                 <input type="hidden" name="quantity" value="1">
                                 <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
                             </form>
-                            <form action="{{ route('wishlist') }}" method="post">
+                            <form action="{{ route('wishlist.store') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$p->id}}">
                                 <input type="hidden" name="name" value="{{$p->name}}">

@@ -7,7 +7,7 @@ use App\SystemSetting;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CartController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +20,8 @@ class CartController extends Controller
 
         $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
 
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTotal = $newSubtotal;
 
-        return view('cart', compact('mightAlsoLike', 'systemInfo'))->with([
-            'discount' => $discount,
-            'newSubtotal' => $newSubtotal,
-            'newTotal' => $newTotal,
-        ]);
+        return view('wishlist', compact('mightAlsoLike', 'systemInfo'));
     }
 
     /**
@@ -49,22 +42,11 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id  === $request->id;
-        });
+        Cart::instance('wishlist')->add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
 
-        if ($duplicates->isNotEmpty()) {
-            session()->flash('success', "$request->name already in your cart!");
+        session()->flash('success', "$request->name added to your wishlist successfully!");
 
-            return redirect(route('cart.index'));
-        }
-
-        Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->Size, 'color' => $request->Color])->associate('App\Product');
-
-        session()->flash('success', "$request->name added to your cart successfully!");
-
-        return redirect(route('cart.index'));
+        return redirect()->back();
     }
 
     /**
@@ -98,11 +80,11 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Cart::update($id, $request->quantity);
+        Cart::instance('wishlist')->update($id, $request->quantity);
 
         session()->flash('success', "Item updated successfully!");
 
-        return redirect(route('cart.index'));
+        return redirect(route('wishlist.index'));
     }
 
     /**
@@ -113,11 +95,10 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
+        Cart::instance('wishlist')->remove($id);
 
         session()->flash('success', "Item removed successfully!");
 
         return redirect()->back();
     }
-
 }
