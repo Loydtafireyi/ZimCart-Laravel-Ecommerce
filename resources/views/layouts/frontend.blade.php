@@ -69,7 +69,9 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-heart"></i>
-									<span>{{ Cart::instance('wishlist')->count() }}</span>
+									@if(Cart::instance('wishlist')->count() != 0)
+										<span>{{ Cart::instance('wishlist')->count() }}</span>
+									@endif
 								</div>
 								<a href="{{ route('wishlist.index') }}">Wishlist</a>
 							</div>
