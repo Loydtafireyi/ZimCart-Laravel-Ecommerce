@@ -117,8 +117,8 @@
 	</script>
 
 	<script>
-	    @if(Session::has('errors'))
-	    toastr.error("{{ Session::get('errors')}}")
+	    @if(Session::has('error'))
+	    toastr.error("{{ Session::get('error')}}")
 	    @endif
 	</script>
 

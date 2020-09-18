@@ -18,7 +18,7 @@ class CartController extends Controller
     {
         $systemInfo = SystemSetting::first(); 
 
-        $mightAlsoLike = Product::inRandomOrder()->take(4)->get();
+        $mightAlsoLike = Product::inRandomOrder()->with('photos')->take(4)->get();
 
         $discount = session()->get('coupon')['discount'] ?? 0;
         $newSubtotal = (Cart::subtotal() - $discount);

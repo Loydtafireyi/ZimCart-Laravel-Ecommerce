@@ -20,6 +20,7 @@
 		<a href="{{ isset($socialLinks) ? route('social-links.edit', $socialLinks->id) : route('social-links.create') }}" class="btn btn-dark">{{ isset($socialLinks) ? 'Edit Social Links' : 'Add Social Links' }}</a>
 	</div>
 	<div class="card-body">
+		@if($socialLinks != null)
 		<table class="table table-dark table-bordered">
 			<thead>
 				<th>Platform</th>
@@ -56,6 +57,7 @@
 				</tr>
 			</tbody>
 		</table>
+		@endif
 	</div>
 </div>
 

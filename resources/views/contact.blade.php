@@ -1,5 +1,18 @@
 @extends('layouts.frontend')
 
+<title>Contact</title>
+<meta charset="UTF-8">
+<meta name="description" content="Login">
+<meta name="keywords" content="login, sign">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 100%;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+
 @section('content')
 
 	<!-- Page info -->
@@ -41,7 +54,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522" style="border:0" allowfullscreen></iframe></div>
+		<div class="map">
+			<div id="map"></div>
+		</div>
 	</section>
 	<!-- Contact section end -->
 
@@ -100,5 +115,32 @@
 		</div>
 	</section>
 	<!-- Related product section end -->
+
+@endsection
+
+@section('scripts')
+
+	<script>
+	// Initialize and add the map -17.819069, 31.078772
+	function initMap() {
+	  // The location of Uluru
+	  var uluru = {lat: -17.819069, lng: 31.078772};
+	  // The map, centered at Uluru
+	  var map = new google.maps.Map(
+	      document.getElementById('map'), {zoom: 10, center: uluru});
+	  // The marker, positioned at Uluru
+	  var marker = new google.maps.Marker({position: uluru, map: map});
+	}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_KEY') }}&callback=initMap">
+    </script>
+  </body>
+</html>
 
 @endsection

@@ -28,7 +28,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('created_at', 'DESC')->paginate(10);
+        $products = Product::orderBy('created_at', 'DESC')->with('photos', 'category', 'subCategory')->paginate(10);
+
+        // dd(SubCategory::find(2));
 
         return view('admin.products.index', compact('products'));
     }
@@ -131,7 +133,7 @@ class ProductController extends Controller
 
         // $productSubCategory = $product->subcategory()->get();
 
-        dd($productSubCategory);
+        // dd($productSubCategory);
         $attributes = $product->attributes()->get();
 
         return view('admin.products.create', compact('product', 'categories', 'subCategories', 'attributes'));

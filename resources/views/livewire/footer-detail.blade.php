@@ -76,6 +76,8 @@
 	</div>
 	<div class="social-links-warp">
 		<div class="container">
+			 class="container">
+			@if($socialLinks != null)
 			<div class="social-links">
 				@if($socialLinks->instagram != null)
 					<a href="{{$socialLinks->instagram}}" target="_blank" class="instagram"><i class="fab fa-instagram"></i><span>instagram</span></a>
@@ -99,7 +101,7 @@
 					<a href="{{$socialLinks->tiktok}}" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i><span>tiktok</span></a>
 				@endif
 			</div>
-
+			@endif
 			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://github.com/Loydtafireyi/ZimCart" target="_blank">Eloquent Geeks</a></p>
 
 		</div>

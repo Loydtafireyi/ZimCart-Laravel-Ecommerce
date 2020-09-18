@@ -6,6 +6,10 @@
 <meta name="keywords" content="login, sign">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+@section('css')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
+
 @section('content')
 
 <div class="card col-lg col-xl-9 flex-row mx-auto px-0">
@@ -56,6 +60,18 @@
                     </span>
                 @enderror
             </div>
+
+             @if(config('services.recaptcha.key'))
+                <div class="g-recaptcha"
+                    data-sitekey="{{config('services.recaptcha.key')}}">
+
+                    @error('g-recaptcha-response')
+                        <span class="invalid-feedback mt-3" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            @endif
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-block">Sign-up</button>

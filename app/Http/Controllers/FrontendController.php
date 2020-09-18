@@ -19,11 +19,11 @@ class FrontendController extends Controller
     {
         $categories = Category::all();
 
-        $products = Product::orderBy('created_at', 'DESC')->paginate(8);
+        $products = Product::orderBy('created_at', 'DESC')->with('category', 'photos')->paginate(8); 
 
         $slides = Slide::all();
 
-         $systemName = SystemSetting::first();
+         $systemName = SystemSetting::firstOrFail();
 
         return view('welcome', compact('products', 'slides', 'categories', 'systemName'));
     }
@@ -31,11 +31,11 @@ class FrontendController extends Controller
     // show single product details
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::where('slug', $slug)->with('photos', 'attributes')->firstOrFail();
 
         $singleImage = $product->photos()->get()->first();
 
-        $relatedProducts = $product->category->products()->inRandomOrder()->take(5)->get();
+        $relatedProducts = $product->category->products()->with('photos')->inRandomOrder()->take(5)->get();
 
         $systemName = SystemSetting::first();
 
@@ -52,7 +52,7 @@ class FrontendController extends Controller
     {
         $info = SystemSetting::first();
 
-        $products = Product::orderBy('id', 'DESC')->take(4)->get();
+        $products = Product::orderBy('id', 'DESC')->with('photos')->take(4)->get();
 
         return view('contact', compact('info', 'products'));
     }
@@ -74,9 +74,9 @@ class FrontendController extends Controller
     // display all categories and products
     public function categories()
     {
-        $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+        $products = Product::orderBy('created_at', 'DESC')->with('photos')->paginate(12);
 
-        $category = Category::all();
+        $category = Category::with('subcategories')->get();
 
         $systemInfo = SystemSetting::first();
 
@@ -88,9 +88,9 @@ class FrontendController extends Controller
     {
         $category = Category::where('slug', $slug)->firstOrFail();
 
-        $products = $category->products()->orderBy('created_at', 'DESC')->paginate(12);
+        $products = $category->products()->orderBy('created_at', 'DESC')->with('photos')->paginate(12);
 
-        $categories = Category::all();
+        $categories = Category::with('subcategories')->get();
 
         return view('category', compact('category', 'categories', 'products'));
     }
@@ -100,9 +100,9 @@ class FrontendController extends Controller
     {
         $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
 
-        $products = $subCategory->products()->orderBy('created_at', 'DESC')->paginate(12);
+        $products = $subCategory->products()->orderBy('created_at', 'DESC')->with('photos')->paginate(12);
 
-        $categories = Category::all();
+        $categories = Category::with('subcategories')->get();
 
         return view('sub-category', compact('products', 'categories', 'subCategory'));
     }
@@ -110,9 +110,9 @@ class FrontendController extends Controller
     // return products on sale
     public function onSale()
     {
-        $products = Product::where('on_sale', 1)->paginate(12);
+        $products = Product::where('on_sale', 1)->with('photos')->paginate(12);
 
-        $categories = Category::all();
+        $categories = Category::with('subcategories')->get();
 
         return view('sale', compact('categories', 'products'));
     }

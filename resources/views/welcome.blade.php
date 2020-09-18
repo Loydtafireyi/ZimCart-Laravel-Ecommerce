@@ -28,7 +28,7 @@
                     </div>
                     <div class="offer-card text-white">
                         <span>from</span>
-                        <h2>$1</h2>
+                        <h3>$1</h3>
                         <p>SHOP NOW</p>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                                     <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></button>
                                 </form>
-                                <form action="{{ route('wishlist') }}" method="post">
+                                <form action="{{ route('wishlist.store') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$p->id}}">
                                     <input type="hidden" name="name" value="{{$p->name}}">
@@ -190,9 +190,11 @@
                 </div>
                 @endforeach
             </div>
-            <div class="text-center pt-5">
-                <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">VIEW MORE</a>
-            </div>
+            @if($products->count() > 8)
+                <div class="text-center pt-5">
+                    <a href="{{ route('frontendCategories') }}" class="site-btn sb-line sb-dark">VIEW MORE</a>
+                </div>
+            @endif
         </div>
     </section>
     <!-- Product filter section end -->

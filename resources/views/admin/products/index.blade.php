@@ -61,8 +61,8 @@
 					<td>{{ $p->name }}</td>
 					<td>{{ $p->category->name }}</td>
 					<td>
-						@if(isset($p->subcategory->name))
-							{{ $p->subcategory->name }}
+						@if($p->sub_category_id != null)
+						       {{ $p->subCategory->name ?? 'No subcategory' }}
 						@else
 						<p>N/A</p>
 						@endif

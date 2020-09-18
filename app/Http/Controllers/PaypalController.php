@@ -8,6 +8,7 @@ use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PaypalController extends Controller
 {
+    // class shared property
     private function checkoutData($orderId) {
         //get total from cart
         $discount = session()->get('coupon')['discount'] ?? 0;
