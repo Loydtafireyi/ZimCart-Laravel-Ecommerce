@@ -53,6 +53,25 @@
 					</tr>
 				</tbody>
 			</table>
+			<h4>Order Status <strong  class="text-capitalize text-danger">{{ $order->status }}</strong></h4>
+			<form action="{{ route('orders.update', $order->id) }}" method="post">
+				@csrf
+				@method('PATCH')
+				<div class="form-group">
+					<label for="status">Update Order Status</label>
+					<select class="form-control" name="status">
+						<option class="text-capitalize" value="{{ $order->status }}">{{ $order->status }}</option>
+						<option value="pending">Pending</option>
+						<option value="processing">Processing</option>
+						<option value="shipped">Shipped</option>
+						<option value="delivered">Delivered</option>
+						<option value="pending">Pending</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-danger">Update Status</button>
+				</div>
+			</form>
 		</div>
 	</div>
 	

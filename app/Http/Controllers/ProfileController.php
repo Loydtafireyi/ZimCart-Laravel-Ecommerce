@@ -57,7 +57,7 @@ class ProfileController extends Controller
             return back()->withErrors('You do not have acces to this!');
         }
 
-        $products = $order->products;
+         $products = $order->products()->get();
 
         $recentlyViewed = Product::inRandomOrder()->take(4)->get();
 

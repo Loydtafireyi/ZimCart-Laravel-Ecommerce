@@ -67,6 +67,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
 	Route::get('/admin/orders', 'Admin\OrderController@index')->name('orders.index');
 	Route::get('/admin/orders/{id}', 'Admin\OrderController@show')->name('orders.show');
+	Route::patch('/admin/orders/{id}', 'Admin\OrderController@update')->name('orders.update');
 	Route::resource('admin/terms', 'Admin\TermsController');
 	Route::resource('admin/privacy', 'Admin\PrivacyPolicyController');
 	Route::resource('admin/social-links', 'Admin\SocialLinkController');

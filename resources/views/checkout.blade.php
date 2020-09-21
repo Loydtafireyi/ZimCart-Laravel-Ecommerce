@@ -45,22 +45,22 @@
 							<input type="text" name="billing_email" placeholder="Email" value="{{ auth()->user()->email }}">
 						</div>
 						<div class="col-md-12">
-							<input type="text" name="billing_address" placeholder="Address">
+							<input type="text" name="billing_address" placeholder="Address"  value="{{ auth()->user()->address }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_city" placeholder="City">
+							<input type="text" name="billing_city" placeholder="City" value="{{ auth()->user()->city }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_province" placeholder="Province or State">
+							<input type="text" name="billing_province" placeholder="Province or State" value="{{ auth()->user()->province }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_zipcode" placeholder="Zip code">
+							<input type="text" name="billing_zipcode" placeholder="Zip code"  value="{{ auth()->user()->zipcode }}">
 						</div>
 						<div class="col-md-6">
-							<input type="text" name="billing_phone" placeholder="Phone no.">
+							<input type="text" name="billing_phone" placeholder="Phone no." value="{{ auth()->user()->phone }}">
 						</div>
 						<div class="col-md-12">
-							<input type="text" name="notes" placeholder="Notes. Eg on delivery hoot or beep, am available Monday to Frinday 7am to 7pm">
+							<input type="text" name="notes" placeholder="Notes. Eg on delivery hoot or beep, am available Monday to Frinday 7am to 7pm" value="{{ auth()->user()->notes }}">
 						</div>
 					</div>
 					{{-- <div class="cf-title">Delievery Info</div>

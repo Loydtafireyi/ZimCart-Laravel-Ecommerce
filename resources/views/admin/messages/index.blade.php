@@ -19,12 +19,13 @@
 		<span>Messages</span>
 	</div>
 	<div class="card-body">
-		<table class="table table-dark table-bordered">
+		<table class="table table-dark table-bordered table-responsive">
 			<thead>
 				<th>Name</th>
 				<th>Email</th>
 				<th>Subject</th>
 				<th>Message</th>
+				<th>Time</th>
 				<th>Delete</th>
 			</thead>
 			<tbody>
@@ -34,6 +35,7 @@
 					<td>{{ $message->email }}</td>
 					<td>{{ $message->subject }}</td>
 					<td>{{ $message->message }}</td>
+					<td>{{ $message->created_at->diffForHumans() }}</td>
 					<td>
 						{{-- <form action="{{ route('contact.destroy', $message->id) }}" method="post"> --}}
 							@csrf

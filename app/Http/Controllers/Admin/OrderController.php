@@ -76,7 +76,15 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        $data = $request->only(['status']);
+
+        $order->update($data);
+
+        session()->flash('success', 'Order status updated successfully');
+
+        return redirect()->back();
     }
 
     /**
