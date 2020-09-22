@@ -13,6 +13,10 @@
        }
     </style>
 
+@section('css')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
+
 @section('content')
 
 	<!-- Page info -->
@@ -49,6 +53,17 @@
 						<input type="text" name="email" id="email" placeholder="Your e-mail">
 						<input type="text" name="subject" id="subject" placeholder="Subject">
 						<textarea name="message" id="message" placeholder="Message"></textarea>
+						@if(config('services.recaptcha.key'))
+			                <div class="g-recaptcha mb-3"
+			                    data-sitekey="{{config('services.recaptcha.key')}}">
+
+			                    @error('g-recaptcha-response')
+			                        <span class="invalid-feedback mt-3" role="alert">
+			                            <strong>{{ $message }}</strong>
+			                        </span>
+			                    @enderror
+			                </div>
+			            @endif
 						<button type="submit" class="site-btn">SEND NOW</button>
 					</form>
 				</div>

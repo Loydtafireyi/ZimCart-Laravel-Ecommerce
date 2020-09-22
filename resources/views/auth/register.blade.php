@@ -61,7 +61,7 @@
                 @enderror
             </div>
 
-             @if(config('services.recaptcha.key'))
+            @if(config('services.recaptcha.key'))
                 <div class="g-recaptcha"
                     data-sitekey="{{config('services.recaptcha.key')}}">
 

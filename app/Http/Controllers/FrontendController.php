@@ -59,6 +59,10 @@ class FrontendController extends Controller
     //send message from contact us
     public function contactStore(Request $request)
     {
+        $request->validate([
+            'g-recaptcha-response' => config('services.recaptcha.key') ? 'required|recaptcha' : 'nullable',
+        ]);
+
         Contact::create([
             'name' => $request->name,
             'email' => $request->email,
