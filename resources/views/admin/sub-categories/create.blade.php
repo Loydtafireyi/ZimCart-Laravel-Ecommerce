@@ -41,7 +41,7 @@
 
 				@if(isset($subCategory))
 					<div class="form-group ml-5">
-						<input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" placeholder="Add Category" value="{{ isset($subCategory) ? $subCategory->slug : '' }}">
+						<input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" placeholder="Add SubCategory" value="{{ isset($subCategory) ? $subCategory->slug : '' }}">
 
 						@error('slug')
 							<span class="invalid-feedback" role="alert">
