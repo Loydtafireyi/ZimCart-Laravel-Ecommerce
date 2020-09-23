@@ -132,6 +132,10 @@
                             </li>
 
                             <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('about.index') }}" class="text-decoration-none text-light">About Info</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('privacy.index') }}" class="text-decoration-none text-light">Privacy Policy</a>
                             </li>
 

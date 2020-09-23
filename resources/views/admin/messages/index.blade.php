@@ -24,9 +24,8 @@
 				<th>Name</th>
 				<th>Email</th>
 				<th>Subject</th>
-				<th>Message</th>
 				<th>Time</th>
-				<th>Delete</th>
+				<th>Read</th> 
 			</thead>
 			<tbody>
 				@foreach($messages as $index => $message)
@@ -34,14 +33,11 @@
 					<td>{{ $message->name }}</td>
 					<td>{{ $message->email }}</td>
 					<td>{{ $message->subject }}</td>
-					<td>{{ $message->message }}</td>
 					<td>{{ $message->created_at->diffForHumans() }}</td>
 					<td>
-						{{-- <form action="{{ route('contact.destroy', $message->id) }}" method="post"> --}}
-							@csrf
-							@method('DELETE')
-							<button class="btn btn-danger btn-sm">Delete</button>
-						</form>
+						<a href="{{ route('contact.show', $message->id) }}">
+							<button class="btn btn-success btn-sm">Read Message</button>
+						</a>
 					</td>
 				</tr>
 				@endforeach

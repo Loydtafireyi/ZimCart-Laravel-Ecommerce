@@ -52,7 +52,7 @@
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/1.png') }}" alt="#">
                         </div>
-                        <h2>Fast Secure Payments</h2>
+                        <h4>Fast Secure Payments</h4>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 feature">
@@ -60,7 +60,7 @@
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/2.png') }}" alt="#">
                         </div>
-                        <h2>Premium Products</h2>
+                        <h4 class="text-white">Premium Products</h4>
                     </div>
                 </div>
                 <div class="col-md-4 p-0 feature">
@@ -68,7 +68,7 @@
                         <div class="feature-icon">
                             <img src="{{ asset('frontend/img/icons/3.png') }}" alt="#">
                         </div>
-                        <h2>Affordable Delivery</h2>
+                        <h4>Affordable Delivery</h4>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     <section class="top-letest-product-section">
         <div class="container">
             <div class="section-title">
-                <h2>LATEST PRODUCTS</h2>
+                <h3>LATEST PRODUCTS</h3>
             </div>
             <div class="product-slider owl-carousel">
                 @foreach($products as $p)
@@ -136,7 +136,7 @@
     <section class="product-filter-section">
         <div class="container">
             <div class="section-title">
-                <h2>BROWSE TOP SELLING PRODUCTS</h2>
+                <h3>BROWSE TOP SELLING PRODUCTS</h3>
             </div>
             <ul class="product-filter-menu">
                 @foreach($categories as $cat)
@@ -145,7 +145,7 @@
             </ul>
             <div class="row">
                 @foreach($products as $p)
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
                     <div class="product-item">
                         <div class="pi-pic">
                             @if($p->on_sale == 1)

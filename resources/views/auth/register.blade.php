@@ -62,9 +62,10 @@
             </div>
 
             @if(config('services.recaptcha.key'))
-                <div class="g-recaptcha"
+                <div class="form-group">
+                    <div class="g-recaptcha"
                     data-sitekey="{{config('services.recaptcha.key')}}">
-
+                    </div>
                     @error('g-recaptcha-response')
                         <span class="invalid-feedback mt-3" role="alert">
                             <strong>{{ $message }}</strong>

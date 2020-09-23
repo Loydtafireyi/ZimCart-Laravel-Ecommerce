@@ -22,6 +22,7 @@ Route::get('/categories', 'FrontendController@categories')->name('frontendCatego
 Route::get('/sub-category/{slug}', 'FrontendController@subcategory')->name('subcategory');
 Route::get('/product/{slug}', 'FrontendController@show')->name('single-product');
 Route::post('/contact', 'FrontendController@contactStore')->name('store-contact');
+Route::get('/about', 'FrontendController@aboutUs')->name('about-us');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.conditions');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
@@ -65,9 +66,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::resource('admin/products', 'Admin\ProductController');
 	Route::resource('admin/system-settings', 'Admin\SystemSettingsController');
 	Route::get('/admin/contact', 'Admin\MessageController@index')->name('contactMessages');
+	Route::get('/admin/contact/{id}', 'Admin\MessageController@show')->name('contact.show');
 	Route::get('/admin/orders', 'Admin\OrderController@index')->name('orders.index');
 	Route::get('/admin/orders/{id}', 'Admin\OrderController@show')->name('orders.show');
 	Route::patch('/admin/orders/{id}', 'Admin\OrderController@update')->name('orders.update');
+	Route::resource('admin/about', 'Admin\AboutController');
 	Route::resource('admin/terms', 'Admin\TermsController');
 	Route::resource('admin/privacy', 'Admin\PrivacyPolicyController');
 	Route::resource('admin/social-links', 'Admin\SocialLinkController');
