@@ -33,9 +33,19 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - [Then navigate back App\Providers\AppServiceProvder and uncomment out all the View::share in the boot method].
 - run `` php artisan serve ``.
 
+### Google Recaptcha config
+- visit https://www.google.com/recaptcha/admin/create and create your app on version 2 and copy your ID and Secret to your .env 
+
+#### Google login config
+- visit https://developers.google.com/identity/sign-in/web/sign-in create your app add oauth and copy your ID and Secret to your .env 
+
+### Facebook Login Config
+- visit https://developers.facebook.com/ create your app add facebook login and copy your ID and Secret to your .env 
+
 #### Paypal for production
 - To get live credentials Create a paypal merchant/business account
 - Then visit https://www.paypal.com/businessmanage/credentials/apiAccess
+- Copy credentials to your .env
 
 #Admin Credentials
 - admin@admin.com p/s admin123
@@ -67,6 +77,7 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[Admin Area]**
 - **[Coupons & Discounts]**
 - **[SEO Settings]**
+- **[Dynamic Banners]**
 - **[Facebook Pixel Integration]**
 - **[Paypal Checkout]**
 - **[Payment on delivery]**

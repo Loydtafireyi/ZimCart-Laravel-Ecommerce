@@ -23,7 +23,7 @@
                             <span>{{ $slide->heading }}</span>
                             <p>{{ $slide->description }}</p>
                             <a href="/{{ $slide->link }}" class="site-btn sb-line">BUY NOW</a>
-                            <a href="{{ route('contact-us') }}" class="site-btn sb-white">INQUIRE NOW!</a>
+                            <a href="{{ route('contact-us') }}" class="site-btn sb-white">INQUIRE</a>
                         </div>
                     </div>
                     <div class="offer-card text-white">
