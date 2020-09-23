@@ -78,6 +78,7 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[Coupons & Discounts]**
 - **[SEO Settings]**
 - **[Dynamic Banners]**
+- **[Messaging System]**
 - **[Facebook Pixel Integration]**
 - **[Paypal Checkout]**
 - **[Payment on delivery]**
