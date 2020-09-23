@@ -36,7 +36,7 @@ An complete e-commerce solution for your business. Start selling today using Zim
 ### Google Recaptcha config
 - visit https://www.google.com/recaptcha/admin/create and create your app on version 2 and copy your ID and Secret to your .env 
 
-#### Google login config
+### Google login config
 - visit https://developers.google.com/identity/sign-in/web/sign-in create your app add oauth and copy your ID and Secret to your .env 
 
 ### Facebook Login Config
