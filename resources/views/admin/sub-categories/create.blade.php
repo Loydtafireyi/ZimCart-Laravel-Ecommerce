@@ -28,7 +28,7 @@
 						</span>
 					@enderror
 				</div>
-
+				
 				<div class="form-group ml-5">
 					<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Add sub-category" value="{{ isset($subCategory) ? $subCategory->name : '' }}">
 
@@ -39,7 +39,7 @@
 					@enderror
 				</div>
 
-				@if(isset($subCategory))
+				@if(isset($category))
 					<div class="form-group ml-5">
 						<input type="text" name="slug" id="slug" class="form-control @error('slug') is-invalid @enderror" placeholder="Add SubCategory" value="{{ isset($subCategory) ? $subCategory->slug : '' }}">
 
