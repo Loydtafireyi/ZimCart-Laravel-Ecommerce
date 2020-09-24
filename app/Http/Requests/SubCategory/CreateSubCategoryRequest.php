@@ -23,10 +23,10 @@ class CreateSubCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('slug');
+        $id = $this->route('id');
 
         return [
-            'name' => 'required',
+            'name' => 'required:sub_categories,name,' .$id,
             'category_id' => 'required',
             'slug' => 'unique:sub_categories,slug,'.$id,
         ];
