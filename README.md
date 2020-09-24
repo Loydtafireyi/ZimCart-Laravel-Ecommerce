@@ -53,7 +53,8 @@ An complete e-commerce solution for your business. Start selling today using Zim
 
 ## Demo
 
- [Working Demo](https://seamaf.com)
+ [Working Demo] (https://zimcart.lopriz.com)
+ [Main sponsor platform](https://seamaf.com)
 
 
 ## ZimCart eCommerce Features

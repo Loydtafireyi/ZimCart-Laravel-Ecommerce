@@ -202,8 +202,14 @@
 
     <!-- Banner section -->
     <section class="banner-section">
-        <div class="container">
-            <div class="banner set-bg" data-setbg="{{ asset('frontend/img/banner-bg.jpg') }}">
+        <div class="container d-flex justify-content-between">
+            <div class="banner set-bg col-6" data-setbg="{{ asset('frontend/img/banner-bg.jpg') }}">
+                <div class="tag-new">NEW</div>
+                <span>New Recipes</span>
+                <h2>SWEET PASTRIES</h2>
+                <a href="#" class="site-btn">SHOP NOW</a>
+            </div>
+            <div class="banner set-bg col-6 ml-2" data-setbg="{{ asset('frontend/img/banner-bg.jpg') }}">
                 <div class="tag-new">NEW</div>
                 <span>New Recipes</span>
                 <h2>SWEET PASTRIES</h2>
