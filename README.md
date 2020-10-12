@@ -20,7 +20,7 @@ An complete e-commerce solution for your business. Start selling today using Zim
 
 # Installation
 
-- [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``](https://seamaf.com).
+- [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``].
 - [Then navigate to App\Providers\AppServiceProvder and comment out all the View::share in the boot method].
 - run ``composer update `` .
 - run `` npm install ``.
@@ -50,6 +50,8 @@ An complete e-commerce solution for your business. Start selling today using Zim
 #Admin Credentials
 - admin@admin.com p/s admin123
 
+# Sponors
+- **[https://seamaf.com]**
 
 ## Demo
 
@@ -92,4 +94,3 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[https://seamaf.com]**
 - **[https://vanessascakes.online]**
 - **[https://ayolabrands.com]**
-- **[https://urbanlifebd.com]**
