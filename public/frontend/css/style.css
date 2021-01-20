@@ -90,7 +90,11 @@ ol {
 }
 
 .section-title h2 {
-	font-size: 36px;
+	font-size: 26px;
+}
+
+.section-title h3 {
+	font-size: 20px;
 }
 
 .set-bg {
@@ -130,7 +134,7 @@ ol {
 	font-weight: 600;
 	min-width: 167px;
 	padding: 18px 47px 14px;
-	border-radius: 50px;
+	border-radius: 10px;
 	text-transform: uppercase;
 	background: #f51167;
 	color: #fff;
@@ -164,6 +168,12 @@ ol {
 	color: #111111;
 	-webkit-box-shadow: inset 0 0 0 1px #111111;
 	box-shadow: inset 0 0 0 1px #111111;
+}
+
+.btn{
+	border-radius: 5px !important;
+	color: #fff !important;
+	border: none !important;
 }
 
 .infinite-scroll {
@@ -794,17 +804,17 @@ ol {
 ------------------------*/
 
 .top-letest-product-section {
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 }
 
 .top-letest-product-section .section-title {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .product-slider .owl-nav {
 	position: absolute;
-	top: calc(50% - 60px);
+	top: calc(50% - 30px);
 	width: 100%;
 	left: 0;
 }
@@ -990,7 +1000,7 @@ ol {
 }
 
 .product-item .pi-text p {
-	font-size: 16px;
+	font-size: 14px;
 	color: #111111;
 	margin-bottom: 0;
 }
@@ -1000,11 +1010,11 @@ ol {
 -------------------------*/
 
 .product-filter-section {
-	padding-bottom: 60px;
+	padding-bottom: 20px;
 }
 
 .product-filter-section .section-title {
-	margin-bottom: 70px;
+	margin-bottom: 20px;
 }
 
 .product-filter-menu {
@@ -1033,25 +1043,53 @@ ol {
 /* ----------------
   Banner section
 ---------------------*/
+.banner-section{
+	width: 100% !important;
+}
+
+.justify-content-between{
+	display: flex !important;
+	justify-content: space-between; !important
+}
 
 .banner {
 	padding: 50px 34px 47px;
 	position: relative;
-	margin-bottom: 70px;
+	margin-bottom: 40px;
+	border-left: 5px solid #fff;
+	border-right: 5px solid #fff;
+    border-radius: 1rem;
 }
+
 
 .banner .tag-new {
 	position: absolute;
 	right: 26px;
 	top: 27px;
-	font-size: 24px;
-	font-weight: 700;
+	font-size: 14px;
+	font-weight: 500;
 	color: #fff;
 	background: #50e550;
 	line-height: 1;
 	text-transform: uppercase;
+	padding: 5px 9px 1px;
+	border-radius: 2px;
+}
+
+.banner .tag-sale {
+	position: absolute;
+	right: 26px;
+	top: 27px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #fff;
+	line-height: 1;
+	text-transform: uppercase;
 	padding: 7px 16px 1px;
-	border-radius: 80px;
+	border-radius: 2px;
+	border: none;
+	background: #f51167;
+	padding: 5px 9px 1px;
 }
 
 .banner span {
@@ -1077,15 +1115,11 @@ ol {
 
 .footer-section {
 	background: #282828;
-	padding-top: 60px;
-}
-
-.footer-logo {
-	padding-bottom: 60px;
+	padding-top: 20px;
 }
 
 .footer-widget {
-	margin-bottom: 70px;
+	margin-bottom: 10px;
 	overflow: hidden;
 }
 
@@ -1094,7 +1128,7 @@ ol {
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #fff;
-	margin-bottom: 45px;
+	margin-bottom: 25px;
 }
 
 .footer-widget p {
@@ -1102,7 +1136,7 @@ ol {
 }
 
 .footer-widget.about-widget p {
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 	letter-spacing: -0.01em;
 }
 
@@ -1198,11 +1232,12 @@ ol {
 
 .social-links-warp {
 	border-top: 2px solid #3b3535;
-	padding: 46px 0;
+	padding: 5px 0;
 }
 
 .social-links a {
-	margin-right: 60px;
+	margin: auto;
+	margin-left: 5px;
 	display: inline-block;
 }
 
@@ -1275,7 +1310,7 @@ ol {
 
 .page-top-info {
 	background: #f8f7f7;
-	padding: 60px 0 10px;
+	padding: 20px 0 10px;
 }
 
 .page-top-info h4 {
@@ -1782,12 +1817,12 @@ ol {
 }
 
 .related-product-section {
-	padding-bottom: 70px;
+	padding-bottom: 20px;
 }
 
 .related-product-section .section-title h2 {
 	font-size: 24px;
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 }
 
 /* ----------------
@@ -1981,6 +2016,36 @@ ol {
 	cursor: pointer;
 }
 
+
+.subscribe-form {
+	position: relative;
+	margin-bottom: 14px;
+}
+
+.subscribe-form input {
+	width: 90%;
+	height: 33px;
+	border: 2px solid #f0f0f0;
+	padding-left: 10px;
+	padding-right: 70px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+
+.subscribe-form button {
+	position: absolute;
+	right: 24px;
+	top: 0;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	color: #f51167;
+	cursor: pointer;
+}
+
 /* ----------------
   Checkout Page
 ---------------------*/
@@ -1990,7 +2055,7 @@ ol {
 	font-weight: 700;
 	color: #fff;
 	line-height: 1;
-	border-radius: 50px;
+	border-radius: 5px;
 	background: #3b3b3b;
 	padding: 21px 29px 20px;
 	margin-bottom: 66px;
@@ -2080,7 +2145,8 @@ ol {
 }
 
 .shipping-btns {
-	margin-bottom: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .shipping-btns .cf-radio-btns label {
@@ -2094,6 +2160,7 @@ ol {
 	margin-bottom: 40px;
 }
 
+
 .payment-list li {
 	font-size: 18px;
 	font-weight: 600;
@@ -2104,6 +2171,10 @@ ol {
 .payment-list li a,
 .payment-list li span {
 	padding-left: 40px;
+}
+
+.payment-option {
+	cursor: pointer;
 }
 
 .submit-order-btn {
@@ -2169,7 +2240,8 @@ ol {
 }
 
 .checkout-cart .price-list li span {
-	float: right;
+	margin-left: 30px;
+	margin-right: 30px;
 	width: 60px;
 	text-align: left;
 }
@@ -2385,6 +2457,13 @@ ol {
   background: #2eb7e5;
 }
 
+/* ----------------
+  Blog
+---------------------*/
+
+.blog{
+	width: 30%;
+}
 
 /* ----------------
   Responsive
@@ -2424,6 +2503,10 @@ ol {
 	}
 	.social-links a {
 		margin-right: 20px;
+	}
+
+	.blog{
+		width: 49%;
 	}
 }
 
@@ -2483,6 +2566,10 @@ ol {
 		background: #ddd;
 		height: 400px;
 		margin-top: 70px;
+	}
+
+	.blog{
+		width: 49%;
 	}
 }
 
@@ -2577,11 +2664,15 @@ ol {
 		height: 400px;
 		margin-top: 70px;
 	} 
+
+	.blog{
+		width: 49%;
+	}
 }
 
 /* Medium Mobile :480px. */
 
-@media only screen and (min-width: 576px) and (max-width: 766px) {
+@media only screen and (min-width: 40px) and (max-width: 766px) {
 	.hero-slider .slider-nav-warp {
 		padding: 0 15px;
 	}
@@ -2593,8 +2684,20 @@ ol {
 		top: 0;
 	}
 
+	.banner .tag-sale {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 18px;
+		right: 0;
+		top: 0;
+	}
+
 	.feature {
 		display: none;
+	}
+
+	.blog{
+		width:100%;
 	}
 }
 
@@ -2606,6 +2709,10 @@ ol {
 		padding: 0 15px;
 	}
 
+	.inquire{
+		display: none;
+	}
+
 	.hero-slider .hs-item h2 {
 		font-size: 35px;
 	}
@@ -2615,6 +2722,11 @@ ol {
 	.section-title h2 {
 		font-size: 28px;
 	}
+
+	.section-title h3 {
+		font-size: 14px;
+	}
+
 	.feature {
 		display: none;
 	}
@@ -2622,8 +2734,26 @@ ol {
 		position: relative;
 		display: inline-block;
 		margin-bottom: 18px;
+		font-size: 14px;
+		font-weight: 500;
 		right: 0;
 		top: 0;
+	}
+	.banner .tag-sale {
+		position: relative;
+		display: inline-block;
+		margin-bottom: 18px;
+		font-size: 14px;
+		font-weight: 500;
+		right: 0;
+		top: 0;
+	}
+	.banner h2 {
+		font-size: 30px;
+		text-transform: uppercase;
+		font-weight: 500;
+		margin-bottom: 10px;
+		color: #282828;
 	}
 	.social-links {
 		text-align: center;
@@ -2635,4 +2765,106 @@ ol {
 	.social-links a span {
 		display: none;
 	}
+
+	.blog{
+		width: 100%;
+	}
+
+	.product-item .pi-text {
+	padding-top: 10px;
+	height: 50px;
+	}
+
+	.product-item .pi-text h6 {
+		padding-left: 10px;
+		font-size: 12px;
+		font-weight: 700;
+		color: #111111;
+	}
+
+	.product-item .pi-text p {
+		font-size: 12px;
+	}
+
+	.banner .tag-new {
+		position: absolute;
+		right: 26px;
+		top: 27px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #fff;
+		background: #50e550;
+		line-height: 1;
+		text-transform: uppercase;
+		padding: 5px 9px 1px;
+		border-radius: 2px;
+	}
+
+	.banner .tag-sale {
+		position: absolute;
+		right: 26px;
+		top: 27px;
+		font-size: 14px;
+		font-weight: 500;
+		color: #fff;
+		line-height: 1;
+		text-transform: uppercase;
+		padding: 7px 16px 1px;
+		border-radius: 2px;
+		border: none;
+		background: #f51167;
+		padding: 5px 9px 1px;
+	}
+
+	.banner span {
+		font-size: 15px;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 3px;
+		margin-bottom: 5px;
+		display: block;
+	}
+
+	.banner h2 {
+		font-size: 20px;
+		text-transform: uppercase;
+		font-weight: 700;
+		margin-bottom: 10px;
+		color: #282828;
+	}
+
+	.footer-section {
+		display: none;
+	}
 }
+
+/** STRIPE CSS
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;}

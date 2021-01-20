@@ -1,6 +1,7 @@
 /* =================================
 ------------------------------------
-	Zimcart | eCommerce Web App
+	Divisima | eCommerce Template
+	Version: 1.0
  ------------------------------------
  ====================================*/
 
@@ -68,9 +69,9 @@ $(window).on('load', function() {
     hero_s.owlCarousel({
         loop: true,
         margin: 0,
-        nav: true,
+        nav: false,
         items: 1,
-        dots: true,
+        dots: false,
         animateOut: 'fadeOut',
     	animateIn: 'fadeIn',
         navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-right-arrow-1"></i>'],
