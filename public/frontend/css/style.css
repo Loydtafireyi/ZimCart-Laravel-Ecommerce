@@ -1,7 +1,6 @@
 /* =================================
 ------------------------------------
-  Divisima | eCommerce Template
-  Version: 1.0
+Zimcart | eCommerce Web App
  ------------------------------------
  ====================================*/
 
@@ -521,7 +520,7 @@ ol {
 
 .hero-slider .hs-item {
 	position: relative;
-	height: 420px;
+	height: 300px;
 }
 
 .hero-slider .hs-item span {
@@ -795,12 +794,12 @@ ol {
 ------------------------*/
 
 .top-letest-product-section {
-	padding-top: 70px;
-	padding-bottom: 60px;
+	padding-top: 40px;
+	padding-bottom: 20px;
 }
 
 .top-letest-product-section .section-title {
-	margin-bottom: 70px;
+	margin-bottom: 30px;
 }
 
 .product-slider .owl-nav {
@@ -2499,6 +2498,11 @@ ol {
 	.user-panel {
 		text-align: center;
 	}
+
+	.feature {
+		display: none;
+	}
+
 	.main-menu {
 		display: none;
 	}
@@ -2572,7 +2576,7 @@ ol {
 		background: #ddd;
 		height: 400px;
 		margin-top: 70px;
-	}
+	} 
 }
 
 /* Medium Mobile :480px. */
@@ -2588,6 +2592,10 @@ ol {
 		right: 0;
 		top: 0;
 	}
+
+	.feature {
+		display: none;
+	}
 }
 
 /* Small Mobile :320px. */
@@ -2597,6 +2605,7 @@ ol {
 		max-width: 510px;
 		padding: 0 15px;
 	}
+
 	.hero-slider .hs-item h2 {
 		font-size: 35px;
 	}
@@ -2606,8 +2615,8 @@ ol {
 	.section-title h2 {
 		font-size: 28px;
 	}
-	.feature h2 {
-		font-size: 18px;
+	.feature {
+		display: none;
 	}
 	.banner .tag-new {
 		position: relative;

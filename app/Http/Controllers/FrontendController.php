@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Slide;
 use App\Terms;
 use App\Contact;
@@ -56,9 +57,20 @@ class FrontendController extends Controller
 
         return view('contact', compact('info', 'products'));
     }
+
     //send message from contact us
     public function contactStore(Request $request)
     {
+        // Validate contact info
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+            'g-recaptcha-response' => config('services.recaptcha.key') ? 'required|recaptcha' : 'nullable',
+        ]);
+
+        // Save contact info
         Contact::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -66,6 +78,7 @@ class FrontendController extends Controller
             'message' => $request->message,
         ]);
 
+        // flash session & redirect
         session()->flash('success', "Hey $request->name, thanks for reaching out we will get back to you withinn 24 hours");
 
         return redirect()->back();
@@ -131,5 +144,13 @@ class FrontendController extends Controller
         $policy = PrivacyPolicy::firstOrFail();
 
         return view('privacy', compact('policy'));
+    }
+
+    // return privacy privacy
+    public function aboutUs()
+    {
+        $about = About::firstOrFail();
+
+        return view('about-us', compact('about'));
     }
 }

@@ -39,7 +39,7 @@
         			<td>{{ $order->billing_city }}</td>
         			<td>${{ $order->billing_total }}</td>
         			<td>{{ $order->payment_method }}</td>
-        			<td>{{ $order->status }}</td>
+        			<td  class="text-capitalize">{{ $order->status }}</td>
         			<td>
         				<a href="{{ route('orders.show', $order->id) }}" class="btn btn-success btn-sm">View Order</a>
         			</td>

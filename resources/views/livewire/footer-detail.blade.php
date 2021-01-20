@@ -15,10 +15,11 @@
 				<div class="footer-widget about-widget">
 					<h2>Useful Links</h2>
 					<ul>
-						<li><a href="">About Us</a></li>
+						<li><a href="{{ route('about-us') }}">About Us</a></li>
 						<li><a href="">Track Orders</a></li>
 						<li><a href="">Shipping</a></li>
 						<li><a href="{{ route('contact-us') }}">Contact</a></li>
+						<li><a href="{{ route('my-orders.index') }}">My Orders</a></li>
 					</ul>
 					<ul>
 						<li><a href="{{ route('contact-us') }}">Support</a></li>
@@ -102,7 +103,7 @@
 				@endif
 			</div>
 			@endif
-			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <i class="fa fa-heart-o" aria-hidden="true"></i><a href="https://github.com/Loydtafireyi/ZimCart" target="_blank">Eloquent Geeks</a></p>
+			<p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://github.com/Loydtafireyi/ZimCart" target="_blank">Eloquent Geeks</a></p>
 
 		</div>
 	</div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Order;
 use App\OrderProduct;
 use App\SystemSetting;
@@ -73,9 +74,21 @@ class CheckoutController extends Controller
             'billing_zipcode' => $request->billing_zipcode,
             'billing_phone' => $request->billing_phone,
             'billing_email' => $request->billing_email,
-            'notes' => $request->billing_notes,
+            'notes' => $request->notes,
             'error' => null, 
         ]);
+
+        // update user info if user is authenticated
+        if(auth()->check()) {
+            auth()->user()->update([
+                'phone' => $request->billing_phone,
+                'address' => $request->billing_address,
+                'city' => $request->billing_phone,
+                'province' => $request->billing_province,
+                'zipcode' => $request->billing_zipcode,
+                'notes' => $request->notes
+            ]);
+        }
 
         foreach (Cart::content() as $item) {
             OrderProduct::create([

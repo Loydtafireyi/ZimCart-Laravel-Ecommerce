@@ -91,9 +91,13 @@ class SubCategoryController extends Controller
     {
         $subCategory = SubCategory::where('slug', $slug)->firstOrFail();
 
-        $data = $request->only(['name', 'slug', 'category_id']);
+        $slug = Str::slug($request->slug);
 
-        $subCategory->update($data);
+        $subCategory->update([
+            'slug' => $slug,
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+        ]);
 
         session()->flash('success', 'Sub-Category updated successfully!');
 

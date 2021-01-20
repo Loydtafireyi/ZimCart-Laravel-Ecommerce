@@ -14,4 +14,11 @@ class MessageController extends Controller
 
     	return view('admin.messages.index', compact('messages'));
     }
+
+     public function show($id)
+    {
+    	$message = Contact::findOrfail($id);
+
+    	return view('admin.messages.show', compact('message'));
+    }
 }

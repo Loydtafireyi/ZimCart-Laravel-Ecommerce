@@ -20,39 +20,45 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="cart-table">
-						<h3>Order</h3>
-						<div class="cart-table-warp">
-							<table>
-								<thead>
-									<tr>
-										<th class="size-th">Order ID</th>
-										<th class="total-th">Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="size-col"><h4>{{ $order->order_number }}</h4></td>
-										<td class="total-col"><h4>${{ $order->billing_total }}</h4></td>
-									</tr>
-									<tr>
-										@foreach($order->products as $product)
-											<td class="product-col">
-												@if($product->photos->count() > 0)
-					                                <img src="/storage/{{$product->photos->first()->images}}" alt="">
-					                            @else
-					                                <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
-					                            @endif
-												<div class="pc-title">
-													<h4>{{ $product->name }}</h4>
-													<p>${{ $product->price }}</p>
-												</div>
-											</td>
-										@endforeach
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					<h3>Order {{ $order->order_number }} 
+						<strong class="text-uppercase text-danger">{{ $order->status }}</strong>
+					</h3>
+					<div class="cart-table-warp">
+						<table>
+						<thead>
+							<tr>
+								<th class="product-th">Product</th>
+								<th class="size-th">Quantity</th>
+								<th class="size-th">Code</th>
+								<th class="total-th">Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($products as $p)
+							<tr>
+								<td class="product-col">
+									{{-- @if($p->model->photos->count() > 0)
+		                               <img src="/storage/{{ $p->pivot->photos->first()->images }}" alt="">
+		                            @else --}}
+		                             {{--    <img src="{{ asset('frontend/img/no-image.png') }}" alt="">
+		                            @endif --}}
+									<div class="pc-title">
+										<h4>{{ $p->name }}</h4>
+										<p>${{ $p->price }}</p>
+									</div>
+								</td>
+								<td class="size-col"><h4>{{ $p->pivot->quantity }}</h4></td>
+								<td class="size-col"><h4>{{ $p->code }}</h4></td>
+								<td class="total-col"><h4>${{ $p->price * $p->pivot->quantity }}</h4></td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
 					</div>
+					<div class="total-cost">
+						<h6>Order Total <span>${{ $order->billing_total }}</span></h6>
+					</div>
+				</div>
 				</div>
 				<div class="col-lg-4 card-right">
 					<a href="" class="site-btn">Profile Settings</a>

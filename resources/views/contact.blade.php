@@ -13,6 +13,10 @@
        }
     </style>
 
+@section('css')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
+
 @section('content')
 
 	<!-- Page info -->
@@ -37,18 +41,51 @@
 					<p>{{ $info->address }}</p>
 					<p>{{ $info->tel }}</p>
 					<p>{{ $info->email }}</p>
-	
+					<!-- flash success messages -->
 					@if(Session::has('success'))
 						<div class="alert alert-primary" role="alert">
 							{{ Session::get('success') }}
 						</div>
 					@endif
+					<!-- contact form area -->
 					<form action="{{ route('store-contact') }}" method="post" class="contact-form">
 						@csrf
-						<input type="text" name="name" id="name" placeholder="Your name">
-						<input type="text" name="email" id="email" placeholder="Your e-mail">
-						<input type="text" name="subject" id="subject" placeholder="Subject">
-						<textarea name="message" id="message" placeholder="Message"></textarea>
+						<!-- name -->
+						<input type="text" name="name" 
+							class="form-control @error('name') is-invalid @enderror" 
+							id="name" placeholder="Your name" 
+							value="{{ old('name') }}"
+						>
+						<!-- email -->
+						<input type="text" name="email" 
+							class="form-control @error('email') is-invalid @enderror"
+							id="email" placeholder="Your e-mail" 
+							value="{{ old('email') }}"
+						 >
+						<!-- subject -->
+						<input type="text" name="subject" 
+							class="form-control @error('subject') is-invalid @enderror" 
+							id="subject" placeholder="Subject" 
+							value="{{ old('subject') }}"
+						>
+						<!-- message -->
+						<textarea name="message" 
+							class="form-control @error('message') is-invalid @enderror" 
+							id="message" 
+							placeholder="Message">{{ old('message') }}</textarea>
+						<!-- google recaptcha -->
+						@if(config('services.recaptcha.key'))
+			                <div class="form-group">
+			                    <div class="g-recaptcha"
+			                    data-sitekey="{{config('services.recaptcha.key')}}">
+			                    </div>
+			                    @error('g-recaptcha-response')
+			                        <span class="invalid-feedback mt-3" role="alert">
+			                            <strong>{{ $message }}</strong>
+			                        </span>
+			                    @enderror
+			                </div>
+			            @endif
 						<button type="submit" class="site-btn">SEND NOW</button>
 					</form>
 				</div>

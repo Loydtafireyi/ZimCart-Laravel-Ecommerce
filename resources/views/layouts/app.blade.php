@@ -63,7 +63,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('my-profile.edit') }}">Settings</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -129,6 +129,10 @@
 
                             <li class="list-group-item bg-primary border-white">
                                 <a href="{{ route('system-settings.index') }}" class="text-decoration-none text-light">System Settings</a>
+                            </li>
+
+                            <li class="list-group-item bg-primary border-white">
+                                <a href="{{ route('about.index') }}" class="text-decoration-none text-light">About Info</a>
                             </li>
 
                             <li class="list-group-item bg-primary border-white">

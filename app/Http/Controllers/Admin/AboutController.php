@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Order;
+use App\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('created_at', 'DESC')->paginate(10);
+        $about = About::first();
 
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.about.show', compact('about'));
     }
 
     /**
@@ -27,7 +27,13 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        if(About::count() > 0) {
+            session()->flash('error', 'You have already added the about us section. You can only edit the existing info');
+
+            return redirect(route('about.index'));
+        }
+
+        return view('admin.about.create');
     }
 
     /**
@@ -38,7 +44,25 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'heading' => 'required',
+            'about' => 'required'
+        ]);
+
+        if(About::count() > 0) {
+            session()->flash('error', 'You have already added the about us section. You can only edit the existing info');
+
+            return redirect(route('about.index'));
+        }
+
+        About::create([
+            'heading' => $request->heading,
+            'about' => $request->about,
+        ]);
+
+        session()->flash('success', 'About info added successfully');
+
+        return redirect(route('about.index'));
     }
 
     /**
@@ -49,11 +73,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::where('id', $id)->firstOrFail();
-
-        $products = $order->products()->get();
-
-        return view('admin.orders.show', compact('order', 'products'));
+        //
     }
 
     /**
@@ -62,9 +82,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(About $about)
     {
-        //
+        return view('admin.about.create', compact('about'));
     }
 
     /**
@@ -74,17 +94,15 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, About $about)
     {
-        $order = Order::findOrFail($id);
+        $data = $request->only(['heading', 'about']);
 
-        $data = $request->only(['status']);
+        $about->update($data);
 
-        $order->update($data);
+        session()->flash('success', 'About info updated successfully');
 
-        session()->flash('success', 'Order status updated successfully');
-
-        return redirect()->back();
+        return redirect(route('about.index'));
     }
 
     /**

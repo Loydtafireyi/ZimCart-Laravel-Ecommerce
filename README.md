@@ -1,11 +1,3 @@
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 ## This Project is ready for production. Its just plug & play.
 
 ### NB: You can use this eCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
@@ -20,7 +12,7 @@ An complete e-commerce solution for your business. Start selling today using Zim
 
 # Installation
 
-- [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``](https://seamaf.com).
+- [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``].
 - [Then navigate to App\Providers\AppServiceProvder and comment out all the View::share in the boot method].
 - run ``composer update `` .
 - run `` npm install ``.
@@ -33,18 +25,29 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - [Then navigate back App\Providers\AppServiceProvder and uncomment out all the View::share in the boot method].
 - run `` php artisan serve ``.
 
+### Google Recaptcha config
+- visit https://www.google.com/recaptcha/admin/create and create your app on version 2 and copy your ID and Secret to your .env 
+
+### Google login config
+- visit https://developers.google.com/identity/sign-in/web/sign-in create your app add oauth and copy your ID and Secret to your .env 
+
+### Facebook Login Config
+- visit https://developers.facebook.com/ create your app add facebook login and copy your ID and Secret to your .env 
+
 #### Paypal for production
 - To get live credentials Create a paypal merchant/business account
 - Then visit https://www.paypal.com/businessmanage/credentials/apiAccess
+- Copy credentials to your .env
 
 #Admin Credentials
 - admin@admin.com p/s admin123
 
+# Sponors
+- **[https://seamaf.com]**
 
 ## Demo
 
- [Working Demo](https://seamaf.com)
-
+ [Working Demo] (http://zimcart.lopriz.com)
 
 ## ZimCart eCommerce Features
 
@@ -67,6 +70,8 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[Admin Area]**
 - **[Coupons & Discounts]**
 - **[SEO Settings]**
+- **[Dynamic Banners]**
+- **[Messaging System]**
 - **[Facebook Pixel Integration]**
 - **[Paypal Checkout]**
 - **[Payment on delivery]**
@@ -79,4 +84,6 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[https://seamaf.com]**
 - **[https://vanessascakes.online]**
 - **[https://ayolabrands.com]**
-- **[https://urbanlifebd.com]**
+
+# License 
+**[Creative Commons Attribution 4.0	cc-by-4.0]**

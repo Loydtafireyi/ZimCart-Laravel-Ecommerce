@@ -85,14 +85,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        // returns id to identify the comparison of the slug uniqueness
+        $id = $category->id;
+
         $request->validate([
-            'name' => 'required|unique:categories',
-            'slug' => 'unique:categories'
+            'name' => 'required|unique:categories,name' .$id,
+            'slug' => 'unique:categories,slug,' .$id,
         ]);
 
-        $data = $request->only(['name', 'slug']);
+        $slug = Str::slug($request->slug);
 
-        $category->update($data);
+        $category->update([
+            'name' => $request->name,
+            'slug' => $slug
+        ]);
 
         session()->flash('success', "Category, $request->name updated successfully");
 

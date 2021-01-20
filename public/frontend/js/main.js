@@ -1,7 +1,6 @@
 /* =================================
 ------------------------------------
-	Divisima | eCommerce Template
-	Version: 1.0
+	Zimcart | eCommerce Web App
  ------------------------------------
  ====================================*/
 
@@ -98,14 +97,14 @@ $(window).on('load', function() {
 	--------------------*/
 	$('.product-slider').owlCarousel({
 		loop: true,
-		nav: true,
+		nav: false,
 		dots: false,
 		margin : 30,
 		autoplay: true,
 		navText: ['<i class="flaticon-left-arrow-1"></i>', '<i class="flaticon-right-arrow-1"></i>'],
 		responsive : {
 			0 : {
-				items: 1,
+				items: 2,
 			},
 			480 : {
 				items: 2,

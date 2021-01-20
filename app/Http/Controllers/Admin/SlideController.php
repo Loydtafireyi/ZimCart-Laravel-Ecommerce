@@ -46,6 +46,7 @@ class SlideController extends Controller
             'heading' => $request->heading,
             'description' => $request->description,
             'link' => $request->link,
+            'from_price' => $request->from_price,
         ]);
 
         session()->flash('success', 'Slider added successfully');
@@ -96,9 +97,10 @@ class SlideController extends Controller
         }
 
         $slide->update([
-            'image' => $image,
+            'image' => $image ?? $slide->image,
             'description' => $request->description,
             'link' => $request->link,
+            'from_price' => $request->from_price,
         ]);
 
         session()->flash('success', 'Slider updated successfully');
