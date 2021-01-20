@@ -2,7 +2,7 @@
 
 ### NB: You can use this eCommerce platform as long as you dont remove the footer copyrights. Using this project without copyright footer in production you will need to get commercial lisence.
 
-### For License & Commercial Purposes Contact me on:-
+### For License, Commercial Purposes and the Premium Superfast Template with PWA and more features Contact me on:-
 - +263 783 044 087 (Calls Or Whatsapp)
 - loydtafireyi@gmail.com
 
@@ -13,17 +13,17 @@ An complete e-commerce solution for your business. Start selling today using Zim
 # Installation
 
 - [run `` git clone https://github.com/Loydtafireyi/zimcart.git ``].
-- [Then navigate to App\Providers\AppServiceProvder and comment out all the View::share in the boot method].
 - run ``composer update `` .
 - run `` npm install ``.
 - run ``npm run dev``.
 - run `` php artisan key:generate ``.
 - set up your database in the .env
-- run `` php artisan migrate ``.
-- run `` php artisan db:seed ``.
 - run `` php artisan storage:link ``.
-- [Then navigate back App\Providers\AppServiceProvder and uncomment out all the View::share in the boot method].
 - run `` php artisan serve ``.
+- then visit `` localhost:8000/install ``.
+
+# Update
+- visit `` localhost:8000/update ``
 
 ### Google Recaptcha config
 - visit https://www.google.com/recaptcha/admin/create and create your app on version 2 and copy your ID and Secret to your .env 
@@ -83,7 +83,6 @@ An complete e-commerce solution for your business. Start selling today using Zim
 
 - **[https://seamaf.com]**
 - **[https://vanessascakes.online]**
-- **[https://ayolabrands.com]**
 
 # License 
 **[Creative Commons Attribution 4.0	cc-by-4.0]**
