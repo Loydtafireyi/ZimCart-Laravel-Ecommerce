@@ -12,7 +12,8 @@
 
 @section('content')
 
-<!-- Hero section -->
+  @if($slides->count() > 0)
+    <!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
             @foreach($slides as $slide)
@@ -21,16 +22,18 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 text-white">
                             <span>{{ $slide->heading }}</span>
-                            <p>{{ $slide->description }}</p>
+                            <p>{{ Str::limit($slide->description, 100) }}</p>
                             <a href="/{{ $slide->link }}" class="site-btn sb-line">BUY NOW</a>
-                            <a href="{{ route('contact-us') }}" class="site-btn sb-white">INQUIRE</a>
+                            <a href="{{ route('contact-us') }}" class="inquire site-btn sb-white">INQUIRE</a>
                         </div>
                     </div>
+                    @if($slide->from_price != null)
                     <div class="offer-card text-white">
                         <span>from</span>
-                        <h3>$1</h3>
+                        <h3>${{ $slide->from_price}}</h3>
                         <p>SHOP NOW</p>
                     </div>
+                    @endif
                 </div>
             </div>
             @endforeach
@@ -75,6 +78,7 @@
         </div>
     </section>
     <!-- Features section end -->
+    @endif
 
 
     <!-- letest product section -->
@@ -198,25 +202,5 @@
         </div>
     </section>
     <!-- Product filter section end -->
-
-
-    <!-- Banner section -->
-    <section class="banner-section">
-        <div class="container d-flex justify-content-between">
-            <div class="banner set-bg col-6" data-setbg="{{ asset('frontend/img/banner-bg.jpg') }}">
-                <div class="tag-new">NEW</div>
-                <span>New Recipes</span>
-                <h2>SWEET PASTRIES</h2>
-                <a href="#" class="site-btn">SHOP NOW</a>
-            </div>
-            <div class="banner set-bg col-6 ml-2" data-setbg="{{ asset('frontend/img/banner-bg.jpg') }}">
-                <div class="tag-new">NEW</div>
-                <span>New Recipes</span>
-                <h2>SWEET PASTRIES</h2>
-                <a href="#" class="site-btn">SHOP NOW</a>
-            </div>
-        </div>
-    </section>
-    <!-- Banner section end  -->
 
 @endsection
