@@ -10,14 +10,7 @@
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/flaticon.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/slicknav.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/jquery-ui.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('frontend/css/all.css') }}"/>
 
 	<link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"/>
 	<!-- font-owesome icons link -->
@@ -92,14 +85,7 @@
 
 	<!--====== Javascripts & Jquery ======-->
 	<livewire:scripts />
-	<script src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/jquery.slicknav.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/jquery.nicescroll.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/jquery.zoom.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
-	<script src="{{ asset('frontend/js/main.js') }}"></script>
+	<script src="{{ asset('frontend/js/all.js') }}"></script>
 
 	<script src="{{ asset('js/toastr.js') }}"></script>
 	<script>
