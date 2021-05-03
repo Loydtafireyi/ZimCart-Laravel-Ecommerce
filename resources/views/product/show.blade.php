@@ -34,7 +34,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="product-pic-zoom">
-						
+
 						@if($singleImage != null)
                             <img class="product-big-img" src="/storage/{{ $singleImage->images }}" alt="">
                         @else
@@ -50,7 +50,7 @@
 		                            @else
 		                                {{ asset('frontend/img/no-image.png') }}
 		                            @endif
-								">	
+								">
 									@if($image->count() > 0)
 		                                <img src="/storage/{{ $image->images }}" alt="">
 		                            @else
@@ -65,13 +65,13 @@
 					<h2 class="p-title">{{ $product->name }}</h2>
 					<h3 class="p-price">${{ $product->price }}</h3>
 					@if($pieces)
-						<h4 class="p-stock">Pieces: 
+						<h4 class="p-stock">Pieces:
 							<span>
 								{{ $pieces->attribute_value }}
 							</span>
 						</h4>
 					@endif
-					<h4 class="p-stock">Availability: 
+					<h4 class="p-stock">Availability:
 						<span>
 							@if($product->inStock())
 								In Stock
@@ -107,10 +107,12 @@
 						</div>
 					@endif
 
-                    
+
 						<div class="quantity">
 							<p>Quantity</p>
-	                        <div class="pro-qty"><input type="text" name="quantity" value="1"></div>
+	                        <div class="pro-qty">
+                                <input type="text" name="quantity" id="quantity"  value="1" max="{{ $product->quantity }}">
+                            </div>
 	                    </div>
 						<input type="hidden" name="id" value="{{ $product->id }}">
 						<input type="hidden" name="name" value="{{ $product->name }}">
@@ -203,4 +205,37 @@
 	</section>
 	<!-- RELATED PRODUCTS section end -->
 
+@endsection
+
+@section('scripts')
+    <script>
+         $().ready(function(){
+
+             $('.inc.qtybtn').click(function(){
+
+                 var currentVal = $('#quantity').val();
+                 var maxValue   = {{ $product->quantity }}; //Data type to change from decimal to int
+                    if(currentVal > maxValue){
+                        $('.inc.qtybtn').css('display','none')
+                        $('.pro-qty').css('border','1px solid red')
+
+                        toastr.error("Cantnot order more than what we have instock")
+                    }
+
+             })
+
+
+             $('.dec.qtybtn').click(function(){
+
+                 var currentVal = $('#quantity').val();
+                 var maxValue   = parseInt({{ $product->quantity }});
+
+                 if(currentVal < maxValue){
+                     $('.inc.qtybtn').css('display','block')
+                     $('.pro-qty').css('border','1px solid green')
+                 }
+
+             })
+         })
+    </script>
 @endsection

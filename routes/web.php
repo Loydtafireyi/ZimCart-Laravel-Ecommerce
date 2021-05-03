@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,18 @@ Route::get('/about', 'FrontendController@aboutUs')->name('about-us');
 Route::get('/contact', 'FrontendController@contact')->name('contact-us');
 Route::get('/terms-and-conditions', 'FrontendController@terms')->name('terms.conditions');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('privacy.policy');
+
+
+//Sitemap provides information about the structure of the websiteto search engines and robots
+//This routes will generate a sitemap //Can be protected by middleware auth --optional
+
+Route::get('create_sitemap', function (){
+    // Takes a bit of time depending with the total number of links ( Routes )
+   SitemapGenerator::create('http://localhost:8000/')
+       ->writeToFile('/');
+});
+
+
 
 Route::resource('cart', 'CartController');
 Route::resource('wishlist', 'WishlistController');

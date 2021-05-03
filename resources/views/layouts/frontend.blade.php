@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="zxx"> 
+<html lang="zxx">
 <head>
-	@yield('seo')
+{{--	@yield('seo')--}}
 	<!-- Favicon -->
 	<link href="/storage/{{$shareSettings->favicon}}" rel="shortcut icon"/>
+
+{{--        Inorder to genrtate metagas for search--}}
+
+    {!! SEO::generate() !!}
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -33,7 +37,7 @@
 
 </head>
 <body>
-	
+
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
@@ -49,22 +53,36 @@
 					<livewire:search-dropdown>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
-							<div class="up-item">
-								<div class="shopping-card">
-									<i class="flaticon-heart"></i>
-									@if(Cart::instance('wishlist')->count() != 0)
-										<span>{{ Cart::instance('wishlist')->count() }}</span>
-									@endif
-								</div>
-								<a href="{{ route('wishlist.index') }}">Wishlist</a>
-							</div>
-							<div class="up-item">
-								<div class="shopping-card">
-									<i class="flaticon-bag"></i>
-									<span>{{ Cart::instance('default')->count() }}</span>
-								</div>
-								<a href="{{ route('cart.index') }}">Shopping Cart</a>
-							</div>
+							<div class="d-flex justify-content-between ">
+                                <div class="up-item">
+                                    <div class="shopping-card">
+                                        <i class="flaticon-heart"></i>
+                                        @if(Cart::instance('wishlist')->count() != 0)
+                                            <span>{{ Cart::instance('wishlist')->count() }}</span>
+                                        @endif
+                                    </div>
+                                    <a href="{{ route('wishlist.index') }}">Wishlist</a>
+                                </div>
+                                <div class="up-item">
+                                    <div class="shopping-card">
+                                        <i class="flaticon-bag"></i>
+                                        <span>{{ Cart::instance('default')->count() }}</span>
+                                    </div>
+                                    <a href="{{ route('cart.index') }}">Shopping Cart</a>
+                                </div>
+
+                                <select name="currency" id="currency" class="ml-2 form-control "
+                                        style="
+                                                width:30% !important;
+                                                display: inline !important;
+                                                padding:5px !important
+                                        "
+                                        onchange="changeCurrency()"
+                                >
+                                    <option value="USD">USD</option>
+                                    <option value="RTGs">RTGs</option>
+                                </select>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -102,5 +120,12 @@
 
 	@yield('scripts')
 
+        <script>
+            function changeCurrency(){
+                var newCurrency = $('#currency').val()
+                // To get new value as per rate from db or API
+                //Then update page with new values
+            }
+        </script>
 	</body>
 </html>
