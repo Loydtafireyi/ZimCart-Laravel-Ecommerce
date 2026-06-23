@@ -80,4 +80,4 @@ An complete e-commerce solution for your business. Start selling today using Zim
 - **[https://vanessascakes.online]**
 
 # License 
-**[Creative Commons Attribution 4.0	cc-by-4.0]**
+**MIT**
